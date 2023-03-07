@@ -36,5 +36,14 @@ namespace cafeManagement
         {
 
         }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            OrderForm childForm = new OrderForm();
+            childForm.TopLevel= false;
+            childForm.Parent = this.displayFormPanel;
+            childForm.Dock = DockStyle.Fill; // fill child form to this panel
+            childForm.Show();
+        }
     }
 }
