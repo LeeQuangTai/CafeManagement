@@ -20,3 +20,4 @@ D:\Data\cafeManagement\cafeManagement\bin\Debug\Bunifu.UI.WinForms.BunifuRadioBu
 D:\Data\cafeManagement\cafeManagement\bin\Debug\Bunifu.UI.WinForms.BunifuImageButton.dll
 D:\Data\cafeManagement\cafeManagement\obj\Debug\cafeManagement.ControlForm.resources
 D:\Data\cafeManagement\cafeManagement\bin\Debug\Bunifu.UI.WinForms.BunifuSeparator.dll
+D:\Data\cafeManagement\cafeManagement\obj\Debug\cafeManagement.OrderForm.resources
