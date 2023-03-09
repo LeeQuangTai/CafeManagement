@@ -58,8 +58,14 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
       <HintPath>C:\Program Files (x86)\BUNIFU TOOLS\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTextBox">
+      <HintPath>bin\Debug\Bunifu.UI.WinForms.BunifuTextBox.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>C:\Program Files (x86)\BUNIFU TOOLS\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.CustomControls">
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SqlServer.CustomControls\v4.0_16.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.CustomControls.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -95,6 +101,12 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OvevriewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OvevriewForm.Designer.cs">
+      <DependentUpon>OvevriewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="OrderForm.resx">
@@ -105,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OvevriewForm.resx">
+      <DependentUpon>OvevriewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

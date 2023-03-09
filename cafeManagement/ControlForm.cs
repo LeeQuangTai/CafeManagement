@@ -12,11 +12,11 @@ namespace cafeManagement
 {
     public partial class ControlForm : Form
     {
+        private Form childFormCheck = null;
         public ControlForm()
         {
             InitializeComponent();
         }
-
         private void ControlForm_Load(object sender, EventArgs e)
         {
 
@@ -34,21 +34,35 @@ namespace cafeManagement
 
         private void bunifuButton5_Click(object sender, EventArgs e)
         {
-            OrderForm childForm = new OrderForm();
-            childForm.TopLevel = false;
-            childForm.Parent = this.displayFormPanel;
-            childForm.Dock = DockStyle.Fill; // fill child form to this panel
-            childForm.Show();
+            
+
+            AddChildFormToPanel(new OrderForm());
+
         }
 
-        private void bunifuButton1_Click(object sender, EventArgs e)
+        private void overviewBtn_Click(object sender, EventArgs e)
         {
-           
+
+            AddChildFormToPanel(new OverviewForm());
         }
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void AddChildFormToPanel(Form childForm)
+        {
+            if (childFormCheck != null)
+            {
+                childFormCheck.Close();
+            }
+            childFormCheck = childForm;
+            childForm.TopLevel = false;
+            childForm.Parent = this.displayFormPanel;
+            childForm.Dock = DockStyle.Fill;
+            childForm.Show();
         }
     }
 }
