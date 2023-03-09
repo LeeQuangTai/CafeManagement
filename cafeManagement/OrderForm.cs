@@ -16,5 +16,18 @@ namespace cafeManagement
         {
             InitializeComponent();
         }
+
+        private void OrderForm_Load(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Add(new object[] { "Trà sữa trân châu", 1, 20000, 20000 });
+            dataGridView1.Rows.Add(new object[] { "Trà sữa khoai môn", 2, 20000, 40000 });
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }
