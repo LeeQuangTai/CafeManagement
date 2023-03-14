@@ -13,6 +13,7 @@ namespace cafeManagement
 {
     public partial class LoginForm : Form
     {
+        public bool isAllowToAccess { get; set; }
         public LoginForm()
         {
             InitializeComponent();
@@ -25,7 +26,8 @@ namespace cafeManagement
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-
+            isAllowToAccess = true;
+            this.Close();
         }
                   
     }
