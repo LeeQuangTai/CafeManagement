@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,6 +14,7 @@ namespace cafeManagement
     public partial class ControlForm : Form
     {
         private Form childFormCheck = null;
+        Thread th;
         public ControlForm()
         {
             InitializeComponent();
@@ -34,7 +36,6 @@ namespace cafeManagement
 
         private void bunifuButton5_Click(object sender, EventArgs e)
         {
-            
 
             AddChildFormToPanel(new OrderForm());
 
@@ -63,6 +64,18 @@ namespace cafeManagement
             childForm.Parent = this.displayFormPanel;
             childForm.Dock = DockStyle.Fill;
             childForm.Show();
+        }
+
+        private void bunifuButton4_Click(object sender, EventArgs e)
+        {
+            AddChildFormToPanel(new MenuForm());
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            Form login = new LoginForm();
+            login.Show();
+            this.Hide();
         }
     }
 }
