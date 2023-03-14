@@ -284,6 +284,7 @@
             this.bunifuButton2.TextMarginLeft = 0;
             this.bunifuButton2.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton2.UseDefaultRadiusAndThickness = true;
+            this.bunifuButton2.Click += new System.EventHandler(this.AccountButton_Click);
             // 
             // bunifuButton7
             // 
@@ -464,7 +465,6 @@
             this.hoaDonBtn.TextMarginLeft = 0;
             this.hoaDonBtn.TextPadding = new System.Windows.Forms.Padding(0);
             this.hoaDonBtn.UseDefaultRadiusAndThickness = true;
-            this.hoaDonBtn.Click += new System.EventHandler(this.bunifuButton5_Click);
             // 
             // orderBtn
             // 

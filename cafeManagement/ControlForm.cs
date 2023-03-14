@@ -14,7 +14,6 @@ namespace cafeManagement
     public partial class ControlForm : Form
     {
         private Form childFormCheck = null;
-        Thread th;
         public ControlForm()
         {
             InitializeComponent();
@@ -36,9 +35,7 @@ namespace cafeManagement
 
         private void bunifuButton5_Click(object sender, EventArgs e)
         {
-
             AddChildFormToPanel(new OrderForm());
-
         }
 
         private void overviewBtn_Click(object sender, EventArgs e)
@@ -53,7 +50,7 @@ namespace cafeManagement
 
         }
 
-        private void AddChildFormToPanel(Form childForm)
+        public void AddChildFormToPanel(Form childForm)
         {
             if (childFormCheck != null)
             {
@@ -74,8 +71,14 @@ namespace cafeManagement
         private void bunifuButton3_Click(object sender, EventArgs e)
         {
             Form login = new LoginForm();
-            login.Show();
             this.Hide();
+            login.Closed += (s, args) => this.Close(); 
+            login.Show();
+        }
+
+        private void AccountButton_Click(object sender, EventArgs e)
+        {
+            AddChildFormToPanel(new AccountMangementForm());
         }
     }
 }
