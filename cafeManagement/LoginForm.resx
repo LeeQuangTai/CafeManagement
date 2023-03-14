@@ -117,23 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bunifuTextBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAUYAAAAmCAYAAAC4VDIeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACzSURBVHhe7dRRCQMxAETB+FeVIzIqowJ6BA5KH3WQGdif
-        FfAGAH+stV5zzo+Z2cnbLXyyOMY+AE63W/hkURgBNmEECGEECGEECGEECGEECGEECGEECGEECGEECGEE
-        CGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEE
-        CGEECGEEiJ8wXtf13oeZ2cnbLXyyCMDXGDfUaoNaIVaDigAAAABJRU5ErkJggg==
-</value>
+  <data name="bunifuLabel1.BaseStylesheet" xml:space="preserve">
+    <value>#bunifu-label { padding: 0px; font-family: 'Candara Light'; font-size: 24.75pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(229, 229, 203); text-align: left; }</value>
   </data>
-  <data name="bunifuTextBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <metadata name="serviceController1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="loginButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAUYAAAAmCAYAAAC4VDIeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACzSURBVHhe7dRRCQMxAETB+FeVIzIqowJ6BA5KH3WQGdif
-        FfAGAH+stV5zzo+Z2cnbLXyyOMY+AE63W/hkURgBNmEECGEECGEECGEECGEECGEECGEECGEECGEECGEE
-        CGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEE
-        CGEECGEEiJ8wXtf13oeZ2cnbLXyyCMDXGDfUaoNaIVaDigAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAJYAAAAnCAYAAADtl7EyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACSSURBVHhe7dKrDYBQAARBSnsNQ0OUQYLlYwkO1o0Yc2d3
+        2uex7ss44DdXU9PrAR8Ji4SwSAiLhLBICIuEsEgIi4SwSAiLhLBICIuEsEgIi4SwSAiLhLBICIuEsEgI
+        i4SwSAiLhLBICIuEsEgIi4SwSAiLhLBICIuEsEgIi4SwSAiLhLBICIuEsEjcYW3PEb4Z2wm+Tvq8vFfr
+        lQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -1744,19 +1741,22 @@
         giAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIwhh/9Vf/H0ndONG388+sAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="loginButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="bunifuTextBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAJYAAAAnCAYAAADtl7EyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACSSURBVHhe7dKrDYBQAARBSnsNQ0OUQYLlYwkO1o0Yc2d3
-        2uex7ss44DdXU9PrAR8Ji4SwSAiLhLBICIuEsEgIi4SwSAiLhLBICIuEsEgIi4SwSAiLhLBICIuEsEgI
-        i4SwSAiLhLBICIuEsEgIi4SwSAiLhLBICIuEsEgIi4SwSAiLhLBICIuEsEjcYW3PEb4Z2wm+Tvq8vFfr
-        lQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAUYAAAAmCAYAAAC4VDIeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACzSURBVHhe7dRRCQMxAETB+FeVIzIqowJ6BA5KH3WQGdif
+        FfAGAH+stV5zzo+Z2cnbLXyyOMY+AE63W/hkURgBNmEECGEECGEECGEECGEECGEECGEECGEECGEECGEE
+        CGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEE
+        CGEECGEEiJ8wXtf13oeZ2cnbLXyyCMDXGDfUaoNaIVaDigAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="bunifuLabel1.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Candara Light'; font-size: 24.75pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(229, 229, 203); text-align: left; }</value>
+  <data name="bunifuTextBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAUYAAAAmCAYAAAC4VDIeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACzSURBVHhe7dRRCQMxAETB+FeVIzIqowJ6BA5KH3WQGdif
+        FfAGAH+stV5zzo+Z2cnbLXyyOMY+AE63W/hkURgBNmEECGEECGEECGEECGEECGEECGEECGEECGEECGEE
+        CGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEECGEE
+        CGEECGEEiJ8wXtf13oeZ2cnbLXyyCMDXGDfUaoNaIVaDigAAAABJRU5ErkJggg==
+</value>
   </data>
-  <metadata name="serviceController1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>

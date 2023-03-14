@@ -17,6 +17,22 @@ namespace cafeManagement
             InitializeComponent();
         }
 
-        
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CategoryForm_Load(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Add("Trà sữa", 4);
+            dataGridView1.Rows.Add("Soda", 3);
+            dataGridView1.Rows.Add("Alcohol", 2);
+            dataGridView1.Rows.Add("Cà phê", 5);
+        }
     }
 }
