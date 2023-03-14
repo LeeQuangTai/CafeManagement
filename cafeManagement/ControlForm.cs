@@ -10,13 +10,15 @@ using System.Windows.Forms;
 
 namespace cafeManagement
 {
+
     public partial class ControlForm : Form
     {
+        private Form childFormCheck = null;
+        public bool isSignOut = true ;
         public ControlForm()
         {
             InitializeComponent();
         }
-
         private void ControlForm_Load(object sender, EventArgs e)
         {
 
@@ -34,30 +36,54 @@ namespace cafeManagement
 
         private void bunifuButton5_Click(object sender, EventArgs e)
         {
-            OrderForm childForm = new OrderForm();
-            childForm.TopLevel = false;
-            childForm.Parent = this.displayFormPanel;
-            childForm.Dock = DockStyle.Fill; // fill child form to this panel
-            childForm.Show();
+            AddChildFormToPanel(new OrderForm());
         }
 
-        private void bunifuButton1_Click(object sender, EventArgs e)
+        private void overviewBtn_Click(object sender, EventArgs e)
         {
-           
+
+            AddChildFormToPanel(new OverviewForm());
         }
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void bunifuButton1_Click(object sender, EventArgs e)
+        public void AddChildFormToPanel(Form childForm)
         {
-            OrderForm childForm = new OrderForm();
-            childForm.TopLevel= false;
+            if (childFormCheck != null)
+            {
+                childFormCheck.Close();
+            }
+            childFormCheck = childForm;
+            childForm.TopLevel = false;
             childForm.Parent = this.displayFormPanel;
-            childForm.Dock = DockStyle.Fill; // fill child form to this panel
+            childForm.Dock = DockStyle.Fill;
             childForm.Show();
         }
+
+        private void bunifuButton4_Click(object sender, EventArgs e)
+        {
+            AddChildFormToPanel(new MenuForm());
+        }
+
+        private void signOut_click(object sender, EventArgs e)
+        {
+            isSignOut = true;
+            //this.Close();
+            LoginForm login = new LoginForm();
+            this.Hide();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
+        }
+
+        private void AccountButton_Click(object sender, EventArgs e)
+        {
+            AddChildFormToPanel(new AccountMangementForm());
+        }
+
+
     }
 }

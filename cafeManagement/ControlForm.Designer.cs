@@ -193,7 +193,7 @@
             this.bunifuButton3.TextMarginLeft = 0;
             this.bunifuButton3.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton3.UseDefaultRadiusAndThickness = true;
-            this.bunifuButton3.Click += new System.EventHandler(this.bunifuButton3_Click);
+            this.bunifuButton3.Click += new System.EventHandler(this.signOut_click);
             // 
             // bunifuButton2
             // 
@@ -734,7 +734,6 @@
             this.overviewBtn.TextMarginLeft = 0;
             this.overviewBtn.TextPadding = new System.Windows.Forms.Padding(0);
             this.overviewBtn.UseDefaultRadiusAndThickness = true;
-            this.overviewBtn.Click += new System.EventHandler(this.overviewBtn_Click);
             // 
             // pictureBox1
             // 

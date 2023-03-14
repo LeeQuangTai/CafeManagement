@@ -140,6 +140,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource\AcountDAO.cs" />
+    <Compile Include="Resource\DataProvider.cs" />
     <EmbeddedResource Include="AccountMangementForm.resx">
       <DependentUpon>AccountMangementForm.cs</DependentUpon>
     </EmbeddedResource>

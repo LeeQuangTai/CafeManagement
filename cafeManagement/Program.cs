@@ -17,17 +17,22 @@ namespace cafeManagement
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
             
-
             LoginForm loginForm = new LoginForm();
-            Application.Run(loginForm);
-
-            if (loginForm.isAllowToAccess)
+            ControlForm controlForm = new ControlForm();
+            while (true)
             {
-                // MainForm is defined elsewhere
-                Application.Run(new ControlForm());
+                if (controlForm.isSignOut)
+                {
+                    Application.Run(loginForm);
+                }
+                if (loginForm.isAllowToAccess)
+                {
+                    Application.Run(controlForm);
+                    controlForm.isSignOut = false;
+                }
             }
+            
         }
     }
 }

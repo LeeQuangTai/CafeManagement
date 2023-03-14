@@ -14,18 +14,13 @@ namespace cafeManagement
 {
     public partial class LoginForm : Form
     {
+        public bool isAllowToAccess; 
         public LoginForm()
         {
             InitializeComponent();
         }
 
-        private void signInLabel_Click(object sender, EventArgs e)
-        {
-            Debug.WriteLine("Clicked");
-        }
-
-
-
+      
         private void LoginForm_Load(object sender, EventArgs e)
         {
             userNameTxt.Focus();
@@ -48,10 +43,8 @@ namespace cafeManagement
             string passWord = passwordTxt.Text;
             if (Login(userName, passWord))
             {
-                ControlForm f = new ControlForm();
-                this.Hide();
-                f.ShowDialog();
-                this.Show();
+                isAllowToAccess = true;
+                this.Close();
             }
             else
             {
