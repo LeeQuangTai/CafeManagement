@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,10 +12,12 @@ using System.Windows.Forms;
 namespace cafeManagement
 {
 
-    public partial class ControlForm : Form
+    public partial class ControlForm : ViewForm
     {
+    
         private Form childFormCheck = null;
         public bool isSignOut = true ;
+        public override FormType FormType => FormType.Control; 
         public ControlForm()
         {
             InitializeComponent();
@@ -57,6 +60,8 @@ namespace cafeManagement
             {
                 childFormCheck.Close();
             }
+            if (childForm == null)
+                return;
             childFormCheck = childForm;
             childForm.TopLevel = false;
             childForm.Parent = this.displayFormPanel;
@@ -72,18 +77,26 @@ namespace cafeManagement
         private void signOut_click(object sender, EventArgs e)
         {
             isSignOut = true;
-            //this.Close();
-            LoginForm login = new LoginForm();
-            this.Hide();
-            login.Closed += (s, args) => this.Close();
-            login.Show();
+            //this.Hide();
+            //LoginForm login = new LoginForm();
+            ////login.Closed += (s, args) => this.Close();
+            //login.Show();
+            Program.SwitchFormType(FormType.Login);
         }
 
         private void AccountButton_Click(object sender, EventArgs e)
         {
             AddChildFormToPanel(new AccountMangementForm());
         }
+        public override void OnShow()
+        {
+            base.OnShow();
+            AddChildFormToPanel(null);
+        }
 
-
+        private void ControlForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

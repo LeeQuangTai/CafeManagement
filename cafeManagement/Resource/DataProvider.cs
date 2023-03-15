@@ -18,7 +18,7 @@ namespace cafeManagement.Resource.DAO
             private set { DataProvider.instance = value; }
         }
         private DataProvider() { }
-        private string connectionSTR = "Data Source=DESKTOP-S02RAG5;Initial Catalog=CafeManagement;Integrated Security=True";
+        private string connectionSTR = "Data Source = DESKTOP-S02RAG5\\MSSQLSERVER2022;Initial Catalog=CafeManagement;Integrated Security=True";
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
