@@ -40,7 +40,7 @@ GO
 ---------------------------------------
 CREATE TABLE Bill
 (
-	BillID NVARCHAR(50) PRIMARY KEY,
+	BillID int Identity PRIMARY KEY,
 	DateCheckIn DATE NOT NULL DEFAULT GETDATE(),
 	DateCheckOut DATE,
 	TableID NVARCHAR(50) NOT NULL,
@@ -52,8 +52,8 @@ GO
 ---------------------------------------
 CREATE TABLE BillInfo 
 (
-	BillInfoID NVARCHAR(50) PRIMARY KEY,
-	BillID NVARCHAR(50) NOT NULL,
+	BillInfoID int Identity PRIMARY KEY,
+	BillID int NOT NULL,
 	DrinkID NVARCHAR(50) NOT NULL,
 	Quantity INT NOT NULL DEFAULT 0
 	FOREIGN KEY (BillID) REFERENCES dbo.Bill(BillID),
@@ -190,7 +190,7 @@ EXEC sp_AddTableManagement B10, N'Bàn 10', N'Trống'
 -----------------------------------------
 
 CREATE PROCEDURE sp_AddBill
-				@BillID NVARCHAR(50),
+				@BillID int,
 				@DateCheckIn DATE,
 				@DateCheckOut DATE,
 				@TableID NVARCHAR(50),
@@ -200,51 +200,53 @@ IF		EXISTS (SELECT * FROM	Bill WHERE	BillID=@BillID)
 		PRINT N'Đã tồn tại'
 ELSE
 		INSERT INTO [dbo].[Bill]
-           ([BillID]
-           ,[DateCheckIn]
+           (
+           [DateCheckIn]
            ,[DateCheckOut]
            ,[TableID]
            ,[BillStatus])
 		VALUES
-           (@BillID
-           ,@DateCheckIn
+           (
+           @DateCheckIn
            ,@DateCheckOut
            ,@TableID
            ,@BillStatus)
 GO
+
+		   
 INSERT INTO [dbo].[Bill]
-           ([BillID]
-           ,[DateCheckIn]
+           (
+           [DateCheckIn]
            ,[DateCheckOut]
            ,[TableID]
            ,[BillStatus])
      values 
-           ('03'
-           ,GETDATE()
+           (
+           GETDATE()
            ,null
-           ,'B02'
+           ,'B01'
            ,0)
 INSERT INTO [dbo].[Bill]
-           ([BillID]
-           ,[DateCheckIn]
+           (
+           [DateCheckIn]
            ,[DateCheckOut]
            ,[TableID]
            ,[BillStatus])
      values 
-           ('01'
-           ,2023-03-18
+           (
+           getdate()
            ,null
-           ,'B02'
-           ,0)
+           ,'B01'
+           ,1)
 INSERT INTO [dbo].[Bill]
-           ([BillID]
-           ,[DateCheckIn]
+           (
+           [DateCheckIn]
            ,[DateCheckOut]
            ,[TableID]
            ,[BillStatus])
      values 
-           ('02'
-           ,GETDATE()
+           (
+           GETDATE()
            ,null
            ,'B02'
            ,0)
@@ -253,31 +255,29 @@ INSERT INTO [dbo].[Bill]
 --------------------------
 
 CREATE PROCEDURE sp_AddBillInfo 
-				@BillInfoID NVARCHAR(50),
+				
 				@BillID NVARCHAR(50),
 				@DrinkID NVARCHAR(50),
 				@Quantity INT
 AS
-IF		EXISTS (SELECT * FROM	BillInfo  WHERE	BillInfoID=@BillInfoID)
-		PRINT N'Đã tồn tại'
-ELSE
+
 		INSERT INTO [dbo].[BillInfo]
-           ([BillInfoID]
-           ,[BillID]
+           (
+           [BillID]
            ,[DrinkID]
            ,[Quantity])
      VALUES
-           (@BillInfoID
-           ,@BillID
+           (
+           @BillID
            ,@DrinkID
            ,@Quantity)
 GO
-EXEC sp_AddBillInfo BI01, '01', '02', 2
-EXEC sp_AddBillInfo BI02, '01', '04', 1
-EXEC sp_AddBillInfo BI03, '01', '05', 1
-EXEC sp_AddBillInfo BI04, '02', '05', 1
-EXEC sp_AddBillInfo BI05, '02', '05', 1
-EXEC sp_AddBillInfo BI06, '03', '05', 1
+EXEC sp_AddBillInfo  '01', '02', 2
+EXEC sp_AddBillInfo  '01', '04', 1
+EXEC sp_AddBillInfo '01', '05', 1
+EXEC sp_AddBillInfo  '02', '05', 1
+EXEC sp_AddBillInfo  '02', '05', 1
+EXEC sp_AddBillInfo  '03', '05', 1
 --------------------------
 CREATE PROCEDURE sp_GetAccountByUserName
 @userName nvarchar(100)
@@ -298,12 +298,12 @@ GO
 EXEC sp_Login @userName = 'admin', @passWord = '123456'
 Go
 -------------
-Create procedure sp_GetListBillInfo @BillID nvarchar(50)
+Create procedure sp_GetListBillInfo @BillID int
 as
 begin
 	select * from dbo.BillInfo where @BillID = BillID
 end
-exec sp_GetListBillInfo '01'
+exec sp_GetListBillInfo 2
 
 --------------
 Create procedure GetBillIDuncheck @TableID nvarchar(50), @BillStatus int
@@ -311,8 +311,9 @@ as
 begin
 	select * from dbo.Bill where @TableID = TableID and @BillStatus = BillStatus
 end
-exec GetBillIDuncheck 'B01', 0
+exec GetBillIDuncheck 'B02', 0
 ------
+select * from dbo.Bill
 --lấy danh sách order
 create procedure sp_GetListOrderByTable @TableID nvarchar(50), @BillStatus int
 as
@@ -323,12 +324,77 @@ begin
 end
 exec sp_GetListOrderByTable 'B01', 0	
 --------
+--Lấy danh sách đồ uống dựa trên DrinkCategoryID
+create procedure sp_GetListDrinkByDrinkCategory @DrinkCategoryID varchar(50)
+as
+begin
+		select * from dbo.Drink where @DrinkCategoryID = DrinkCategoryID
+end
+exec sp_GetListDrinkByDrinkCategory @DrinkCategoryID = 'CAFE'
+--------
+--Thêm bill
+CREATE PROCEDURE sp_InsertBill @BillID varchar(50), @TableID nvarchar(50)
+As
+Begin
+IF		EXISTS (SELECT * FROM	Bill  WHERE	@BillID=BillID )
+		PRINT N'Đã tồn tại'
+ELSE
+	INSERT INTO [dbo].[Bill]
+           ([BillID] 
+           ,[DateCheckIn]
+           ,[DateCheckOut]
+           ,[TableID]
+           ,[BillStatus])
+		VALUES
+           ( @BillID 
+           ,Getdate()
+           ,null
+           ,@TableID
+           ,0)
+end
+GO
+-------------
+---Thêm BillInfo
+CREATE PROCEDURE sp_InsertBillInfo @BillID varchar(50), @BillInfoID varchar(50), @DrinkID varchar(50), @Quantity int
+As
+Begin
+DECLARE @isExitsBillInfo varchar(50)
+DECLARE @Drinkcount int = 1
+	
+SELECT @isExitsBillInfo = BillInfoID, @Drinkcount = b.Quantity 
+FROM dbo.BillInfo AS b 
+WHERE BillID = @BillID AND DrinkID = @DrinkID
+
+	IF (@isExitsBillInfo > 0)
+		BEGIN
+			DECLARE @newCount INT = @Drinkcount + @Quantity
+			IF (@newCount > 0)
+				UPDATE dbo.BillInfo	SET Quantity = @Drinkcount + @Quantity WHERE DrinkID = @DrinkID
+			ELSE
+				DELETE dbo.BillInfo WHERE BillID = @BillID AND DrinkID = @DrinkID
+		END
+	ELSE
+		INSERT INTO [dbo].[BillInfo]
+           ([BillInfoID]
+           ,[BillID]
+           ,[DrinkID]
+           ,[Quantity])
+		VALUES
+           (@BillInfoID
+           ,@BillID
+           ,@DrinkID
+           ,@Quantity)
+end
+GO
+--------
 select * from Bill
 select * from BillInfo
 select * from TableManagement
 select * from Drink
+select * from DrinkCategory
 
 
 
 SELECT * FROM dbo.BillInfo WHERE billID = '01'
 SELECT * FROM dbo.Bill WHERE TableID = 'B01' AND BillStatus = 0
+select * from Drink where DrinkCategoryID='CAFE'
