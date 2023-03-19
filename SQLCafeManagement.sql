@@ -195,6 +195,7 @@ CREATE PROCEDURE sp_AddBill
 				@DateCheckOut DATE,
 				@TableID NVARCHAR(50),
 				@BillStatus INT
+				@Discount int,
 AS
 IF		EXISTS (SELECT * FROM	Bill WHERE	BillID=@BillID)
 		PRINT N'Đã tồn tại'
@@ -204,52 +205,16 @@ ELSE
            [DateCheckIn]
            ,[DateCheckOut]
            ,[TableID]
-           ,[BillStatus])
+           ,[BillStatus]
+		   ,[Discount])
 		VALUES
            (
            @DateCheckIn
            ,@DateCheckOut
            ,@TableID
-           ,@BillStatus)
+           ,@BillStatus
+		   ,@Discount)
 GO
-
-		   
-INSERT INTO [dbo].[Bill]
-           (
-           [DateCheckIn]
-           ,[DateCheckOut]
-           ,[TableID]
-           ,[BillStatus])
-     values 
-           (
-           GETDATE()
-           ,null
-           ,'B01'
-           ,0)
-INSERT INTO [dbo].[Bill]
-           (
-           [DateCheckIn]
-           ,[DateCheckOut]
-           ,[TableID]
-           ,[BillStatus])
-     values 
-           (
-           getdate()
-           ,null
-           ,'B01'
-           ,1)
-INSERT INTO [dbo].[Bill]
-           (
-           [DateCheckIn]
-           ,[DateCheckOut]
-           ,[TableID]
-           ,[BillStatus])
-     values 
-           (
-           GETDATE()
-           ,null
-           ,'B03'
-           ,0)
 
 
 --------------------------
@@ -272,12 +237,7 @@ AS
            ,@DrinkID
            ,@Quantity)
 GO
-EXEC sp_AddBillInfo  '01', '02', 2
-EXEC sp_AddBillInfo  '01', '04', 1
-EXEC sp_AddBillInfo '01', '05', 1
-EXEC sp_AddBillInfo  '02', '05', 1
-EXEC sp_AddBillInfo  '02', '05', 1
-EXEC sp_AddBillInfo  '03', '05', 1
+
 --------------------------
 CREATE PROCEDURE sp_GetAccountByUserName
 @userName nvarchar(100)
@@ -342,13 +302,15 @@ Begin
            [DateCheckIn]
            ,[DateCheckOut]
            ,[TableID]
-           ,[BillStatus])
+           ,[BillStatus]
+		   ,[Discount])
 		VALUES
            ( 
            Getdate()
            ,null
            ,@TableID
-           ,0)
+           ,0,
+		   0)
 end
 GO
 -------------
@@ -399,8 +361,17 @@ BEGIN
 	DECLARE @TableID nvarchar(50)
 	
 	SELECT @TableID = TableID FROM dbo.Bill WHERE BillID = @BillID AND BillStatus = 0
-	
-	UPDATE dbo.TableManagement SET Status = N'Có người' WHERE TableID = @TableID
+	DECLARE @count INT
+	SELECT @count = COUNT(*) FROM dbo.BillInfo WHERE BillID = @BillID
+	IF(@count>0)
+	Begin
+
+		UPDATE dbo.TableManagement SET Status = N'Có người' WHERE TableID = @TableID
+	End
+	Else
+	Begin
+		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE TableID = @TableID	
+	End
 END
 GO
 ------------
@@ -408,6 +379,7 @@ CREATE TRIGGER UTG_UpdateBill
 ON dbo.Bill FOR UPDATE
 AS
 BEGIN
+-----CHECKOUT
 	DECLARE @BillID INT
 	
 	SELECT @BillID = BillID FROM Inserted	
@@ -415,8 +387,8 @@ BEGIN
 	DECLARE @TableID nvarchar(50)
 	
 	SELECT @TableID = TableID FROM dbo.Bill WHERE BillID = @BillID
-	
-	DECLARE @count int = 0
+
+	DECLARE @count int =0
 	
 	SELECT @count = COUNT(*) FROM dbo.Bill WHERE @TableID = TableID AND BillStatus = 0
 	
@@ -424,14 +396,90 @@ BEGIN
 		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE @TableID = TableID
 END
 GO
+---------Chuyển Bàn---
+CREATE PROCEDURE sp_Transfer @TableID1 varchar, @TableID2 varchar
+AS
+BEGIN
+	DECLARE @BillID1 int
+	DECLARE @BillID2 int
 
-select * from Bill
+	DECLARE @isFirstTablEmty INT = 1
+	DECLARE @isSecondTablEmty INT = 1
+
+	SELECT @BillID2 = BillID FROM dbo.Bill WHERE TableID = @TableID2 AND BillStatus = 0
+	SELECT @BillID1 = BillID FROM dbo.Bill WHERE TableID = @TableID2 AND BillStatus = 0
+	
+	IF (@BillID1 IS NULL)
+	BEGIN
+	INSERT dbo.Bill
+		(
+		    DateCheckIn,
+		    DateCheckOut,
+		    TableID,
+		    BillStatus,
+		    Discount
+		)
+		VALUES
+		(   GETDATE(), -- DateCheckIn - date
+		    NULL, -- DateCheckOut - date
+		    @TableID1,         -- BanSo - int
+		    0,         -- ThanhToan - int
+		    0          -- discount - int
+		    )
+			SELECT @BillID1 = MAX(BillID) FROM dbo.Bill WHERE TableID = @TableID1 AND BillStatus = 0
+	END
+
+	SELECT @isFirstTablEmty  = COUNT (*) FROM dbo.BillInfo WHERE BillID = @BillID1
+	
+	IF (@BillID2 IS NULL)
+	BEGIN
+	INSERT dbo.Bill
+		(
+		    DateCheckIn,
+		    DateCheckOut,
+		    TableID,
+		    BillStatus,
+		    Discount
+		)
+		VALUES
+		(   GETDATE(), -- DateCheckIn - date
+		    NULL, -- DateCheckOut - date
+		    @TableID2,         -- BanSo - int
+		    0,         -- ThanhToan - int
+		    0          -- discount - int
+		    )
+			SELECT @BillID2 = MAX(BillID) FROM dbo.Bill WHERE TableID = @TableID2 AND BillStatus = 0
+	END
+
+	SELECT @isSecondTablEmty  = COUNT (*) FROM dbo.BillInfo WHERE BillID = @BillID2
+
+	SELECT BillID INTO IDBillInfoTable FROM dbo.BillInfo WHERE BillID = @BillID2
+
+	UPDATE dbo.BillInfo SET BillID = @BillID2 WHERE BillID = @BillID1
+	UPDATE dbo.BillInfo SET BillID = @BillID1 WHERE BillID IN (SELECT * FROM dbo.IdBillInfoTable)	
+	DROP TABLE dbo.IdBillInfoTable
+
+	IF (@isFirstTablEmty = 0)
+		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE TableID = @TableID2
+		
+	IF (@isSecondTablEmty= 0)
+		UPDATE dbo.TableManagement SET @BillID1 = N'Trống' WHERE TableID = @TableID2
+END
+GO
+	
+	
+exec sp_Transfer 'B03', 'B01'
+
+select * from Bill 
 select * from BillInfo
 select * from TableManagement
 select * from Drink
 select * from DrinkCategory
-
-
+delete BillInfo
+delete Bill
+Alter Table Bill
+add Constraint FK__Bill__BillStatus__35BCFE0A
+FOREIGN KEY (TableID) REFERENCES dbo.TableManagement(TableID)
 
 SELECT * FROM dbo.BillInfo WHERE billID = '01'
 SELECT * FROM dbo.Bill WHERE TableID = 'B01' AND BillStatus = 0
