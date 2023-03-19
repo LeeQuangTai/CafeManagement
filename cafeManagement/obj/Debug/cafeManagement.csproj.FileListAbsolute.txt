@@ -92,3 +92,4 @@ C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\obj\Debug\cafeMa
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\obj\Debug\cafeManagement.csproj.CopyComplete
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\obj\Debug\cafeManagement.exe
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\obj\Debug\cafeManagement.pdb
+D:\Data\cafeManagement\cafeManagement\obj\Debug\cafeManagement.DeleteForm.resources

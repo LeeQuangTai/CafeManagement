@@ -22,7 +22,7 @@ namespace cafeManagement.Resource.DAO
             private set { DataProvider.instance = value; }
         }
         private DataProvider() { }
-        private string connectionSTR = "Data Source = LAPTOP-DHRETR9B\\;Initial Catalog=CafeManagement;Integrated Security=True";
+        private string connectionSTR = "Data Source = DESKTOP-S02RAG5\\MSSQLSERVER2022;Initial Catalog=CafeManagement;Integrated Security=True";
         public string Connnection() { return connectionSTR; }
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
@@ -142,15 +142,15 @@ namespace cafeManagement.Resource.DAO
                 return rowsAffected;
             }
         }
-        public int ExecuteNonQueryToDelete(List<string> a)
+        public int ExecuteNonQueryToDelete(string a)
         {
             int rowsAffected = 0;
             using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
                 connection.Open();
-                if (a.Count > 0)
+                if (a != null)
                 {
-                    string queryy = "DELETE FROM account WHERE account.UserName = '" + a[0].ToString() + "';";
+                    string queryy = "DELETE FROM account WHERE account.UserName = '" + a + "';";
                     SqlCommand command = new SqlCommand(queryy, connection);
                     try 
                     { 
