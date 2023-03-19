@@ -40,13 +40,20 @@ namespace cafeManagement.Resource.DTO
             get { return billStatus; }
             set { billStatus = value; }
         }
-        public Bill(int billID, DateTime? dateCheckin, DateTime? dateCheckout, string tableID, int billStatus)
+        private int discount;
+        public int Discount
+        {
+            get { return discount; }
+            set { discount = value; }
+        }
+        public Bill(int billID, DateTime? dateCheckin, DateTime? dateCheckout, string tableID, int billStatus, int discount = 0)
         {
             this.BillID = billID;
             this.DateCheckin = dateCheckin;
             this.DateCheckin = dateCheckin;
             this.TableID = tableID;
             this.BillStatus = billStatus;
+            this.Discount = discount;
         }
         public Bill(DataRow row)
         {
@@ -57,6 +64,7 @@ namespace cafeManagement.Resource.DTO
                 this.DateCheckout = (DateTime?)dateCheckoutTemp;
             this.TableID = row["tableID"].ToString();
             this.BillStatus = (int)row["billStatus"];
+            this.Discount = (int)row["discount"];
         }
 
     }

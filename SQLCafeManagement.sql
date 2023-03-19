@@ -45,7 +45,7 @@ CREATE TABLE Bill
 	DateCheckOut DATE,
 	TableID NVARCHAR(50) NOT NULL,
 	BillStatus INT NOT NULL DEFAULT 0 -- 1: đã thanh toán && 0: chưa thanh toán
-	
+	Discount int not null default 0,
 	FOREIGN KEY (TableID) REFERENCES dbo.TableManagement(TableID)
 )
 GO
@@ -248,7 +248,7 @@ INSERT INTO [dbo].[Bill]
            (
            GETDATE()
            ,null
-           ,'B02'
+           ,'B03'
            ,0)
 
 
@@ -311,18 +311,18 @@ as
 begin
 	select * from dbo.Bill where @TableID = TableID and @BillStatus = BillStatus
 end
-exec GetBillIDuncheck 'B02', 0
+exec GetBillIDuncheck 'B01', 0
 ------
-select * from dbo.Bill
+
 --lấy danh sách order
 create procedure sp_GetListOrderByTable @TableID nvarchar(50), @BillStatus int
 as
 begin
 		select DrinkName, UnitPrice, Quantity, UnitPrice*Quantity as TotalPrice
 		from dbo.Bill b, dbo.BillInfo bi, dbo.Drink d
-		where b.BillID = bi.BillID and bi.DrinkID = d.DrinkID and b.TableID = @TableID and  @BillStatus = BillStatus
+		where b.BillID = bi.BillID and bi.DrinkID = d.DrinkID and b.TableID = @TableID and  @BillStatus = b.BillStatus
 end
-exec sp_GetListOrderByTable 'B01', 0	
+exec sp_GetListOrderByTable 'B01', 0
 --------
 --Lấy danh sách đồ uống dựa trên DrinkCategoryID
 create procedure sp_GetListDrinkByDrinkCategory @DrinkCategoryID varchar(50)
@@ -333,21 +333,19 @@ end
 exec sp_GetListDrinkByDrinkCategory @DrinkCategoryID = 'CAFE'
 --------
 --Thêm bill
-CREATE PROCEDURE sp_InsertBill @BillID varchar(50), @TableID nvarchar(50)
+CREATE PROCEDURE sp_InsertBill  @TableID nvarchar(50)
 As
 Begin
-IF		EXISTS (SELECT * FROM	Bill  WHERE	@BillID=BillID )
-		PRINT N'Đã tồn tại'
-ELSE
+
 	INSERT INTO [dbo].[Bill]
-           ([BillID] 
-           ,[DateCheckIn]
+           ( 
+           [DateCheckIn]
            ,[DateCheckOut]
            ,[TableID]
            ,[BillStatus])
 		VALUES
-           ( @BillID 
-           ,Getdate()
+           ( 
+           Getdate()
            ,null
            ,@TableID
            ,0)
@@ -355,7 +353,7 @@ end
 GO
 -------------
 ---Thêm BillInfo
-CREATE PROCEDURE sp_InsertBillInfo @BillID varchar(50), @BillInfoID varchar(50), @DrinkID varchar(50), @Quantity int
+CREATE PROCEDURE sp_InsertBillInfo @BillID int, @DrinkID varchar(50), @Quantity int
 As
 Begin
 DECLARE @isExitsBillInfo varchar(50)
@@ -375,18 +373,58 @@ WHERE BillID = @BillID AND DrinkID = @DrinkID
 		END
 	ELSE
 		INSERT INTO [dbo].[BillInfo]
-           ([BillInfoID]
-           ,[BillID]
+           (
+           [BillID]
            ,[DrinkID]
            ,[Quantity])
 		VALUES
-           (@BillInfoID
-           ,@BillID
+           (
+           @BillID
            ,@DrinkID
            ,@Quantity)
 end
-GO
+GO 
 --------
+Delete dbo.BillInfo
+Delete dbo.Bill
+-------------Tạo Trigger------------
+CREATE TRIGGER UTG_UpdateBillInfo
+ON dbo.BillInfo FOR INSERT, UPDATE
+AS
+BEGIN
+	DECLARE @BillID INT
+	
+	SELECT @BillID = BillID FROM Inserted
+	
+	DECLARE @TableID nvarchar(50)
+	
+	SELECT @TableID = TableID FROM dbo.Bill WHERE BillID = @BillID AND BillStatus = 0
+	
+	UPDATE dbo.TableManagement SET Status = N'Có người' WHERE TableID = @TableID
+END
+GO
+------------
+CREATE TRIGGER UTG_UpdateBill
+ON dbo.Bill FOR UPDATE
+AS
+BEGIN
+	DECLARE @BillID INT
+	
+	SELECT @BillID = BillID FROM Inserted	
+	
+	DECLARE @TableID nvarchar(50)
+	
+	SELECT @TableID = TableID FROM dbo.Bill WHERE BillID = @BillID
+	
+	DECLARE @count int = 0
+	
+	SELECT @count = COUNT(*) FROM dbo.Bill WHERE @TableID = TableID AND BillStatus = 0
+	
+	IF (@count = 0)
+		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE @TableID = TableID
+END
+GO
+
 select * from Bill
 select * from BillInfo
 select * from TableManagement

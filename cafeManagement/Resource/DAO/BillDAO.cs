@@ -45,9 +45,9 @@ namespace cafeManagement.Resource.DAO
                 return 1;
             }
         }
-        public void CheckOut(int billID)
+        public void CheckOut(int billID, int discount)
         {
-            string query = "UPDATE dbo.Bill SET BillStatus = 1 WHERE BillID = " + billID;
+            string query = "UPDATE dbo.Bill SET BillStatus = 1, "  + "Discount = " + discount + " WHERE BillID = " + billID;
             DataProvider.Instance.ExecuteNonQuery(query, new object[] { billID });
         }
 

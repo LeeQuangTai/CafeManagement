@@ -77,7 +77,7 @@ namespace cafeManagement
             }
             dgvOrder.DataSource = orders;
             CultureInfo culture = new CultureInfo("vi-VN");
-            textBox1.Text = totalPrice.ToString("c", culture);
+            txtTotalPrice.Text = totalPrice.ToString("c", culture);
         }
 
 
@@ -90,6 +90,8 @@ namespace cafeManagement
         }
         private void btn_Click(object sender, EventArgs e)
         {
+            nudDiscount.Value = 0;
+            txtPayment.Text = null;
             string tableID = ((sender as Button).Tag as Table).TableID;
             dgvOrder.Tag = (sender as Button).Tag;
             ShowBill(tableID);
@@ -100,6 +102,7 @@ namespace cafeManagement
         }
         private void btnAddDrink_Click(object sender, EventArgs e)
         {
+            txtPayment.Text = null;
             Table table = dgvOrder.Tag as Table;
             int billID = BillDAO.Instance.GetBillIDuncheck(table.TableID);
             string drinkID = (cbbDrink.SelectedItem as Drink).DrinkID;
@@ -130,20 +133,31 @@ namespace cafeManagement
         }
         private void btnPay_Click(object sender, EventArgs e)
         {
-            Table table = dgvOrder.Tag as Table;
-
+            Table table = dgvOrder.Tag as Table;          
             int billID = BillDAO.Instance.GetBillIDuncheck(table.TableID);
-
+            int discount = (int)nudDiscount.Value;
             if (billID != -1)
             {
                 if (MessageBox.Show("Thanh toán hóa đơn " + table.TableName + "?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(billID);
+                    BillDAO.Instance.CheckOut(billID, discount);
                     ShowBill(table.TableID);
                     TableLoad();
+                    txtPayment.Text = null;
                 }
             }
         }
+
+        private void btnDiscount_Click(object sender, EventArgs e)
+        {
+            int discount = (int)nudDiscount.Value;
+            float totalPrice = (float)Convert.ToDouble(txtTotalPrice.Text.Split('.')[0]);
+            float payment = (totalPrice - (totalPrice / 100) * discount)*1000;
+            CultureInfo culture = new CultureInfo("vi-VN");
+            txtPayment.Text = payment.ToString("c", culture);
+        }
+
+
 
 
 
