@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,8 +21,14 @@ namespace cafeManagement
             InitializeComponent();
             TableLoad();
             LoadDrinkCategory();
+            LoadTableTransfer(cbbTransfer);
         }
         #region method
+        void LoadTableTransfer(ComboBox cb)
+        {
+            cb.DataSource = TableDAO.Instance.LoadTableList();
+            cb.DisplayMember = "TableName";
+        }
         void LoadDrinkCategory()
         {
             List<DrinkCategory> drinkCategories = DrinkCategoryDAO.Instance.GetDrinkCategories();
@@ -146,16 +153,38 @@ namespace cafeManagement
                     txtPayment.Text = null;
                 }
             }
+            nudDiscount.Value = 0;
         }
 
         private void btnDiscount_Click(object sender, EventArgs e)
         {
-            int discount = (int)nudDiscount.Value;
-            float totalPrice = (float)Convert.ToDouble(txtTotalPrice.Text.Split('.')[0]);
-            float payment = (totalPrice - (totalPrice / 100) * discount)*1000;
-            CultureInfo culture = new CultureInfo("vi-VN");
-            txtPayment.Text = payment.ToString("c", culture);
+            try
+            {
+                int discount = (int)nudDiscount.Value;
+                double totalPrice = double.Parse(txtTotalPrice.Text, NumberStyles.Currency, new CultureInfo("vi-VN"));
+                double payment = (totalPrice - (totalPrice / 100) * discount);
+                CultureInfo culture = new CultureInfo("vi-VN");
+                txtPayment.Text = payment.ToString("c", culture);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
+        private void btnTransfer_Click(object sender, EventArgs e)
+        {
+            string tableID1  = (dgvOrder.Tag as Table).TableID;
+
+            string tableID2 = (cbbTransfer.SelectedItem as Table).TableID;
+            if (MessageBox.Show(string.Format("Chuyển bàn {0} qua bàn {1}?", (dgvOrder.Tag as Table).TableName, (cbbTransfer.SelectedItem as Table).TableName), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            {
+                TableDAO.Instance.TransferTable(tableID1, tableID2);
+
+                TableLoad();
+            }
+        }
+
 
 
 

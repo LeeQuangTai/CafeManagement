@@ -64,7 +64,8 @@ namespace cafeManagement.Resource.DTO
                 this.DateCheckout = (DateTime?)dateCheckoutTemp;
             this.TableID = row["tableID"].ToString();
             this.BillStatus = (int)row["billStatus"];
-            this.Discount = (int)row["discount"];
+            if(row["discount"].ToString() != "")
+                this.Discount = (int)row["discount"];
         }
 
     }

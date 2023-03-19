@@ -57,7 +57,7 @@
             this.bunifuLabel1.Font = new System.Drawing.Font("Candara Light", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(203)))));
             this.bunifuLabel1.Location = new System.Drawing.Point(281, 182);
-            this.bunifuLabel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuLabel1.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel1.Size = new System.Drawing.Size(111, 50);
@@ -114,7 +114,7 @@
             this.loginBtn.IdleIconRightImage = null;
             this.loginBtn.IndicateFocus = false;
             this.loginBtn.Location = new System.Drawing.Point(235, 364);
-            this.loginBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loginBtn.Margin = new System.Windows.Forms.Padding(4);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.loginBtn.OnDisabledState.BorderRadius = 1;
@@ -163,7 +163,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(701, 174);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -199,7 +199,7 @@
             this.passwordTxt.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.passwordTxt.Lines = new string[0];
             this.passwordTxt.Location = new System.Drawing.Point(123, 310);
-            this.passwordTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passwordTxt.Margin = new System.Windows.Forms.Padding(4);
             this.passwordTxt.MaxLength = 32767;
             this.passwordTxt.MinimumSize = new System.Drawing.Size(1, 1);
             this.passwordTxt.Modified = false;
@@ -225,8 +225,8 @@
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.passwordTxt.OnIdleState = stateProperties4;
-            this.passwordTxt.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.passwordTxt.PasswordChar = '\0';
+            this.passwordTxt.Padding = new System.Windows.Forms.Padding(4);
+            this.passwordTxt.PasswordChar = '●';
             this.passwordTxt.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.passwordTxt.PlaceholderText = "Password";
             this.passwordTxt.ReadOnly = false;
@@ -243,7 +243,7 @@
             this.passwordTxt.TextMarginLeft = 3;
             this.passwordTxt.TextMarginTop = 0;
             this.passwordTxt.TextPlaceholder = "Password";
-            this.passwordTxt.UseSystemPasswordChar = false;
+            this.passwordTxt.UseSystemPasswordChar = true;
             this.passwordTxt.WordWrap = true;
             this.passwordTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passwordTxt_KeyPress);
             // 
@@ -275,7 +275,7 @@
             this.userNameTxt.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.userNameTxt.Lines = new string[0];
             this.userNameTxt.Location = new System.Drawing.Point(123, 256);
-            this.userNameTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userNameTxt.Margin = new System.Windows.Forms.Padding(4);
             this.userNameTxt.MaxLength = 32767;
             this.userNameTxt.MinimumSize = new System.Drawing.Size(1, 1);
             this.userNameTxt.Modified = false;
@@ -301,7 +301,7 @@
             stateProperties8.ForeColor = System.Drawing.Color.Empty;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.userNameTxt.OnIdleState = stateProperties8;
-            this.userNameTxt.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userNameTxt.Padding = new System.Windows.Forms.Padding(4);
             this.userNameTxt.PasswordChar = '\0';
             this.userNameTxt.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.userNameTxt.PlaceholderText = "Account";
@@ -336,7 +336,7 @@
             this.Controls.Add(this.bunifuLabel1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";

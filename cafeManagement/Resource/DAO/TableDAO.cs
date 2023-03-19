@@ -19,10 +19,13 @@ namespace cafeManagement.Resource.DAO
         public static int TableWidth = 90;
         public static int TableHeight = 90;
         private TableDAO() { }
-        
 
-    
-    
+        public void TransferTable(string tableID1, string tableID2)
+        {
+            DataProvider.Instance.ExecuteQuery("sp_Transfer @TableID1 , @TableID2", new object[] { tableID1, tableID2 });
+        }
+
+
         public List<Table> LoadTableList()
         {
             List<Table> tableList = new List<Table>();
