@@ -22,7 +22,7 @@ namespace cafeManagement.Resource.DAO
 
         public void TransferTable(string tableID1, string tableID2)
         {
-            DataProvider.Instance.ExecuteQuery("sp_Transfer @TableID1 , @TableID2", new object[] { tableID1, tableID2 });
+            DataProvider.Instance.ExecuteQuery(" sp_Transfer @TableID1 , @TableID2", new object[] { tableID1, tableID2 });
         }
 
 

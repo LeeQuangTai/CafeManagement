@@ -29,7 +29,6 @@ namespace cafeManagement
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -45,12 +44,6 @@ namespace cafeManagement
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.displayNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passWordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cafeManagementDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cafeManagementDataSet = new cafeManagement.CafeManagementDataSet();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.titleDecriptionLabel = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuTextBox1 = new Bunifu.UI.WinForms.BunifuTextBox();
@@ -60,14 +53,11 @@ namespace cafeManagement
             this.bunifuButton4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuButton5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cafeManagementDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cafeManagementDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(195)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -81,13 +71,6 @@ namespace cafeManagement
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeight = 35;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.userNameDataGridViewTextBoxColumn,
-            this.displayNameDataGridViewTextBoxColumn,
-            this.passWordDataGridViewTextBoxColumn,
-            this.typeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataMember = "Account";
-            this.dataGridView1.DataSource = this.cafeManagementDataSetBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(195)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -117,44 +100,6 @@ namespace cafeManagement
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // userNameDataGridViewTextBoxColumn
-            // 
-            this.userNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
-            this.userNameDataGridViewTextBoxColumn.HeaderText = "UserName";
-            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
-            // 
-            // displayNameDataGridViewTextBoxColumn
-            // 
-            this.displayNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.displayNameDataGridViewTextBoxColumn.DataPropertyName = "DisplayName";
-            this.displayNameDataGridViewTextBoxColumn.HeaderText = "DisplayName";
-            this.displayNameDataGridViewTextBoxColumn.Name = "displayNameDataGridViewTextBoxColumn";
-            // 
-            // passWordDataGridViewTextBoxColumn
-            // 
-            this.passWordDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.passWordDataGridViewTextBoxColumn.DataPropertyName = "PassWord";
-            this.passWordDataGridViewTextBoxColumn.HeaderText = "PassWord";
-            this.passWordDataGridViewTextBoxColumn.Name = "passWordDataGridViewTextBoxColumn";
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            // 
-            // cafeManagementDataSetBindingSource
-            // 
-            this.cafeManagementDataSetBindingSource.DataSource = this.cafeManagementDataSet;
-            this.cafeManagementDataSetBindingSource.Position = 0;
-            // 
-            // cafeManagementDataSet
-            // 
-            this.cafeManagementDataSet.DataSetName = "CafeManagementDataSet";
-            this.cafeManagementDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // bunifuLabel1
             // 
             this.bunifuLabel1.AllowParentOverrides = false;
@@ -166,7 +111,7 @@ namespace cafeManagement
             this.bunifuLabel1.Location = new System.Drawing.Point(0, 0);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(800, 37);
+            this.bunifuLabel1.Size = new System.Drawing.Size(121, 37);
             this.bunifuLabel1.TabIndex = 7;
             this.bunifuLabel1.Text = "Tài khoản";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -261,6 +206,7 @@ namespace cafeManagement
             this.bunifuTextBox1.TextPlaceholder = "Nhập tên tài khoản";
             this.bunifuTextBox1.UseSystemPasswordChar = false;
             this.bunifuTextBox1.WordWrap = true;
+            this.bunifuTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bunifuTextBox1_KeyPress);
             // 
             // bunifuButton1
             // 
@@ -732,8 +678,6 @@ namespace cafeManagement
             this.Text = "AccountMangementForm";
             this.Load += new System.EventHandler(this.onLoad);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cafeManagementDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cafeManagementDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -747,8 +691,6 @@ namespace cafeManagement
         private Bunifu.UI.WinForms.BunifuTextBox bunifuTextBox1;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton1;
         private Bunifu.UI.WinForms.BunifuLabel titleDecriptionLabel;
-        private System.Windows.Forms.BindingSource cafeManagementDataSetBindingSource;
-        private CafeManagementDataSet cafeManagementDataSet;
         private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn displayNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passWordDataGridViewTextBoxColumn;

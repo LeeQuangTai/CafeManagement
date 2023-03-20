@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System;
 using System.Diagnostics;
+using System.Security.Cryptography;
+using System.Reflection;
 
 namespace cafeManagement
 {
@@ -36,12 +38,7 @@ namespace cafeManagement
 
         private void deleteAccount_click(object s, EventArgs e)
         {
-            if (DataProvider.Instance.ExecuteNonQueryToDelete(stringStorage) > 0)
-            {
-                MessageBox.Show("Xoá tài khoản thành công");
-            }
-            else
-                MessageBox.Show("Xoá tài khoản không thành công");
+            (new DeleteForm()).Show();
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -53,7 +50,6 @@ namespace cafeManagement
                 {
                     stringStorage.Add(row.Cells[i].Value.ToString());
                 }
-                Debug.WriteLine("clicked");
             }
         }
 
@@ -61,10 +57,25 @@ namespace cafeManagement
         {
             string query = "Select * from dbo.Account";
             dataGridView1.DataSource = DataProvider.Instance.ExecuteQuery(query);
-            Debug.WriteLine(stringStorage.Count);
+            for (int i = 0; i < dataGridView1.ColumnCount; i++)
+            {
+                dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
         }
 
         private void onLoadDataBySearch(object sender, EventArgs e)
+        {
+            loadSearch();
+        }
+
+        private void bunifuTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) 
+            {
+                loadSearch();
+            }
+        }
+        void loadSearch()
         {
             string query = "Select * from dbo.Account where UserName like  '%" + bunifuTextBox1.Text + "%'";
             try

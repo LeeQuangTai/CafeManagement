@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using cafeManagement.Resource.DAO;
 namespace cafeManagement
 {
@@ -37,10 +38,17 @@ namespace cafeManagement
             }
         }
 
-        private void EditAccountForm_Load(object sender, EventArgs e)
+        private void onLoad(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cafeManagementDataSet.Account' table. You can move, or remove it, as needed.
-            this.accountTableAdapter.Fill(this.cafeManagementDataSet.Account);
+            var data = DataProvider.Instance.ExecuteQuery("select userName from dbo.account");
+            foreach (DataRow item in data.Rows)
+            {
+                comboBox2.Items.Add(item[0]);
+            }
+        }
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
