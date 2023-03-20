@@ -11,6 +11,9 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Button = System.Windows.Forms.Button;
+using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace cafeManagement
 {
@@ -102,9 +105,14 @@ namespace cafeManagement
             string tableID = ((sender as Button).Tag as Table).TableID;
             dgvOrder.Tag = (sender as Button).Tag;
             ShowBill(tableID);
+            //if(dgvOrder.DataSource == null)
+            //{
+            //    Table table = TableDAO.Instance.LoadTableNotBill(tableID);
+            //    Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
+            //    btn.Text = table.TableName + Environment.NewLine + table.Status;
+
+            //}
             lbTable.Text = ((sender as Button).Tag as Table).TableName;
-            //CultureInfo culture = new CultureInfo("vi-VN");
-            //textBox1.Text = thanhTien.ToString("c", culture);
 
         }
         private void btnAddDrink_Click(object sender, EventArgs e)
@@ -116,12 +124,26 @@ namespace cafeManagement
             int quantity = (int)nudQuantity.Value;
             if (billID == -1)
             {
-                BillDAO.Instance.InsertBill(table.TableID);
-                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), drinkID, quantity);
+                if ((int)nudQuantity.Value == 0)
+                {
+                    MessageBox.Show("Mời chọn lại số lượng!", "Thông báo");
+                }
+                else
+                {
+                    BillDAO.Instance.InsertBill(table.TableID);
+                    BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), drinkID, quantity); 
+                }
             }
             else
             {
-                BillInfoDAO.Instance.InsertBillInfo(billID, drinkID, quantity);
+                if ((int)nudQuantity.Value == 0)
+                {
+                    MessageBox.Show("Mời chọn lại số lượng!", "Thông báo");
+                }
+                else
+                {
+                    BillInfoDAO.Instance.InsertBillInfo(billID, drinkID, quantity);
+                }
             }
             ShowBill(table.TableID);
             TableLoad();
@@ -175,8 +197,11 @@ namespace cafeManagement
         private void btnTransfer_Click(object sender, EventArgs e)
         {
             string tableID1  = (dgvOrder.Tag as Table).TableID;
-
             string tableID2 = (cbbTransfer.SelectedItem as Table).TableID;
+            //if (((sender as Button).Tag as Table).Status == "Trống")
+            //{
+            //    MessageBox.Show("Đây là bàn trống, bạn phải chọn bàn đã có người!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
             if (MessageBox.Show(string.Format("Chuyển bàn {0} qua bàn {1}?", (dgvOrder.Tag as Table).TableName, (cbbTransfer.SelectedItem as Table).TableName), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
                 TableDAO.Instance.TransferTable(tableID1, tableID2);

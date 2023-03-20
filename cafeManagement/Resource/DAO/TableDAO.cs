@@ -40,5 +40,12 @@ namespace cafeManagement.Resource.DAO
 
             return tableList;
         }
+        public Table LoadTableNotBill(string tableID)
+        {
+            string query = "Update dbo.TableManagement Set Status = N'Trống' where Status = N'Có người' and TableID = " + tableID;
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { tableID });
+            return new Table(data.Rows[0]);
+
+        }
     }
 }

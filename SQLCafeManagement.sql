@@ -358,8 +358,8 @@ Delete dbo.Bill
 
 
 ----------------------Xử lý chuyển Bàn--------------------
------------------------Store Procedure MOVE Table---------
-CREATE PROCEDURE sp_Transfer @TableID1 nvarchar, @TableID2 nvarchar
+-----------------------Store Procedure ---------
+alter PROCEDURE sp_Transfer @TableID1 nvarchar(50), @TableID2 nvarchar (50)
 AS
 BEGIN
 	DECLARE @BillID1 int
@@ -369,7 +369,7 @@ BEGIN
 	DECLARE @isSecondTablEmty INT = 1
 
 	SELECT @BillID2 = BillID FROM dbo.Bill WHERE TableID = @TableID2 AND BillStatus = 0
-	SELECT @BillID1 = BillID FROM dbo.Bill WHERE TableID = @TableID2 AND BillStatus = 0
+	SELECT @BillID1 = BillID FROM dbo.Bill WHERE TableID = @TableID1 AND BillStatus = 0
 	
 	IF (@BillID1 IS NULL)
 	BEGIN
@@ -411,11 +411,11 @@ BEGIN
 		    0          -- discount - int
 		    )
 			SELECT @BillID2 = MAX(BillID) FROM dbo.Bill WHERE TableID = @TableID2 AND BillStatus = 0
-	END
+		END
 
 	SELECT @isSecondTablEmty  = COUNT (*) FROM dbo.BillInfo WHERE BillID = @BillID2
 
-	SELECT BillID INTO IDBillInfoTable FROM dbo.BillInfo WHERE BillID = @BillID2
+	SELECT BillID INTO IDBillInfoTable FROM dbo.BillInfo WHERE BillID = @BillID1
 
 	UPDATE dbo.BillInfo SET BillID = @BillID2 WHERE BillID = @BillID1
 	UPDATE dbo.BillInfo SET BillID = @BillID1 WHERE BillID IN (SELECT * FROM dbo.IdBillInfoTable)	
@@ -425,7 +425,7 @@ BEGIN
 		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE TableID = @TableID2
 		
 	IF (@isSecondTablEmty= 0)
-		UPDATE dbo.TableManagement SET @BillID1 = N'Trống' WHERE TableID = @TableID2
+		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE TableID = @TableID1
 END
 GO
 ---------------------Create Trigger-----------------------
@@ -500,3 +500,9 @@ FOREIGN KEY (TableID) REFERENCES dbo.TableManagement(TableID)
 SELECT * FROM dbo.BillInfo WHERE billID = '01'
 SELECT * FROM dbo.Bill WHERE TableID = 'B01' AND BillStatus = 0
 select * from Drink where DrinkCategoryID='CAFE'
+
+
+			Update dbo.TableManagement Set Status = N'Trống' where Status = N'Có người' and TableID = N'B01'
+
+
+
