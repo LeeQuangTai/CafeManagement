@@ -30,7 +30,7 @@ namespace cafeManagement.Resource.DAO
         {
             List<Table> tableList = new List<Table>();
     
-    DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.TableManagement");
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.TableManagement");
 
             foreach (DataRow item in data.Rows)
             {

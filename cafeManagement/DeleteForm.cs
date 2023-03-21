@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,13 +24,14 @@ namespace cafeManagement
             var data = DataProvider.Instance.ExecuteQuery("select userName from dbo.account");
             foreach (DataRow item in data.Rows)
             {
-                comboBox2.Items.Add(item[0]);
+                Account acc = new Account(item);
+                comboBox2.Items.Add(acc);
             }
         }
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            if (DataProvider.Instance.ExecuteNonQueryToDelete(comboBox2.Text) > 0)
+            if (AccountDAO.Instance.DeleteAccount(comboBox2.Text) > 0)
             {
                 MessageBox.Show("Xoá tài khoản thành công");
             }

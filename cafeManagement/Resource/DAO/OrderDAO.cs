@@ -24,7 +24,7 @@ namespace cafeManagement.Resource.DAO
         {
             List<Order> orders = new List<Order>();
             string query = "exec sp_GetListOrderByTable @TableID , 0";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { tableID});
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] {tableID});
             foreach (DataRow item in data.Rows)
             {
                 Order order = new Order(item);

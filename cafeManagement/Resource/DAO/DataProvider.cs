@@ -22,7 +22,8 @@ namespace cafeManagement.Resource.DAO
             private set { DataProvider.instance = value; }
         }
         private DataProvider() { }
-        private string connectionSTR = "Data Source = LAPTOP-DHRETR9B\\;Initial Catalog=CafeManagement;Integrated Security=True";
+        private string connectionSTR = "Data Source = DESKTOP-S02RAG5\\MSSQLSERVER2022;Initial Catalog=CafeManagement;Integrated Security=True";
+        public string ConnectionSTR => connectionSTR;
         public string Connnection() { return connectionSTR; }
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
@@ -85,92 +86,9 @@ namespace cafeManagement.Resource.DAO
             }
             return data;
         }
-        public int ExecuteNonQuery(string userAccount, string displayName, string password, string accountType)
-        {
-            int rowsAffected = 0;
-            using (SqlConnection connection = new SqlConnection(connectionSTR)) 
-            {
-                connection.Open();
-
-                string query = "INSERT INTO dbo.Account (UserName, DisplayName, Password, Type) VALUES (@UserName, @DisplayName, @Password, @Type)";
-
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@UserName", userAccount);
-                command.Parameters.AddWithValue("@DisplayName", displayName);
-                command.Parameters.AddWithValue("@Password", password);
-                command.Parameters.AddWithValue("@Type", accountType);
-                try
-                {
-                    rowsAffected = command.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
-                    
-                    MessageBox.Show("Tài khoản đã có sẵn, vui lòng nhập lại tài khoản khác!") ;
-                }
-                finally
-                {
-                  connection.Close();
-                }
-            }
-
-            return rowsAffected;
-        }
-
-        public int ExecuteNonQueryToEdit(string userName,string newUserName, string displayname, string password , string type)
-        {
-            int rowsAffected = 0;
-            using (SqlConnection connection = new SqlConnection(connectionSTR))
-            {
-                connection.Open();
-                string queryy = "update account set UserName = '" + newUserName + "',PassWord = '"+password+"',DisplayName = '"+displayname+"' , type = "+type+" where UserName = '"+userName+"'";
-                SqlCommand command = new SqlCommand(queryy, connection);
-
-                try
-                {
-                    rowsAffected = command.ExecuteNonQuery();
-                }
-                catch (Exception ee)
-                {
-
-                    MessageBox.Show(ee.ToString());
-                }
-                finally
-                {
-                    connection.Close();
-                }
-                return rowsAffected;
-            }
-        }
-        public int ExecuteNonQueryToDelete(string a)
-        {
-            int rowsAffected = 0;
-            using (SqlConnection connection = new SqlConnection(connectionSTR))
-            {
-                connection.Open();
-                if (a != null)
-                {
-                    string queryy = "DELETE FROM account WHERE account.UserName = '" + a + "';";
-                    SqlCommand command = new SqlCommand(queryy, connection);
-                    try 
-                    { 
-                        rowsAffected = command.ExecuteNonQuery();
-                    }
-                    catch (Exception)
-                    {
-
-                        MessageBox.Show("Xoá không thành công!");
-                    }
-                    finally
-                    {
-                        connection.Close();
-                    }
-                }
-                else return 0;
-                return rowsAffected;
-            }
-        }
-
+        
+        
+       
 
         public object ExecuteScalar(string query, object[] parameter = null)
         {

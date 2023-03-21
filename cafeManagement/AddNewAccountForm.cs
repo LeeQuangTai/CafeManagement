@@ -25,7 +25,7 @@ namespace cafeManagement
             {
                 MessageBox.Show("Vui lòng không để trống!");
             }
-            else if (DataProvider.Instance.ExecuteNonQuery(bunifuTextBox1.Text, bunifuTextBox3.Text, bunifuTextBox2.Text, (comboBox1.Text == "Admin" ? 1 : 2).ToString()) > 0)
+            else if (AccountDAO.Instance.addAccount(bunifuTextBox1.Text, bunifuTextBox3.Text, bunifuTextBox2.Text, (comboBox1.Text == "Admin" ? 1 : 2).ToString()) > 0)
             {
                 MessageBox.Show("Tạo tài khoản thành công!");
 

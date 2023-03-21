@@ -30,7 +30,7 @@ namespace cafeManagement
                 }
                 else
                 {
-                    if (DataProvider.Instance.ExecuteNonQueryToEdit(comboBox2.Text, bunifuTextBox4.Text, bunifuTextBox3.Text, bunifuTextBox2.Text, (comboBox1.Text == "Admin" ? 1 : 2).ToString()) > 0 ? true : false)
+                    if (AccountDAO.Instance.EditAccount(comboBox2.Text, bunifuTextBox4.Text, bunifuTextBox3.Text, bunifuTextBox2.Text, (comboBox1.Text == "Admin" ? 1 : 2).ToString()) > 0 ? true : false)
                         MessageBox.Show("Chỉnh sửa hành công!");
                     else
                         MessageBox.Show("Chỉnh sứa thất bại!");
