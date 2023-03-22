@@ -24,8 +24,9 @@ namespace cafeManagement
             var data = DataProvider.Instance.ExecuteQuery("select userName from dbo.account");
             foreach (DataRow item in data.Rows)
             {
-                Account acc = new Account(item);
-                comboBox2.Items.Add(acc);
+                Account acc = new Account();
+                acc.UserName = item[0].ToString();
+                comboBox2.Items.Add(acc.UserName);
             }
         }
 

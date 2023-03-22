@@ -71,7 +71,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(255, 704);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // bunifuSeparator2
             // 
@@ -767,9 +766,7 @@
             this.Name = "ControlForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ControlForm";
-            //this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ControlForm_FormClosed);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ControlForm_FormClosing);
-
             this.Load += new System.EventHandler(this.ControlForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

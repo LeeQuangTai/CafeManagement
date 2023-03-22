@@ -30,7 +30,7 @@ namespace cafeManagement.Resource.DAO
             return result.Rows.Count > 0;
         }
 
-        public int EditAccount(string userName, string newUserName, string displayname, string password, string type)
+        public int EditAccount(string userName, string newUserName, string displayname, string password, int type)
         {
             int rowsAffected = 0;
             using (SqlConnection connection = new SqlConnection(DataProvider.Instance.ConnectionSTR))
@@ -55,6 +55,7 @@ namespace cafeManagement.Resource.DAO
                 return rowsAffected;
             }
         }
+       
         public int addAccount(string userAccount, string displayName, string password, string accountType)
         {
             int rowsAffected = 0;

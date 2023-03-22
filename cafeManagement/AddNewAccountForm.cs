@@ -21,11 +21,11 @@ namespace cafeManagement
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            if (bunifuTextBox1.Text == ""|| bunifuTextBox2.Text == "" ||bunifuTextBox3.Text == ""||comboBox1.Text=="")
+            if (userNametxt.Text == ""|| passTxt.Text == "" ||displayNameTxt.Text == ""||typeCbbx.Text=="")
             {
                 MessageBox.Show("Vui lòng không để trống!");
             }
-            else if (AccountDAO.Instance.addAccount(bunifuTextBox1.Text, bunifuTextBox3.Text, bunifuTextBox2.Text, (comboBox1.Text == "Admin" ? 1 : 2).ToString()) > 0)
+            else if (AccountDAO.Instance.addAccount(userNametxt.Text, displayNameTxt.Text, passTxt.Text, (typeCbbx.Text == "Admin" ? 1 : 2).ToString()) > 0)
             {
                 MessageBox.Show("Tạo tài khoản thành công!");
 

@@ -5,6 +5,8 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +19,7 @@ namespace cafeManagement
     
         private Form childFormCheck = null;
         public bool isSignOut = true ;
+        private Form displayForm = new Form();
         public override FormType FormType => FormType.Control; 
         public ControlForm()
         {
@@ -36,39 +39,37 @@ namespace cafeManagement
 
         private void bunifuButton5_Click(object sender, EventArgs e)
         {
-            AddChildFormToPanel(new OrderForm());
+            displayForm = AddChildFormToPanel(new OrderForm());
         }
 
         private void overviewBtn_Click(object sender, EventArgs e)
         {
 
-            AddChildFormToPanel(new OverviewForm());
+            displayForm = AddChildFormToPanel(new OverviewForm());
         }
 
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+  
 
-        }
-
-        public void AddChildFormToPanel(Form childForm)
+        public Form AddChildFormToPanel(Form childForm)
         {
             if (childFormCheck != null)
             {
                 childFormCheck.Close();
             }
             if (childForm == null)
-                return;
+                return null;
             childFormCheck = childForm;
             childForm.TopLevel = false;
             childForm.Parent = this.displayFormPanel;
             childForm.Dock = DockStyle.Fill;
             childForm.Show();
+            return childForm;
         }
 
         private void bunifuButton4_Click(object sender, EventArgs e)
         {
-            AddChildFormToPanel(new MenuForm());
+            displayForm = AddChildFormToPanel(new MenuForm());
         }
 
         private void signOut_click(object sender, EventArgs e)
@@ -79,7 +80,7 @@ namespace cafeManagement
 
         private void AccountButton_Click(object sender, EventArgs e)
         {
-            AddChildFormToPanel(new AccountMangementForm());
+            displayForm = AddChildFormToPanel(new AccountMangementForm());
         }
         public override void OnShow()
         {
@@ -87,16 +88,18 @@ namespace cafeManagement
             AddChildFormToPanel(null);
         }
 
-        private void ControlForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
         private void ControlForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
             {
+                if (displayForm != null)
+                {
+                    displayForm.Close();
+                }
                 e.Cancel = true;
             }
         }
+                
+
     }
 }   
