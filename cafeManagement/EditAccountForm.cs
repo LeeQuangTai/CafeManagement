@@ -22,15 +22,16 @@ namespace cafeManagement
 
         private void bunifuButton1_Click_1(object sender, EventArgs e)
         {
+            Account account = new Account(userNameCbb.Text, passwordTxt.Text, displayNameTxt.Text, typecbb.Text == "Admin" ? 1 : 2);
             if (MessageBox.Show("Bạn đã chắc chắn?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
-                if (bunifuTextBox2.Text == "" || bunifuTextBox3.Text == "" || bunifuTextBox4.Text == "")
+                if (passwordTxt.Text == "" || displayNameTxt.Text == "" || newUserNametxt.Text == "")
                 {
                     MessageBox.Show("Vui lòng không để trống!");
                 }
                 else
                 {
-                    if (DataProvider.Instance.ExecuteNonQueryToEdit(comboBox2.Text, bunifuTextBox4.Text, bunifuTextBox3.Text, bunifuTextBox2.Text, (comboBox1.Text == "Admin" ? 1 : 2).ToString()) > 0 ? true : false)
+                    if (AccountDAO.Instance.EditAccount(account.UserName, newUserNametxt.Text,account.DisplayName,account.Password,account.Type) > 0 ? true : false)
                         MessageBox.Show("Chỉnh sửa hành công!");
                     else
                         MessageBox.Show("Chỉnh sứa thất bại!");
@@ -43,7 +44,9 @@ namespace cafeManagement
             var data = DataProvider.Instance.ExecuteQuery("select userName from dbo.account");
             foreach (DataRow item in data.Rows)
             {
-                comboBox2.Items.Add(item[0]);
+                Account account = new Account();
+                account.UserName = item[0].ToString();
+                userNameCbb.Items.Add(account.UserName);
             }
         }
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
