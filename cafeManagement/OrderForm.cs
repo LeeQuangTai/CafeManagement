@@ -62,6 +62,9 @@ namespace cafeManagement
                     case "Trống":
                         btn.BackColor = Color.Green;
                         break;
+                    case "Tr?ng":
+                        btn.BackColor = Color.Green;
+                        break;
                     default:
                         btn.BackColor = Color.Gray;
                         break;
@@ -133,6 +136,7 @@ namespace cafeManagement
                     BillDAO.Instance.InsertBill(table.TableID);
                     BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), drinkID, quantity); 
                 }
+                
             }
             else
             {
@@ -146,6 +150,7 @@ namespace cafeManagement
                 }
             }
             ShowBill(table.TableID);
+            nudQuantity.Value = 0;
             TableLoad();
 
         }
@@ -196,17 +201,41 @@ namespace cafeManagement
         }
         private void btnTransfer_Click(object sender, EventArgs e)
         {
-            string tableID1  = (dgvOrder.Tag as Table).TableID;
+            string tableID1 = (dgvOrder.Tag as Table).TableID;
             string tableID2 = (cbbTransfer.SelectedItem as Table).TableID;
-            //if (((sender as Button).Tag as Table).Status == "Trống")
-            //{
-            //    MessageBox.Show("Đây là bàn trống, bạn phải chọn bàn đã có người!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-            if (MessageBox.Show(string.Format("Chuyển bàn {0} qua bàn {1}?", (dgvOrder.Tag as Table).TableName, (cbbTransfer.SelectedItem as Table).TableName), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if ((dgvOrder.Tag as Table).Status == "Trống")
             {
-                TableDAO.Instance.TransferTable(tableID1, tableID2);
+                MessageBox.Show("Xin vui lòng chọn bàn có người!", "Thông báo");          
+                if (tableID1== tableID2)
+                {
+                    MessageBox.Show("Mời chọn bàn chuyển khác bàn được chuyển!", "Thông báo");
+                }
+            }
+            else
+            {
 
-                TableLoad();
+                //if (((sender as Button).Tag as Table).Status == "Trống")
+                //{
+                //    MessageBox.Show("Đây là bàn trống, bạn phải chọn bàn đã có người!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //}
+                if (MessageBox.Show(string.Format("Chuyển bàn {0} qua bàn {1}?", (dgvOrder.Tag as Table).TableName, (cbbTransfer.SelectedItem as Table).TableName), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                {
+                    TableDAO.Instance.TransferTable(tableID1, tableID2);
+                    Table table = dgvOrder.Tag as Table;
+                    int billID = BillDAO.Instance.GetBillIDuncheck(table.TableID);
+                    int discount = (int)nudDiscount.Value;
+                    if (billID != -1)
+                    {
+                        
+                            BillDAO.Instance.CheckOut(billID, discount);
+                            ShowBill(table.TableID);
+                            TableLoad();
+                            
+                    }
+                    TableLoad();
+
+                }
+                
             }
         }
 

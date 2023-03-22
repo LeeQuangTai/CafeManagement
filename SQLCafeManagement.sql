@@ -371,7 +371,19 @@ BEGIN
 	SELECT @BillID2 = BillID FROM dbo.Bill WHERE TableID = @TableID2 AND BillStatus = 0
 	SELECT @BillID1 = BillID FROM dbo.Bill WHERE TableID = @TableID1 AND BillStatus = 0
 	
-	IF (@BillID1 IS NULL)
+	--IF (@BillID1 Is null and @BillID2 is null)
+	--BEGIN
+	--		UPDATE BillInfo SET BillID = @BillID2 WHERE BillID = @BillID1
+
+	
+	--DROP TABLE dbo.IdBillInfoTable
+	--END
+
+	IF (@BillID1 IS NULL )
+	print @BillID1
+	print '--------'
+	print @BillID2
+	print '--------'
 	BEGIN
 	INSERT dbo.Bill
 		(
@@ -393,8 +405,12 @@ BEGIN
 
 	SELECT @isFirstTablEmty  = COUNT (*) FROM dbo.BillInfo WHERE BillID = @BillID1
 	
-	IF (@BillID2 IS NULL)
+	IF ( @BillID2 IS NULL)
 	BEGIN
+	print @BillID1
+	print '--------'
+	print @BillID2
+	print '--------'
 	INSERT dbo.Bill
 		(
 		    DateCheckIn,
@@ -411,6 +427,7 @@ BEGIN
 		    0          -- discount - int
 		    )
 			SELECT @BillID2 = MAX(BillID) FROM dbo.Bill WHERE TableID = @TableID2 AND BillStatus = 0
+			
 		END
 
 	SELECT @isSecondTablEmty  = COUNT (*) FROM dbo.BillInfo WHERE BillID = @BillID2
@@ -420,7 +437,6 @@ BEGIN
 	UPDATE dbo.BillInfo SET BillID = @BillID2 WHERE BillID = @BillID1
 	UPDATE dbo.BillInfo SET BillID = @BillID1 WHERE BillID IN (SELECT * FROM dbo.IdBillInfoTable)	
 	DROP TABLE dbo.IdBillInfoTable
-
 	IF (@isFirstTablEmty = 0)
 		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE TableID = @TableID2
 		
@@ -428,6 +444,10 @@ BEGIN
 		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE TableID = @TableID1
 END
 GO
+exec sp_Transfer 'B05', 'B03'
+select * from Bill 
+select * from BillInfo
+select * from TableManagement
 ---------------------Create Trigger-----------------------
 
 CREATE TRIGGER UTG_UpdateBillInfo
@@ -484,7 +504,7 @@ END
 GO
 -------------------------------------------------TEST---------------------
 	
-exec sp_Transfer 'B01', 'B02'
+
 
 select * from Bill 
 select * from BillInfo
