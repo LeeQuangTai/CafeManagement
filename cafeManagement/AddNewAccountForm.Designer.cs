@@ -440,7 +440,7 @@ namespace cafeManagement
             // 
             // typeCbbx
             // 
-            this.typeCbbx.BackColor = System.Drawing.Color.White;
+            this.typeCbbx.BackColor = System.Drawing.Color.Black;
             this.typeCbbx.Cursor = System.Windows.Forms.Cursors.Hand;
             this.typeCbbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.typeCbbx.Font = new System.Drawing.Font("Cascadia Code Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
