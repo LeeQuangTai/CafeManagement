@@ -9,33 +9,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace cafeManagement.Resource.BUS
 {
     internal class AccountBUS
     {
         public AccountBUS() { }
-        private static AccountBUS instance;
-        public static AccountBUS Instance 
+        private AccountDAO accountDAO = new AccountDAO();
+        private static AccountDAO instance;
+        public static AccountDAO Instance 
         { 
-            get { if (instance != null) instance = new AccountBUS(); return instance; } set { instance = value; }        
+            get { if (instance != null) instance = new AccountDAO(); return instance; }
+            private set { instance = value; }        
         }
         public bool Login(string userName, string passWord)
         {
-            return false;
+            if (accountDAO.Login(userName, passWord))
+            {
+                return true;
+            }
+            return false ;
         }
 
         public int EditAccount(string userName, string newUserName, string displayname, string password, int type)
         {
-            return 1;
+            return AccountDAO.Instance.EditAccount(userName, newUserName, displayname, password, type);
         }
 
-        public void AddAccount(string userAccount, string displayName, string password, string accountType)
+        public int AddAccount(string userAccount, string displayName, string password, string accountType)
         {
+            return AccountDAO.Instance.addAccount(userAccount, displayName, password, accountType);
         }
         public int DeleteAccount(string a)
         {
-            return  -1;
+            return AccountDAO.Instance.DeleteAccount(a);
         }
     }
 

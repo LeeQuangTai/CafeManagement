@@ -9,7 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using cafeManagement.Resource.DAO; 
+using cafeManagement.Resource.DAO;
+using cafeManagement.Resource.BUS;
+
 namespace cafeManagement
 {
     public partial class AddNewAccountForm : Form
