@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace cafeManagement
 {
-    public partial class DeleteForm : Form
+    public partial class DeleteAccountForm : Form
     {
-        public DeleteForm()
+        public DeleteAccountForm()
         {
             InitializeComponent();
         }

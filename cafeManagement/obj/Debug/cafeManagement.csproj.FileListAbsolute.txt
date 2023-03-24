@@ -92,5 +92,12 @@ C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\obj\Debug\cafeMa
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\obj\Debug\cafeManagement.csproj.CopyComplete
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\obj\Debug\cafeManagement.exe
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\obj\Debug\cafeManagement.pdb
-D:\Data\cafeManagement\cafeManagement\obj\Debug\cafeManagement.DeleteForm.resources
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\obj\Debug\cafeManagement.DeleteForm.resources
+D:\Data\cafeManagement\cafeManagement\bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.dll
+D:\Data\cafeManagement\cafeManagement\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.dll
+D:\Data\cafeManagement\cafeManagement\bin\Debug\Bunifu.UI.WinForms.BunifuGradientPanel.dll
+D:\Data\cafeManagement\cafeManagement\bin\Debug\Bunifu.UI.WinForms.BunifuGroupBox.dll
+D:\Data\cafeManagement\cafeManagement\bin\Debug\Bunifu.UI.WinForms.BunifuPanel.dll
+D:\Data\cafeManagement\cafeManagement\bin\Debug\Bunifu.UI.WinForms.BunifuShapes.dll
+D:\Data\cafeManagement\cafeManagement\obj\Debug\cafeManagement.StatisticForm.resources
+D:\Data\cafeManagement\cafeManagement\obj\Debug\cafeManagement.DeleteAccountForm.resources

@@ -38,7 +38,7 @@ namespace cafeManagement
 
         private void deleteAccount_click(object s, EventArgs e)
         {
-            (new DeleteForm()).Show();
+            (new DeleteAccountForm()).Show();
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -65,19 +65,19 @@ namespace cafeManagement
 
         private void onLoadDataBySearch(object sender, EventArgs e)
         {
-            loadSearch();
+            loadSearch(bunifuTextBox1.Text);
         }
 
         private void bunifuTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter) 
             {
-                loadSearch();
+                loadSearch(bunifuTextBox1.Text);
             }
         }
-        void loadSearch()
+        void loadSearch(string varQuery)
         {
-            string query = "Select * from dbo.Account where UserName like  '%" + bunifuTextBox1.Text + "%'";
+            string query = "Select * from dbo.Account where UserName like  '%" + varQuery + "%'";
             try
             {
                 dataGridView1.DataSource = DataProvider.Instance.ExecuteQuery(query);

@@ -16,5 +16,10 @@ namespace cafeManagement
         {
             InitializeComponent();
         }
+
+        private void bunifuShapes2_ShapeChanged(object sender, Bunifu.UI.WinForms.BunifuShapes.ShapeChangedEventArgs e)
+        {
+
+        }
     }
 }
