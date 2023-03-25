@@ -42,7 +42,7 @@ namespace cafeManagement
 
         private void loadSearch(string varQuery)
         {
-            string query = "Select * from dbo.Drink where DrinkName like  '%" + varQuery + "%' or DrinkCategoryID like '%"+varQuery + "%'";
+            string query = "Select * from dbo.Drink where DrinkName like  '%" + varQuery + "%' or DrinkCategoryID like '%"+ varQuery + "%'";
             try
             {
                 dtwMenu.DataSource = DataProvider.Instance.ExecuteQuery(query);

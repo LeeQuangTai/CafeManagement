@@ -34,18 +34,21 @@ namespace cafeManagement
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuTextBox1 = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.bunifuTextBox3 = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.bunifu_Ten_Mon = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbDanhMuc = new System.Windows.Forms.ComboBox();
+            this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifu_ID_Mon = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.nmDonGia = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nmDonGia)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuLabel1
@@ -56,7 +59,7 @@ namespace cafeManagement
             this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.Font = new System.Drawing.Font("Candara Light", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(42)))), ((int)(((byte)(33)))));
-            this.bunifuLabel1.Location = new System.Drawing.Point(36, 63);
+            this.bunifuLabel1.Location = new System.Drawing.Point(36, 62);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel1.Size = new System.Drawing.Size(121, 40);
@@ -99,153 +102,79 @@ namespace cafeManagement
             this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // bunifuTextBox1
+            // bunifu_Ten_Mon
             // 
-            this.bunifuTextBox1.AcceptsReturn = false;
-            this.bunifuTextBox1.AcceptsTab = false;
-            this.bunifuTextBox1.AnimationSpeed = 200;
-            this.bunifuTextBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.bunifuTextBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.bunifuTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuTextBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextBox1.BackgroundImage")));
-            this.bunifuTextBox1.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.bunifuTextBox1.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.bunifuTextBox1.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.bunifuTextBox1.BorderColorIdle = System.Drawing.Color.Silver;
-            this.bunifuTextBox1.BorderRadius = 1;
-            this.bunifuTextBox1.BorderThickness = 1;
-            this.bunifuTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.bunifuTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuTextBox1.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.bunifuTextBox1.DefaultText = "";
-            this.bunifuTextBox1.FillColor = System.Drawing.Color.White;
-            this.bunifuTextBox1.HideSelection = true;
-            this.bunifuTextBox1.IconLeft = null;
-            this.bunifuTextBox1.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuTextBox1.IconPadding = 10;
-            this.bunifuTextBox1.IconRight = null;
-            this.bunifuTextBox1.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuTextBox1.Lines = new string[0];
-            this.bunifuTextBox1.Location = new System.Drawing.Point(222, 63);
-            this.bunifuTextBox1.MaxLength = 32767;
-            this.bunifuTextBox1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.bunifuTextBox1.Modified = false;
-            this.bunifuTextBox1.Multiline = false;
-            this.bunifuTextBox1.Name = "bunifuTextBox1";
+            this.bunifu_Ten_Mon.AcceptsReturn = false;
+            this.bunifu_Ten_Mon.AcceptsTab = false;
+            this.bunifu_Ten_Mon.AnimationSpeed = 200;
+            this.bunifu_Ten_Mon.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.bunifu_Ten_Mon.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.bunifu_Ten_Mon.BackColor = System.Drawing.Color.Transparent;
+            this.bunifu_Ten_Mon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifu_Ten_Mon.BackgroundImage")));
+            this.bunifu_Ten_Mon.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.bunifu_Ten_Mon.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.bunifu_Ten_Mon.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.bunifu_Ten_Mon.BorderColorIdle = System.Drawing.Color.Silver;
+            this.bunifu_Ten_Mon.BorderRadius = 1;
+            this.bunifu_Ten_Mon.BorderThickness = 1;
+            this.bunifu_Ten_Mon.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.bunifu_Ten_Mon.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bunifu_Ten_Mon.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.bunifu_Ten_Mon.DefaultText = "";
+            this.bunifu_Ten_Mon.FillColor = System.Drawing.Color.White;
+            this.bunifu_Ten_Mon.HideSelection = true;
+            this.bunifu_Ten_Mon.IconLeft = null;
+            this.bunifu_Ten_Mon.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.bunifu_Ten_Mon.IconPadding = 10;
+            this.bunifu_Ten_Mon.IconRight = null;
+            this.bunifu_Ten_Mon.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.bunifu_Ten_Mon.Lines = new string[0];
+            this.bunifu_Ten_Mon.Location = new System.Drawing.Point(248, 70);
+            this.bunifu_Ten_Mon.MaxLength = 32767;
+            this.bunifu_Ten_Mon.MinimumSize = new System.Drawing.Size(1, 1);
+            this.bunifu_Ten_Mon.Modified = false;
+            this.bunifu_Ten_Mon.Multiline = false;
+            this.bunifu_Ten_Mon.Name = "bunifu_Ten_Mon";
             stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
             stateProperties1.FillColor = System.Drawing.Color.Empty;
             stateProperties1.ForeColor = System.Drawing.Color.Empty;
             stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.bunifuTextBox1.OnActiveState = stateProperties1;
+            this.bunifu_Ten_Mon.OnActiveState = stateProperties1;
             stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.bunifuTextBox1.OnDisabledState = stateProperties2;
+            this.bunifu_Ten_Mon.OnDisabledState = stateProperties2;
             stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties3.FillColor = System.Drawing.Color.Empty;
             stateProperties3.ForeColor = System.Drawing.Color.Empty;
             stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.bunifuTextBox1.OnHoverState = stateProperties3;
+            this.bunifu_Ten_Mon.OnHoverState = stateProperties3;
             stateProperties4.BorderColor = System.Drawing.Color.Silver;
             stateProperties4.FillColor = System.Drawing.Color.White;
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.bunifuTextBox1.OnIdleState = stateProperties4;
-            this.bunifuTextBox1.Padding = new System.Windows.Forms.Padding(3);
-            this.bunifuTextBox1.PasswordChar = '\0';
-            this.bunifuTextBox1.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.bunifuTextBox1.PlaceholderText = "Nhập tên món";
-            this.bunifuTextBox1.ReadOnly = false;
-            this.bunifuTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.bunifuTextBox1.SelectedText = "";
-            this.bunifuTextBox1.SelectionLength = 0;
-            this.bunifuTextBox1.SelectionStart = 0;
-            this.bunifuTextBox1.ShortcutsEnabled = true;
-            this.bunifuTextBox1.Size = new System.Drawing.Size(260, 37);
-            this.bunifuTextBox1.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.bunifuTextBox1.TabIndex = 2;
-            this.bunifuTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.bunifuTextBox1.TextMarginBottom = 0;
-            this.bunifuTextBox1.TextMarginLeft = 3;
-            this.bunifuTextBox1.TextMarginTop = 0;
-            this.bunifuTextBox1.TextPlaceholder = "Nhập tên món";
-            this.bunifuTextBox1.UseSystemPasswordChar = false;
-            this.bunifuTextBox1.WordWrap = true;
-            // 
-            // bunifuTextBox3
-            // 
-            this.bunifuTextBox3.AcceptsReturn = false;
-            this.bunifuTextBox3.AcceptsTab = false;
-            this.bunifuTextBox3.AnimationSpeed = 200;
-            this.bunifuTextBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.bunifuTextBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.bunifuTextBox3.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuTextBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextBox3.BackgroundImage")));
-            this.bunifuTextBox3.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.bunifuTextBox3.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.bunifuTextBox3.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.bunifuTextBox3.BorderColorIdle = System.Drawing.Color.Silver;
-            this.bunifuTextBox3.BorderRadius = 1;
-            this.bunifuTextBox3.BorderThickness = 1;
-            this.bunifuTextBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.bunifuTextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuTextBox3.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.bunifuTextBox3.DefaultText = "";
-            this.bunifuTextBox3.FillColor = System.Drawing.Color.White;
-            this.bunifuTextBox3.HideSelection = true;
-            this.bunifuTextBox3.IconLeft = null;
-            this.bunifuTextBox3.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuTextBox3.IconPadding = 10;
-            this.bunifuTextBox3.IconRight = null;
-            this.bunifuTextBox3.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuTextBox3.Lines = new string[0];
-            this.bunifuTextBox3.Location = new System.Drawing.Point(222, 158);
-            this.bunifuTextBox3.MaxLength = 32767;
-            this.bunifuTextBox3.MinimumSize = new System.Drawing.Size(1, 1);
-            this.bunifuTextBox3.Modified = false;
-            this.bunifuTextBox3.Multiline = false;
-            this.bunifuTextBox3.Name = "bunifuTextBox3";
-            stateProperties5.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties5.FillColor = System.Drawing.Color.Empty;
-            stateProperties5.ForeColor = System.Drawing.Color.Empty;
-            stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.bunifuTextBox3.OnActiveState = stateProperties5;
-            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties6.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.bunifuTextBox3.OnDisabledState = stateProperties6;
-            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties7.FillColor = System.Drawing.Color.Empty;
-            stateProperties7.ForeColor = System.Drawing.Color.Empty;
-            stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.bunifuTextBox3.OnHoverState = stateProperties7;
-            stateProperties8.BorderColor = System.Drawing.Color.Silver;
-            stateProperties8.FillColor = System.Drawing.Color.White;
-            stateProperties8.ForeColor = System.Drawing.Color.Empty;
-            stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.bunifuTextBox3.OnIdleState = stateProperties8;
-            this.bunifuTextBox3.Padding = new System.Windows.Forms.Padding(3);
-            this.bunifuTextBox3.PasswordChar = '\0';
-            this.bunifuTextBox3.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.bunifuTextBox3.PlaceholderText = "Nhập đơn giá";
-            this.bunifuTextBox3.ReadOnly = false;
-            this.bunifuTextBox3.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.bunifuTextBox3.SelectedText = "";
-            this.bunifuTextBox3.SelectionLength = 0;
-            this.bunifuTextBox3.SelectionStart = 0;
-            this.bunifuTextBox3.ShortcutsEnabled = true;
-            this.bunifuTextBox3.Size = new System.Drawing.Size(260, 37);
-            this.bunifuTextBox3.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.bunifuTextBox3.TabIndex = 2;
-            this.bunifuTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.bunifuTextBox3.TextMarginBottom = 0;
-            this.bunifuTextBox3.TextMarginLeft = 3;
-            this.bunifuTextBox3.TextMarginTop = 0;
-            this.bunifuTextBox3.TextPlaceholder = "Nhập đơn giá";
-            this.bunifuTextBox3.UseSystemPasswordChar = false;
-            this.bunifuTextBox3.WordWrap = true;
+            this.bunifu_Ten_Mon.OnIdleState = stateProperties4;
+            this.bunifu_Ten_Mon.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bunifu_Ten_Mon.PasswordChar = '\0';
+            this.bunifu_Ten_Mon.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.bunifu_Ten_Mon.PlaceholderText = "Nhập tên món";
+            this.bunifu_Ten_Mon.ReadOnly = false;
+            this.bunifu_Ten_Mon.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.bunifu_Ten_Mon.SelectedText = "";
+            this.bunifu_Ten_Mon.SelectionLength = 0;
+            this.bunifu_Ten_Mon.SelectionStart = 0;
+            this.bunifu_Ten_Mon.ShortcutsEnabled = true;
+            this.bunifu_Ten_Mon.Size = new System.Drawing.Size(260, 37);
+            this.bunifu_Ten_Mon.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            this.bunifu_Ten_Mon.TabIndex = 2;
+            this.bunifu_Ten_Mon.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bunifu_Ten_Mon.TextMarginBottom = 0;
+            this.bunifu_Ten_Mon.TextMarginLeft = 3;
+            this.bunifu_Ten_Mon.TextMarginTop = 0;
+            this.bunifu_Ten_Mon.TextPlaceholder = "Nhập tên món";
+            this.bunifu_Ten_Mon.UseSystemPasswordChar = false;
+            this.bunifu_Ten_Mon.WordWrap = true;
             // 
             // bunifuButton1
             // 
@@ -335,24 +264,121 @@ namespace cafeManagement
             this.bunifuButton1.TextMarginLeft = 0;
             this.bunifuButton1.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton1.UseDefaultRadiusAndThickness = true;
+            this.bunifuButton1.Click += new System.EventHandler(this.bunifuButton1_Click);
             // 
-            // comboBox1
+            // cbDanhMuc
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.White;
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Trà sữa",
-            "Cà phê",
-            "Soda",
-            "Beer"});
-            this.comboBox1.Location = new System.Drawing.Point(222, 118);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(260, 24);
-            this.comboBox1.TabIndex = 6;
+            this.cbDanhMuc.BackColor = System.Drawing.Color.White;
+            this.cbDanhMuc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbDanhMuc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDanhMuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDanhMuc.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.cbDanhMuc.FormattingEnabled = true;
+            this.cbDanhMuc.Location = new System.Drawing.Point(248, 125);
+            this.cbDanhMuc.Name = "cbDanhMuc";
+            this.cbDanhMuc.Size = new System.Drawing.Size(260, 24);
+            this.cbDanhMuc.TabIndex = 6;
+            // 
+            // bunifuLabel4
+            // 
+            this.bunifuLabel4.AllowParentOverrides = false;
+            this.bunifuLabel4.AutoEllipsis = false;
+            this.bunifuLabel4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel4.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel4.Font = new System.Drawing.Font("Candara Light", 23.75F);
+            this.bunifuLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(42)))), ((int)(((byte)(33)))));
+            this.bunifuLabel4.Location = new System.Drawing.Point(36, 16);
+            this.bunifuLabel4.Name = "bunifuLabel4";
+            this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel4.Size = new System.Drawing.Size(98, 39);
+            this.bunifuLabel4.TabIndex = 7;
+            this.bunifuLabel4.Text = "ID món";
+            this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel4.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifu_ID_Mon
+            // 
+            this.bunifu_ID_Mon.AcceptsReturn = false;
+            this.bunifu_ID_Mon.AcceptsTab = false;
+            this.bunifu_ID_Mon.AnimationSpeed = 200;
+            this.bunifu_ID_Mon.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.bunifu_ID_Mon.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.bunifu_ID_Mon.BackColor = System.Drawing.Color.Transparent;
+            this.bunifu_ID_Mon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifu_ID_Mon.BackgroundImage")));
+            this.bunifu_ID_Mon.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.bunifu_ID_Mon.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.bunifu_ID_Mon.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.bunifu_ID_Mon.BorderColorIdle = System.Drawing.Color.Silver;
+            this.bunifu_ID_Mon.BorderRadius = 1;
+            this.bunifu_ID_Mon.BorderThickness = 1;
+            this.bunifu_ID_Mon.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.bunifu_ID_Mon.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bunifu_ID_Mon.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.bunifu_ID_Mon.DefaultText = "";
+            this.bunifu_ID_Mon.FillColor = System.Drawing.Color.White;
+            this.bunifu_ID_Mon.HideSelection = true;
+            this.bunifu_ID_Mon.IconLeft = null;
+            this.bunifu_ID_Mon.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.bunifu_ID_Mon.IconPadding = 10;
+            this.bunifu_ID_Mon.IconRight = null;
+            this.bunifu_ID_Mon.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.bunifu_ID_Mon.Lines = new string[0];
+            this.bunifu_ID_Mon.Location = new System.Drawing.Point(246, 23);
+            this.bunifu_ID_Mon.MaxLength = 32767;
+            this.bunifu_ID_Mon.MinimumSize = new System.Drawing.Size(1, 1);
+            this.bunifu_ID_Mon.Modified = false;
+            this.bunifu_ID_Mon.Multiline = false;
+            this.bunifu_ID_Mon.Name = "bunifu_ID_Mon";
+            stateProperties5.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties5.FillColor = System.Drawing.Color.Empty;
+            stateProperties5.ForeColor = System.Drawing.Color.Empty;
+            stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.bunifu_ID_Mon.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties6.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.bunifu_ID_Mon.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties7.FillColor = System.Drawing.Color.Empty;
+            stateProperties7.ForeColor = System.Drawing.Color.Empty;
+            stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.bunifu_ID_Mon.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = System.Drawing.Color.Silver;
+            stateProperties8.FillColor = System.Drawing.Color.White;
+            stateProperties8.ForeColor = System.Drawing.Color.Empty;
+            stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.bunifu_ID_Mon.OnIdleState = stateProperties8;
+            this.bunifu_ID_Mon.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bunifu_ID_Mon.PasswordChar = '\0';
+            this.bunifu_ID_Mon.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.bunifu_ID_Mon.PlaceholderText = "Nhập ID";
+            this.bunifu_ID_Mon.ReadOnly = false;
+            this.bunifu_ID_Mon.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.bunifu_ID_Mon.SelectedText = "";
+            this.bunifu_ID_Mon.SelectionLength = 0;
+            this.bunifu_ID_Mon.SelectionStart = 0;
+            this.bunifu_ID_Mon.ShortcutsEnabled = true;
+            this.bunifu_ID_Mon.Size = new System.Drawing.Size(260, 37);
+            this.bunifu_ID_Mon.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            this.bunifu_ID_Mon.TabIndex = 8;
+            this.bunifu_ID_Mon.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bunifu_ID_Mon.TextMarginBottom = 0;
+            this.bunifu_ID_Mon.TextMarginLeft = 3;
+            this.bunifu_ID_Mon.TextMarginTop = 0;
+            this.bunifu_ID_Mon.TextPlaceholder = "Nhập ID";
+            this.bunifu_ID_Mon.UseSystemPasswordChar = false;
+            this.bunifu_ID_Mon.WordWrap = true;
+            this.bunifu_ID_Mon.TextChanged += new System.EventHandler(this.bunifu_ID_Mon_TextChanged);
+            // 
+            // nmDonGia
+            // 
+            this.nmDonGia.Location = new System.Drawing.Point(246, 170);
+            this.nmDonGia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nmDonGia.Name = "nmDonGia";
+            this.nmDonGia.Size = new System.Drawing.Size(262, 20);
+            this.nmDonGia.TabIndex = 9;
+            this.nmDonGia.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // AddNewObject
             // 
@@ -360,10 +386,12 @@ namespace cafeManagement
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(195)))));
             this.ClientSize = new System.Drawing.Size(535, 303);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.nmDonGia);
+            this.Controls.Add(this.bunifu_ID_Mon);
+            this.Controls.Add(this.bunifuLabel4);
+            this.Controls.Add(this.cbDanhMuc);
             this.Controls.Add(this.bunifuButton1);
-            this.Controls.Add(this.bunifuTextBox3);
-            this.Controls.Add(this.bunifuTextBox1);
+            this.Controls.Add(this.bunifu_Ten_Mon);
             this.Controls.Add(this.bunifuLabel3);
             this.Controls.Add(this.bunifuLabel2);
             this.Controls.Add(this.bunifuLabel1);
@@ -371,6 +399,8 @@ namespace cafeManagement
             this.Name = "AddNewObject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNewObject";
+            this.Load += new System.EventHandler(this.AddNewObject_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nmDonGia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,9 +411,11 @@ namespace cafeManagement
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel2;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel3;
-        private Bunifu.UI.WinForms.BunifuTextBox bunifuTextBox1;
-        private Bunifu.UI.WinForms.BunifuTextBox bunifuTextBox3;
+        private Bunifu.UI.WinForms.BunifuTextBox bunifu_Ten_Mon;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbDanhMuc;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel4;
+        private Bunifu.UI.WinForms.BunifuTextBox bunifu_ID_Mon;
+        private System.Windows.Forms.NumericUpDown nmDonGia;
     }
 }

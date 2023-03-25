@@ -34,7 +34,7 @@ namespace cafeManagement
 
         private void bunifuButton7_Click(object sender, EventArgs e)
         {
-
+            displayForm = AddChildFormToPanel(new StatisticForm()); 
         }
 
         private void bunifuButton5_Click(object sender, EventArgs e)

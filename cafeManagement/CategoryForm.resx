@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="countOfNum.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="bunifuLabel1.BaseStylesheet" xml:space="preserve">
     <value>#bunifu-label { padding: 0px; font-family: 'Segoe UI Semibold'; font-size: 20pt; width: 100%; height: 100%; font-style: italic; font-weight: bold; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
   </data>
@@ -143,6 +137,15 @@
         rBnHmuexzRte+740HgP8yVCkDEXKUKQMRcpQpAxFylCkDEXKUKQMRcpQpAxFylCkDEXKUKQMRcpQpAxF
         ylCkDEXKUKQMRcpQpAxFylCkDEXKUKQMRcpQpAxFylCkDEXKUKQMRWrsa15PAX61r3l9AEv1l9NJsyQW
         AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="bunifuTextBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAGIAAAAlCAYAAAC5+DzaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACSSURBVGhD7dGxDcMwEARB9l8VBZbhMlyABQJM3IC0wQxw
+        yYe/g5C11mfO+bPnt39/MoyxD7xj//5kEOJNQkQIESFEhBARQkQIESFEhBARQkQIESFEhBARQkQIESFE
+        hBARQkQIESFEhBARQkQIESFEhBARQkQIESFEhBARQkQIESFExF+I67q++2DPb//+ZOB9Y9yeAY+8SQ/2
+        qgAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

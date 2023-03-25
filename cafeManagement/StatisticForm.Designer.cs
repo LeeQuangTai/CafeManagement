@@ -78,7 +78,7 @@
             this.titleDecriptionLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.titleDecriptionLabel.Size = new System.Drawing.Size(264, 17);
             this.titleDecriptionLabel.TabIndex = 12;
-            this.titleDecriptionLabel.Text = "Đây là thống kê hàng ngày của bạn";
+            this.titleDecriptionLabel.Text = "Đây là thống kê theo ngày của bạn";
             this.titleDecriptionLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.titleDecriptionLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
@@ -236,7 +236,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 291);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 285);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -250,7 +250,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 371);
+            this.dataGridView1.Size = new System.Drawing.Size(800, 377);
             this.dataGridView1.TabIndex = 18;
             // 
             // bunifuShapes3

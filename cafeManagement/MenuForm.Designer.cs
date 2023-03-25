@@ -64,7 +64,7 @@ namespace cafeManagement
             this.bunifuLabel1.Location = new System.Drawing.Point(0, 0);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(852, 37);
+            this.bunifuLabel1.Size = new System.Drawing.Size(252, 37);
             this.bunifuLabel1.TabIndex = 0;
             this.bunifuLabel1.Text = "Danh sách mặt hàng";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
