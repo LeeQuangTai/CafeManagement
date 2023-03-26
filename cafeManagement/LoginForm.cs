@@ -1,5 +1,5 @@
-﻿using cafeManagement.Resource.BUS;
-using cafeManagement.Resource.DAO;
+﻿using cafeManagement.BUS;
+using cafeManagement.DTO;
 using System;
 using System.Windows.Forms;
 
@@ -25,16 +25,16 @@ namespace cafeManagement
                 e.Cancel = true;
         }
 
-        bool Login(string userName, string passWord)
-        {
-            return AccountDAO.Instance.Login(userName, passWord);
-        }
+        //bool Login(string userName, string passWord)
+        //{
+        //    return AccountDAO.Instance.Login(userName, passWord);
+        //}
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
             string userName = userNameTxt.Text;
             string passWord = passwordTxt.Text;
-            if (Login(userName, passWord))
+            if (AccountBUS.Instance.Login(userName, passWord))
             {
                 isAllowToAccess = true;
                 Program.SwitchFormType(FormType.Control);

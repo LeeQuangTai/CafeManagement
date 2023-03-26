@@ -102,3 +102,9 @@ D:\Data\cafeManagement\cafeManagement\obj\Debug\cafeManagement.StatisticForm.res
 D:\Data\cafeManagement\cafeManagement\obj\Debug\cafeManagement.DeleteAccountForm.resources
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\obj\Debug\cafeManagement.DeleteAccountForm.resources
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\obj\Debug\cafeManagement.StatisticForm.resources
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\bin\Debug\cafeManagement.BUS.dll
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\bin\Debug\cafeManagement.DTO.dll
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\bin\Debug\cafeManagement.DAO.dll
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\bin\Debug\cafeManagement.BUS.pdb
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\bin\Debug\cafeManagement.DTO.pdb
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\bin\Debug\cafeManagement.DAO.pdb

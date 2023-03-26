@@ -241,6 +241,9 @@
     <EmbeddedResource Include="StatisticForm.resx">
       <DependentUpon>StatisticForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -269,6 +272,19 @@
   <ItemGroup>
     <None Include="Resource\back.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\cafeManagement.BUS\cafeManagement.BUS.csproj">
+      <Project>{b634cba9-3b30-4837-ab4e-bf6adc860e76}</Project>
+      <Name>cafeManagement.BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cafeManagement.DAO\cafeManagement.DAO.csproj">
+      <Project>{9E0841D7-47AA-4173-A812-CFFB4BA9CC31}</Project>
+      <Name>cafeManagement.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cafeManagement.DTO\cafeManagement.DTO.csproj">
+      <Project>{e8002579-18b3-4e06-b60e-e45365d70345}</Project>
+      <Name>cafeManagement.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

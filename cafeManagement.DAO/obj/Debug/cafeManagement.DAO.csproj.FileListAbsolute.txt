@@ -1,0 +1,9 @@
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DAO.dll
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DAO.pdb
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DTO.dll
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DTO.pdb
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.AssemblyReference.cache
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.CoreCompileInputs.cache
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.CopyComplete
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.dll
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.pdb
