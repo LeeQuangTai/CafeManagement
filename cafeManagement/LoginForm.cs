@@ -38,6 +38,9 @@ namespace cafeManagement
                 isAllowToAccess = true;
                 Program.SwitchFormType(FormType.Control);
                 //this.Close();
+                this.userNameTxt.Clear();
+                this.passwordTxt.Clear();
+                this.userNameTxt.Focus();
             }
             else
             {

@@ -60,10 +60,10 @@ namespace cafeManagement
                 switch (item.Status)
                 {
                     case "Trống":
-                        btn.BackColor = Color.Green;
+                        btn.BackColor = Color.FromArgb(60, 42, 33);
                         break;
                     case "Tr?ng":
-                        btn.BackColor = Color.Green;
+                        btn.BackColor = Color.FromArgb(60, 42, 33);
                         break;
                     default:
                         btn.BackColor = Color.Gray;
@@ -205,8 +205,8 @@ namespace cafeManagement
             string tableID2 = (cbbTransfer.SelectedItem as Table).TableID;
             if ((dgvOrder.Tag as Table).Status == "Trống")
             {
-                MessageBox.Show("Xin vui lòng chọn bàn có người!", "Thông báo");          
-                if (tableID1== tableID2)
+                MessageBox.Show("Đây là bàn trống, bạn phải chọn bàn đã có người!", "Thông báo");
+                if (tableID1 == tableID2)
                 {
                     MessageBox.Show("Mời chọn bàn chuyển khác bàn được chuyển!", "Thông báo");
                 }
@@ -214,10 +214,6 @@ namespace cafeManagement
             else
             {
 
-                //if (((sender as Button).Tag as Table).Status == "Trống")
-                //{
-                //    MessageBox.Show("Đây là bàn trống, bạn phải chọn bàn đã có người!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //}
                 if (MessageBox.Show(string.Format("Chuyển bàn {0} qua bàn {1}?", (dgvOrder.Tag as Table).TableName, (cbbTransfer.SelectedItem as Table).TableName), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
                     TableDAO.Instance.TransferTable(tableID1, tableID2);
@@ -235,7 +231,8 @@ namespace cafeManagement
                     TableLoad();
 
                 }
-                
+
+
             }
         }
 

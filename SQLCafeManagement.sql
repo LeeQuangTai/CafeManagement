@@ -365,25 +365,66 @@ BEGIN
 	DECLARE @BillID1 int
 	DECLARE @BillID2 int
 
-	DECLARE @isFirstTablEmty INT = 1
-	DECLARE @isSecondTablEmty INT = 1
+	DECLARE @isFirstTableEmpty INT = 1
+	DECLARE @isSecondTableEmpty INT = 1
+	DECLARE @isTableEmpty1 INT = 1
+	DECLARE @isTableEmpty2 INT = 1
 
 	SELECT @BillID2 = BillID FROM dbo.Bill WHERE TableID = @TableID2 AND BillStatus = 0
 	SELECT @BillID1 = BillID FROM dbo.Bill WHERE TableID = @TableID1 AND BillStatus = 0
 	
-	--IF (@BillID1 Is null and @BillID2 is null)
-	--BEGIN
-	--		UPDATE BillInfo SET BillID = @BillID2 WHERE BillID = @BillID1
+	IF(@BillID1 is not null AND @BillID2 is not null)
+		BEGIN
+			--Gộp bàn thứ 1 vào bàn thứ 2 bằng cách thay BillID trong bảng BillInfo
+			UPDATE BillInfo SET BillID = @BillID2 WHERE BillID = @BillID1
 
-	
-	--DROP TABLE dbo.IdBillInfoTable
-	--END
+			--Khi gộp bàn sẽ xuất hiện các món trùng lặp với nhau
+			--Tạo con trỏ và lấy ra các FoodID với số lần trùng lặp
+			DECLARE BillInfoCursor CURSOR FOR SELECT DrinkID, count(*) AS 'Count' FROM BillInfo WHERE BillID = @BillID2 GROUP BY DrinkID
+			OPEN BillInfoCursor
 
-	IF (@BillID1 IS NULL )
-	print @BillID1
-	print '--------'
-	print @BillID2
-	print '--------'
+			DECLARE @DrinkID INT
+			DECLARE @Quantity INT
+
+			FETCH NEXT FROM BillInfoCursor INTO @DrinkID, @Quantity
+
+			WHILE @@FETCH_STATUS = 0
+				BEGIN
+					--Trường hợp @count > 1 tức là món này bị trùng nhau, xuất hiện hơn 1 lần
+					IF(@Quantity > 1) 
+						BEGIN
+							DECLARE @finalFoodCount INT = 0
+							--Tính gộp tổng các FoodCount của món này
+							SELECT @finalFoodCount = SUM(Quantity) FROM BillInfo WHERE BillID = @BillID2 AND DrinkID = @DrinkID
+			
+							DECLARE @maxID INT = 0
+							--Lấy ra max ID của món này để tí nữa giữ lại, các ID khác xoá hết cho khỏi trùng nhau
+							SELECT @maxID = MAX(BillInfoID) FROM BillInfo WHERE BillID = @BillID2 AND DrinkID = @DrinkID
+
+							--update số lượng món ăn cho ID này
+							UPDATE BillInfo SET Quantity = @finalFoodCount WHERE BillID = @BillID2 AND DrinkID = @DrinkID AND BillInfoID = @maxID --Cài nhiều điều kiện cho chắc kèo
+
+							--Xoá các ID còn lại
+							DELETE BillInfo WHERE BillID = @BillID2 AND DrinkID = @DrinkID AND BillInfoID != @maxID
+						END
+
+					FETCH NEXT FROM BillInfoCursor INTO @DrinkID, @Quantity
+				END
+
+			CLOSE BillInfoCursor
+			DEALLOCATE BillInfoCursor
+		END
+
+	--If(@isFirstTableEmpty = 0)
+	--	Begin
+	--		Update dbo.TableManagement set Status = N'Trống' where TableID = @TableID1
+	--	End
+	--If(@isSecondTableEmpty = 0)
+	--	Begin
+	--		Update TableManagement set Status = N'Trống' where TableID = @TableID2
+	--	End
+
+	IF (@BillID1 IS NULL)
 	BEGIN
 	INSERT dbo.Bill
 		(
@@ -403,14 +444,10 @@ BEGIN
 			SELECT @BillID1 = MAX(BillID) FROM dbo.Bill WHERE TableID = @TableID1 AND BillStatus = 0
 	END
 
-	SELECT @isFirstTablEmty  = COUNT (*) FROM dbo.BillInfo WHERE BillID = @BillID1
+	SELECT @isFirstTableEmpty  = COUNT (*) FROM dbo.BillInfo WHERE BillID = @BillID1
 	
-	IF ( @BillID2 IS NULL)
+	IF (@BillID2 IS NULL)
 	BEGIN
-	print @BillID1
-	print '--------'
-	print @BillID2
-	print '--------'
 	INSERT dbo.Bill
 		(
 		    DateCheckIn,
@@ -427,21 +464,27 @@ BEGIN
 		    0          -- discount - int
 		    )
 			SELECT @BillID2 = MAX(BillID) FROM dbo.Bill WHERE TableID = @TableID2 AND BillStatus = 0
-			
 		END
 
-	SELECT @isSecondTablEmty  = COUNT (*) FROM dbo.BillInfo WHERE BillID = @BillID2
+	SELECT @isSecondTableEmpty  = COUNT (*) FROM dbo.BillInfo WHERE BillID = @BillID2
 
 	SELECT BillID INTO IDBillInfoTable FROM dbo.BillInfo WHERE BillID = @BillID1
 
 	UPDATE dbo.BillInfo SET BillID = @BillID2 WHERE BillID = @BillID1
 	UPDATE dbo.BillInfo SET BillID = @BillID1 WHERE BillID IN (SELECT * FROM dbo.IdBillInfoTable)	
 	DROP TABLE dbo.IdBillInfoTable
-	IF (@isFirstTablEmty = 0)
+
+	IF (@isTableEmpty1 = 0)
+		Begin
 		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE TableID = @TableID2
 		
-	IF (@isSecondTablEmty= 0)
+		end
+		
+	IF (@isTableEmpty2= 0)
+		begin
 		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE TableID = @TableID1
+		
+		end
 END
 GO
 exec sp_Transfer 'B05', 'B03'
@@ -450,7 +493,7 @@ select * from BillInfo
 select * from TableManagement
 ---------------------Create Trigger-----------------------
 
-CREATE TRIGGER UTG_UpdateBillInfo
+alter TRIGGER UTG_UpdateBillInfo
 ON dbo.BillInfo FOR INSERT, UPDATE
 AS
 BEGIN
@@ -477,11 +520,12 @@ BEGIN
 			PRINT @BillID
 			PRINT @count
 		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE TableID = @TableID	
+
 	End
 END
 GO
 ------------
-CREATE TRIGGER UTG_UpdateBill
+alter TRIGGER UTG_UpdateBill
 ON dbo.Bill FOR UPDATE
 AS
 BEGIN
@@ -500,6 +544,7 @@ BEGIN
 	
 	IF (@count = 0)
 		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE @TableID = TableID
+		
 END
 GO
 -------------------------------------------------TEST---------------------

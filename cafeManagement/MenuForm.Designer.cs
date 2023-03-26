@@ -66,9 +66,10 @@ namespace cafeManagement
             this.bunifuLabel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.bunifuLabel1.Location = new System.Drawing.Point(0, 0);
+            this.bunifuLabel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(252, 37);
+            this.bunifuLabel1.Size = new System.Drawing.Size(1136, 45);
             this.bunifuLabel1.TabIndex = 0;
             this.bunifuLabel1.Text = "Danh sách mặt hàng";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -107,7 +108,8 @@ namespace cafeManagement
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 170);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 209);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -119,15 +121,17 @@ namespace cafeManagement
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Size = new System.Drawing.Size(852, 495);
+            this.dataGridView1.Size = new System.Drawing.Size(1136, 609);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ID
             // 
             this.ID.HeaderText = "Mã";
+            this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
             this.ID.Width = 50;
             // 
@@ -135,17 +139,20 @@ namespace cafeManagement
             // 
             this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.name.HeaderText = "Tên món";
+            this.name.MinimumWidth = 6;
             this.name.Name = "name";
             // 
             // category
             // 
             this.category.HeaderText = "Danh mục";
+            this.category.MinimumWidth = 6;
             this.category.Name = "category";
             this.category.Width = 200;
             // 
             // price
             // 
             this.price.HeaderText = "Đơn giá";
+            this.price.MinimumWidth = 6;
             this.price.Name = "price";
             this.price.Width = 150;
             // 
@@ -156,10 +163,11 @@ namespace cafeManagement
             this.bunifuLabel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel2.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel2.Location = new System.Drawing.Point(12, 43);
+            this.bunifuLabel2.Location = new System.Drawing.Point(16, 53);
+            this.bunifuLabel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel2.Size = new System.Drawing.Size(81, 15);
+            this.bunifuLabel2.Size = new System.Drawing.Size(100, 20);
             this.bunifuLabel2.TabIndex = 6;
             this.bunifuLabel2.Text = "Xuất danh sách";
             this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -193,7 +201,8 @@ namespace cafeManagement
             this.bunifuTextBox1.IconRight = null;
             this.bunifuTextBox1.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.bunifuTextBox1.Lines = new string[0];
-            this.bunifuTextBox1.Location = new System.Drawing.Point(12, 127);
+            this.bunifuTextBox1.Location = new System.Drawing.Point(16, 156);
+            this.bunifuTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuTextBox1.MaxLength = 32767;
             this.bunifuTextBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.bunifuTextBox1.Modified = false;
@@ -219,7 +228,7 @@ namespace cafeManagement
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifuTextBox1.OnIdleState = stateProperties4;
-            this.bunifuTextBox1.Padding = new System.Windows.Forms.Padding(3);
+            this.bunifuTextBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuTextBox1.PasswordChar = '\0';
             this.bunifuTextBox1.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.bunifuTextBox1.PlaceholderText = "Nhập tên mặt hàng";
@@ -229,7 +238,7 @@ namespace cafeManagement
             this.bunifuTextBox1.SelectionLength = 0;
             this.bunifuTextBox1.SelectionStart = 0;
             this.bunifuTextBox1.ShortcutsEnabled = true;
-            this.bunifuTextBox1.Size = new System.Drawing.Size(260, 37);
+            this.bunifuTextBox1.Size = new System.Drawing.Size(347, 46);
             this.bunifuTextBox1.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.bunifuTextBox1.TabIndex = 8;
             this.bunifuTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -287,7 +296,8 @@ namespace cafeManagement
             this.bunifuButton3.IdleIconLeftImage = null;
             this.bunifuButton3.IdleIconRightImage = null;
             this.bunifuButton3.IndicateFocus = false;
-            this.bunifuButton3.Location = new System.Drawing.Point(680, 84);
+            this.bunifuButton3.Location = new System.Drawing.Point(907, 103);
+            this.bunifuButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuButton3.Name = "bunifuButton3";
             this.bunifuButton3.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton3.OnDisabledState.BorderRadius = 1;
@@ -321,7 +331,7 @@ namespace cafeManagement
             this.bunifuButton3.OnPressedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(195)))));
             this.bunifuButton3.OnPressedState.IconLeftImage = null;
             this.bunifuButton3.OnPressedState.IconRightImage = null;
-            this.bunifuButton3.Size = new System.Drawing.Size(148, 37);
+            this.bunifuButton3.Size = new System.Drawing.Size(197, 46);
             this.bunifuButton3.TabIndex = 5;
             this.bunifuButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuButton3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -377,7 +387,8 @@ namespace cafeManagement
             this.bunifuButton2.IdleIconLeftImage = null;
             this.bunifuButton2.IdleIconRightImage = null;
             this.bunifuButton2.IndicateFocus = false;
-            this.bunifuButton2.Location = new System.Drawing.Point(680, 127);
+            this.bunifuButton2.Location = new System.Drawing.Point(907, 156);
+            this.bunifuButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuButton2.Name = "bunifuButton2";
             this.bunifuButton2.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton2.OnDisabledState.BorderRadius = 1;
@@ -411,7 +422,7 @@ namespace cafeManagement
             this.bunifuButton2.OnPressedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(195)))));
             this.bunifuButton2.OnPressedState.IconLeftImage = null;
             this.bunifuButton2.OnPressedState.IconRightImage = null;
-            this.bunifuButton2.Size = new System.Drawing.Size(148, 37);
+            this.bunifuButton2.Size = new System.Drawing.Size(197, 46);
             this.bunifuButton2.TabIndex = 5;
             this.bunifuButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuButton2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -467,7 +478,8 @@ namespace cafeManagement
             this.bunifuButton1.IdleIconLeftImage = null;
             this.bunifuButton1.IdleIconRightImage = null;
             this.bunifuButton1.IndicateFocus = false;
-            this.bunifuButton1.Location = new System.Drawing.Point(281, 127);
+            this.bunifuButton1.Location = new System.Drawing.Point(375, 156);
+            this.bunifuButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuButton1.Name = "bunifuButton1";
             this.bunifuButton1.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton1.OnDisabledState.BorderRadius = 1;
@@ -501,7 +513,7 @@ namespace cafeManagement
             this.bunifuButton1.OnPressedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(195)))));
             this.bunifuButton1.OnPressedState.IconLeftImage = null;
             this.bunifuButton1.OnPressedState.IconRightImage = null;
-            this.bunifuButton1.Size = new System.Drawing.Size(101, 37);
+            this.bunifuButton1.Size = new System.Drawing.Size(135, 46);
             this.bunifuButton1.TabIndex = 5;
             this.bunifuButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuButton1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -511,10 +523,10 @@ namespace cafeManagement
             // 
             // MenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(195)))));
-            this.ClientSize = new System.Drawing.Size(852, 665);
+            this.ClientSize = new System.Drawing.Size(1136, 818);
             this.Controls.Add(this.bunifuTextBox1);
             this.Controls.Add(this.bunifuLabel2);
             this.Controls.Add(this.bunifuButton3);
@@ -523,6 +535,7 @@ namespace cafeManagement
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bunifuLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MenuForm";
             this.Text = "MenuForm";
             this.Load += new System.EventHandler(this.MenuForm_Load);
