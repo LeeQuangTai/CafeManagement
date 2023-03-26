@@ -69,8 +69,6 @@ namespace cafeManagement.BUS
         }
         public void ShowBill(DataGridView dgv, TextBox txb, string tableID)
         {
-            //List<BillInfo> billInfos = BillInfoDAO.Instance.GetListBillInfo(BillDAO.Instance.GetBillIDuncheck(tableID));
-            //dgvOrder.DataSource = billInfos;
             dgv.DataSource = null;
             float totalPrice = 0;
             List<Order> orders = OrderDAO.Instance.GetListOrderByTable(tableID);
@@ -85,7 +83,6 @@ namespace cafeManagement.BUS
         }
         public void AddDrink(DataGridView dgv, ComboBox cbb, NumericUpDown nud, TextBox txb)
         {
-            //txtPayment.Text = null;
             Table table = dgv.Tag as Table;
             int billID = BillDAO.Instance.GetBillIDuncheck(table.TableID);
             string drinkID = (cbb.SelectedItem as Drink).DrinkID;
@@ -114,17 +111,13 @@ namespace cafeManagement.BUS
                     BillInfoDAO.Instance.InsertBillInfo(billID, drinkID, quantity);
                 }
             }
-            //ShowBill(table.TableID);
             OrderBUS.Instance.ShowBill(dgv, txb, table.TableID);
             nud.Value = 0;
-            //TableLoad();
-           // OrderBUS.Instance.TableLoad(fLPTable, btn_Click);
 
         }
         public void GetListDrink(ComboBox cbb, ComboBox cb)
         {
             string drinkCategoryID = "";
-            //ComboBox cb = sender as ComboBox;
             if (cbb.SelectedItem == null)
                 return;
             DrinkCategory drinkCategory = cbb.SelectedItem as DrinkCategory;
@@ -143,7 +136,6 @@ namespace cafeManagement.BUS
                 {
                     BillDAO.Instance.CheckOut(billID, discount);
                     OrderBUS.Instance.ShowBill(dgv, txb, table.TableID);
-                    //TableLoad();
                     OrderBUS.Instance.TableLoad(fLPanelTable, btn_Click);
                     txb.Text = null;
                 }
@@ -159,7 +151,6 @@ namespace cafeManagement.BUS
             int billID = BillDAO.Instance.GetBillIDuncheck(table.TableID);
             OrderDAO.Instance.DeleteOrder(tableID, billID);
             OrderBUS.Instance.ShowBill(dgv, txb, tableID);
-            //TableLoad();
             OrderBUS.Instance.TableLoad(fLPanelTable, btn_Click);
         }
         public void TableTransfer(DataGridView dgv, ComboBox cbb, NumericUpDown nud, TextBox txb, FlowLayoutPanel fLPanelTable, EventHandler btn_Click)
@@ -193,11 +184,9 @@ namespace cafeManagement.BUS
 
                         BillDAO.Instance.CheckOut(billID, discount);
                         OrderBUS.Instance.ShowBill(dgv, txb, table.TableID);
-                        //TableLoad();
                         OrderBUS.Instance.TableLoad(fLPanelTable, btn_Click);
 
                     }
-                    //TableLoad();
                     OrderBUS.Instance.TableLoad(fLPanelTable, btn_Click);
 
                     }
