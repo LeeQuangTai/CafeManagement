@@ -238,6 +238,15 @@ namespace cafeManagement
             }
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string tableID = (dgvOrder.Tag as Table).TableID;
+            Table table = dgvOrder.Tag as Table;
+            int billID = BillDAO.Instance.GetBillIDuncheck(table.TableID);
+            OrderDAO.Instance.DeleteOrder(tableID, billID);
+            ShowBill(tableID);
+            TableLoad();
+        }
 
 
 

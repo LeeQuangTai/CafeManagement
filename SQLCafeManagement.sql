@@ -189,35 +189,6 @@ EXEC sp_AddTableManagement N'B10', N'Bàn 10', N'Trống'
 GO
 -----------------------------------------
 
---CREATE PROCEDURE sp_AddBill
---				@BillID int,
---				@DateCheckIn DATE,
---				@DateCheckOut DATE,
---				@TableID NVARCHAR(50),
---				@BillStatus INT
---				@Discount int,
---AS
---IF		EXISTS (SELECT * FROM	Bill WHERE	BillID=@BillID)
---		PRINT N'Đã tồn tại'
---ELSE
---		INSERT INTO [dbo].[Bill]
---           (
---           [DateCheckIn]
---           ,[DateCheckOut]
---           ,[TableID]
---           ,[BillStatus]
---		   ,[Discount])
---		VALUES
---           (
---           @DateCheckIn
---           ,@DateCheckOut
---           ,@TableID
---           ,@BillStatus
---		   ,@Discount)
---GO
-
-
---------------------------
 
 CREATE PROCEDURE sp_AddBillInfo 
 				
@@ -246,7 +217,6 @@ BEGIN
 		SELECT * FROM dbo.Account WHERE @userName = UserName
 END
 GO
---EXEC sp_GetAccountByUserName @userName = 'admin'
 ----------------
 CREATE PROCEDURE sp_Login
 @userName nvarchar(100), @passWord nvarchar(100)
@@ -255,25 +225,21 @@ BEGIN
 	SELECT * FROM dbo.Account WHERE UserName = @userName AND PassWord = @passWord
 END
 GO
-EXEC sp_Login @userName = 'admin', @passWord = '123456'
-Go
--------------
+-------------Lấy danh sách BillInfo
 Create procedure sp_GetListBillInfo @BillID int
 as
 begin
 	select * from dbo.BillInfo where @BillID = BillID
 end
 GO
---exec sp_GetListBillInfo 2
 
---------------
+--------------lấy ra BillID chưa thanh toán
 Create procedure GetBillIDuncheck @TableID nvarchar(50), @BillStatus int
 as
 begin
 	select * from dbo.Bill where @TableID = TableID and @BillStatus = BillStatus
 end
 Go
---exec GetBillIDuncheck 'B01', 0
 ------
 
 --lấy danh sách order
@@ -285,7 +251,6 @@ begin
 		where b.BillID = bi.BillID and bi.DrinkID = d.DrinkID and b.TableID = @TableID and  @BillStatus = b.BillStatus
 end
 Go
---exec sp_GetListOrderByTable 'B01', 0
 --------
 --Lấy danh sách đồ uống dựa trên DrinkCategoryID
 create procedure sp_GetListDrinkByDrinkCategory @DrinkCategoryID varchar(50)
@@ -294,7 +259,6 @@ begin
 		select * from dbo.Drink where @DrinkCategoryID = DrinkCategoryID
 end
 Go
---exec sp_GetListDrinkByDrinkCategory @DrinkCategoryID = 'CAFE'
 --------
 --Thêm bill
 CREATE PROCEDURE sp_InsertBill  @TableID nvarchar(50)
@@ -319,7 +283,7 @@ end
 GO
 -------------
 ---Thêm BillInfo
-ALTER PROCEDURE sp_InsertBillInfo @BillID int, @DrinkID varchar(50), @Quantity int
+CREATE PROCEDURE sp_InsertBillInfo @BillID int, @DrinkID varchar(50), @Quantity int
 As
 Begin
 DECLARE @isExitsBillInfo varchar(50)
@@ -353,9 +317,17 @@ GO
 --------
 Delete dbo.BillInfo
 Delete dbo.Bill
+--------Xóa hóa bàn order--------
 
-
-
+CREATE PROCEDURE sp_Delete @TableID nvarchar(50), @BillID int
+AS
+BEGIN
+		SELECT @BillID = BillID FROM dbo.Bill WHERE @TableID = TableID and BillStatus = 0
+		DELETE FROM BillInfo WHERE @BillID = BillID
+		DELETE FROM Bill WHERE @TableID = TableID and BillStatus = 0
+		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE @TableID = TableID
+END
+GO
 
 ----------------------Xử lý chuyển Bàn--------------------
 -----------------------Store Procedure ---------
@@ -478,10 +450,6 @@ BEGIN
 		end
 END
 GO
-exec sp_Transfer 'B05', 'B03'
-select * from Bill 
-select * from BillInfo
-select * from TableManagement
 ---------------------Create Trigger-----------------------
 
 CREATE TRIGGER UTG_UpdateBillInfo
@@ -531,25 +499,7 @@ BEGIN
 		
 END
 GO
+---------
+
 -------------------------------------------------TEST---------------------
 	
-
-
-select * from Bill 
-select * from BillInfo
-select * from TableManagement
-select * from Drink
-select * from DrinkCategory
-delete BillInfo
-delete Bill
-Alter Table Bill
-drOP Constraint FK__Bill__TableID__4F7CD00D
-FOREIGN KEY (TableID) REFERENCES dbo.TableManagement(TableID)
-
-SELECT * FROM dbo.BillInfo WHERE billID = '01'
-SELECT * FROM dbo.Bill WHERE TableID = 'B01' AND BillStatus = 0
-select * from Drink where DrinkCategoryID='CAFE'
-
-
-			Update dbo.TableManagement Set Status = N'Trống' where Status = N'Có người' and TableID = N'B01'
-
