@@ -1,4 +1,5 @@
-﻿using cafeManagement.Resource.DAO;
+﻿using cafeManagement.Resource.BUS;
+using cafeManagement.Resource.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,9 +13,9 @@ using System.Windows.Forms;
 
 namespace cafeManagement
 {
-    public partial class DeleteForm : Form
+    public partial class DeleteAccountForm : Form
     {
-        public DeleteForm()
+        public DeleteAccountForm()
         {
             InitializeComponent();
         }
@@ -32,7 +33,7 @@ namespace cafeManagement
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            if (AccountDAO.Instance.DeleteAccount(comboBox2.Text) > 0)
+            if (AccountBUS.Instance.DeleteAccount(comboBox2.Text) > 0)
             {
                 MessageBox.Show("Xoá tài khoản thành công");
             }

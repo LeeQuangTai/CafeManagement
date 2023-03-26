@@ -319,7 +319,7 @@ end
 GO
 -------------
 ---Thêm BillInfo
-CREATE PROCEDURE sp_InsertBillInfo @BillID int, @DrinkID varchar(50), @Quantity int
+ALTER PROCEDURE sp_InsertBillInfo @BillID int, @DrinkID varchar(50), @Quantity int
 As
 Begin
 DECLARE @isExitsBillInfo varchar(50)
@@ -359,7 +359,7 @@ Delete dbo.Bill
 
 ----------------------Xử lý chuyển Bàn--------------------
 -----------------------Store Procedure ---------
-alter PROCEDURE sp_Transfer @TableID1 nvarchar(50), @TableID2 nvarchar (50)
+CREATE PROCEDURE sp_Transfer @TableID1 nvarchar(50), @TableID2 nvarchar (50)
 AS
 BEGIN
 	DECLARE @BillID1 int
@@ -414,15 +414,6 @@ BEGIN
 			CLOSE BillInfoCursor
 			DEALLOCATE BillInfoCursor
 		END
-
-	--If(@isFirstTableEmpty = 0)
-	--	Begin
-	--		Update dbo.TableManagement set Status = N'Trống' where TableID = @TableID1
-	--	End
-	--If(@isSecondTableEmpty = 0)
-	--	Begin
-	--		Update TableManagement set Status = N'Trống' where TableID = @TableID2
-	--	End
 
 	IF (@BillID1 IS NULL)
 	BEGIN
@@ -493,7 +484,7 @@ select * from BillInfo
 select * from TableManagement
 ---------------------Create Trigger-----------------------
 
-alter TRIGGER UTG_UpdateBillInfo
+CREATE TRIGGER UTG_UpdateBillInfo
 ON dbo.BillInfo FOR INSERT, UPDATE
 AS
 BEGIN
@@ -508,17 +499,11 @@ BEGIN
 	SELECT @count = COUNT(*) FROM dbo.BillInfo WHERE BillID = @BillID
 	IF(@count>0)
 	Begin
-			PRINT @TableID
-			PRINT @BillID
-			PRINT @count
 
 		UPDATE dbo.TableManagement SET Status = N'Có người' WHERE TableID = @TableID
 	End
 	Else
 	Begin
-			PRINT @TableID
-			PRINT @BillID
-			PRINT @count
 		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE TableID = @TableID	
 
 	End
@@ -529,7 +514,6 @@ alter TRIGGER UTG_UpdateBill
 ON dbo.Bill FOR UPDATE
 AS
 BEGIN
------CHECKOUT
 	DECLARE @BillID INT
 	
 	SELECT @BillID = BillID FROM Inserted	
@@ -538,7 +522,7 @@ BEGIN
 	
 	SELECT @TableID = TableID FROM dbo.Bill WHERE BillID = @BillID
 
-	DECLARE @count int =0
+	DECLARE @count int = 0
 	
 	SELECT @count = COUNT(*) FROM dbo.Bill WHERE @TableID = TableID AND BillStatus = 0
 	
@@ -568,6 +552,4 @@ select * from Drink where DrinkCategoryID='CAFE'
 
 
 			Update dbo.TableManagement Set Status = N'Trống' where Status = N'Có người' and TableID = N'B01'
-
-
 

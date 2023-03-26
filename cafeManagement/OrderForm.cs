@@ -127,7 +127,7 @@ namespace cafeManagement
             int quantity = (int)nudQuantity.Value;
             if (billID == -1)
             {
-                if ((int)nudQuantity.Value == 0)
+                if ((int)nudQuantity.Value == 0 || (int)nudQuantity.Value <= 0)
                 {
                     MessageBox.Show("Mời chọn lại số lượng!", "Thông báo");
                 }
@@ -180,6 +180,8 @@ namespace cafeManagement
                     txtPayment.Text = null;
                 }
             }
+            else
+                MessageBox.Show("Bàn được chọn chưa có hóa đơn chưa thanh toán!", "Thông báo");
             nudDiscount.Value = 0;
         }
 

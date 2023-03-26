@@ -1,6 +1,6 @@
 ﻿namespace cafeManagement
 {
-    partial class DeleteForm
+    partial class DeleteAccountForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteAccountForm));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();

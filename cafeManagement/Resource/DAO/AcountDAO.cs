@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,7 +20,7 @@ namespace cafeManagement.Resource.DAO
             private set { instance = value; }
         }
 
-        private AccountDAO() { }
+        public AccountDAO() { }
 
         public bool Login(string userName, string passWord)
         {
