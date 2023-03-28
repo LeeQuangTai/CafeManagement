@@ -1,5 +1,6 @@
-﻿using cafeManagement.Resource.BUS;
-using cafeManagement.Resource.DAO;
+﻿using cafeManagement.BUS;
+using cafeManagement.DAO;
+using cafeManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +11,6 @@ using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace cafeManagement
 {
     public partial class DeleteAccountForm : Form

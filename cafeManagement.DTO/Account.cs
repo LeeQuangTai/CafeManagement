@@ -10,7 +10,7 @@ using System.Web;
 
 namespace cafeManagement.DTO
 {
-    internal class Account
+    public class Account
     {
         public Account() { }
         public Account(string userName,string password,string displayName, int type) 

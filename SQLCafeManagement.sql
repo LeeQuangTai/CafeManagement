@@ -478,7 +478,7 @@ BEGIN
 END
 GO
 ------------
-alter TRIGGER UTG_UpdateBill
+create TRIGGER UTG_UpdateBill
 ON dbo.Bill FOR UPDATE
 AS
 BEGIN

@@ -13,3 +13,18 @@ C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.BUS\obj\Debug\In
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.BUS\obj\Debug\Interop.VSLangProj.dll
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.BUS\obj\Debug\Interop.VSLangProj2.dll
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.csproj.ResolveComReference.cache
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\bin\Debug\cafeManagement.BUS.dll
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\bin\Debug\cafeManagement.BUS.pdb
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\bin\Debug\cafeManagement.DAO.dll
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\bin\Debug\cafeManagement.DTO.dll
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\bin\Debug\cafeManagement.DAO.pdb
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\bin\Debug\cafeManagement.DTO.pdb
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.csproj.AssemblyReference.cache
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\Interop.EnvDTE.dll
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\Interop.VSLangProj.dll
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\Interop.VSLangProj2.dll
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.csproj.ResolveComReference.cache
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.csproj.CoreCompileInputs.cache
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.csproj.CopyComplete
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.dll
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.pdb

@@ -108,3 +108,12 @@ C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\bin\Debug\cafeMa
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\bin\Debug\cafeManagement.BUS.pdb
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\bin\Debug\cafeManagement.DTO.pdb
 C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\bin\Debug\cafeManagement.DAO.pdb
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.BUS.dll
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.DAO.dll
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.DTO.dll
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.BUS.pdb
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.DAO.pdb
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.DTO.pdb
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.DeleteAccountForm.resources
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.EditAccountForm.resources
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.StatisticForm.resources

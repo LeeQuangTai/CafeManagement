@@ -12,17 +12,28 @@ using System;
 using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Reflection;
-
+using cafeManagement.BUS;
 namespace cafeManagement
 {
     public partial class AccountMangementForm : Form
     {
-        List<string> stringStorage = new List<string>(); 
+        List<string> stringStorage = new List<string>();
 
         public AccountMangementForm()
         {
             InitializeComponent();
+            onLoad();
+
         }
+        void onLoad()
+        {
+            AccountBUS.Instance.LoadAllAccount(dataGridView1);
+        }
+        private void onLoad_Click(object sender, EventArgs e)
+        {
+            onLoad();
+        }
+
         private void EditButton_Click(object sender, EventArgs e)
         {
             //Console.WriteLine(dataGridView1.SelectedCells[0].Value.ToString());
@@ -53,39 +64,23 @@ namespace cafeManagement
             }
         }
 
-        private void onLoad(object sender, EventArgs e)
+      
+        private void onLoadDataBySearch_click(object sender, EventArgs e)
         {
-            string query = "Select * from dbo.Account";
-            dataGridView1.DataSource = DataProvider.Instance.ExecuteQuery(query);
-            for (int i = 0; i < dataGridView1.ColumnCount; i++)
-            {
-                dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            }
-        }
-
-        private void onLoadDataBySearch(object sender, EventArgs e)
-        {
-            loadSearch(bunifuTextBox1.Text);
+            BUS.AccountBUS.Instance.LoadAccountBySearch(dataGridView1, bunifuTextBox1.Text);
         }
 
         private void bunifuTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter) 
             {
-                loadSearch(bunifuTextBox1.Text);
+                BUS.AccountBUS.Instance.LoadAccountBySearch(dataGridView1, bunifuTextBox1.Text);
             }
         }
-        void loadSearch(string varQuery)
+
+        private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
         {
-            string query = "Select * from dbo.Account where UserName like  '%" + varQuery + "%'";
-            try
-            {
-                dataGridView1.DataSource = DataProvider.Instance.ExecuteQuery(query);
-            }
-            catch (Exception ee)
-            {
-                MessageBox.Show(ee.ToString());
-            }
+
         }
     }
 }

@@ -111,7 +111,7 @@ namespace cafeManagement
             this.bunifuLabel1.Location = new System.Drawing.Point(0, 0);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(121, 37);
+            this.bunifuLabel1.Size = new System.Drawing.Size(800, 37);
             this.bunifuLabel1.TabIndex = 7;
             this.bunifuLabel1.Text = "Tài khoản";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -123,11 +123,11 @@ namespace cafeManagement
             this.titleDecriptionLabel.AutoEllipsis = false;
             this.titleDecriptionLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.titleDecriptionLabel.CursorType = System.Windows.Forms.Cursors.Default;
-            this.titleDecriptionLabel.Font = new System.Drawing.Font("Cascadia Code Light", 9.75F);
+            this.titleDecriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.titleDecriptionLabel.Location = new System.Drawing.Point(12, 34);
             this.titleDecriptionLabel.Name = "titleDecriptionLabel";
             this.titleDecriptionLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.titleDecriptionLabel.Size = new System.Drawing.Size(480, 17);
+            this.titleDecriptionLabel.Size = new System.Drawing.Size(367, 16);
             this.titleDecriptionLabel.TabIndex = 11;
             this.titleDecriptionLabel.Text = "Bạn có thể thêm, sửa hoặc xoá tài khoản với quyền của admin. ";
             this.titleDecriptionLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -206,6 +206,7 @@ namespace cafeManagement
             this.bunifuTextBox1.TextPlaceholder = "Nhập tên tài khoản";
             this.bunifuTextBox1.UseSystemPasswordChar = false;
             this.bunifuTextBox1.WordWrap = true;
+            this.bunifuTextBox1.TextChanged += new System.EventHandler(this.bunifuTextBox1_TextChanged);
             this.bunifuTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bunifuTextBox1_KeyPress);
             // 
             // bunifuButton1
@@ -296,7 +297,7 @@ namespace cafeManagement
             this.bunifuButton1.TextMarginLeft = 0;
             this.bunifuButton1.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton1.UseDefaultRadiusAndThickness = true;
-            this.bunifuButton1.Click += new System.EventHandler(this.onLoadDataBySearch);
+            this.bunifuButton1.Click += new System.EventHandler(this.onLoadDataBySearch_click);
             // 
             // bunifuButton3
             // 
@@ -476,7 +477,7 @@ namespace cafeManagement
             this.bunifuButton2.TextMarginLeft = 0;
             this.bunifuButton2.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton2.UseDefaultRadiusAndThickness = true;
-            this.bunifuButton2.Click += new System.EventHandler(this.onLoad);
+            this.bunifuButton2.Click += new System.EventHandler(this.onLoad_Click);
             // 
             // bunifuButton4
             // 
@@ -676,7 +677,6 @@ namespace cafeManagement
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AccountMangementForm";
             this.Text = "AccountMangementForm";
-            this.Load += new System.EventHandler(this.onLoad);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
