@@ -26,7 +26,8 @@ namespace cafeManagement.DAO
             if (data.Rows.Count > 0)
             {
                 Bill bill = new Bill(data.Rows[0]);
-                return bill.BillID;
+                int? billID = (int?)bill.BillID;
+                return (int)billID;
             }
             return -1;
         }

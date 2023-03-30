@@ -296,7 +296,7 @@ WHERE BillID = @BillID AND DrinkID = @DrinkID
 	IF (@isExitsBillInfo > 0)
 		BEGIN
 			DECLARE @newCount INT = @Drinkcount + @Quantity
-			IF (@newCount > 0)
+			IF (@newCount > 0)				
 				UPDATE dbo.BillInfo	SET Quantity = @Drinkcount + @Quantity WHERE DrinkID = @DrinkID
 			ELSE
 				DELETE dbo.BillInfo WHERE BillID = @BillID AND DrinkID = @DrinkID
@@ -319,7 +319,7 @@ Delete dbo.BillInfo
 Delete dbo.Bill
 --------Xóa hóa bàn order--------
 
-CREATE PROCEDURE sp_Delete @TableID nvarchar(50), @BillID int
+Create PROCEDURE sp_Delete @TableID nvarchar(50), @BillID int
 AS
 BEGIN
 		SELECT @BillID = BillID FROM dbo.Bill WHERE @TableID = TableID and BillStatus = 0
@@ -478,7 +478,7 @@ BEGIN
 END
 GO
 ------------
-create TRIGGER UTG_UpdateBill
+alter TRIGGER UTG_UpdateBill
 ON dbo.Bill FOR UPDATE
 AS
 BEGIN

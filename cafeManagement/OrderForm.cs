@@ -45,9 +45,11 @@ namespace cafeManagement
         }
         private void btnAddDrink_Click(object sender, EventArgs e)
         {
-            txtPayment.Text = null;
-            OrderBUS.Instance.AddDrink(dgvOrder, cbbDrink, nudQuantity, txtTotalPrice);
-            OrderBUS.Instance.TableLoad(fLPTable, btn_Click);
+           
+                txtPayment.Text = null;
+                OrderBUS.Instance.AddDrink(dgvOrder, cbbDrink, nudQuantity, txtTotalPrice);
+                OrderBUS.Instance.TableLoad(fLPTable, btn_Click);
+            
         }
         private void cbbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {           
@@ -55,35 +57,36 @@ namespace cafeManagement
         }
         private void btnPay_Click(object sender, EventArgs e)
         {
-            
+
             OrderBUS.Instance.Pay(dgvOrder, nudDiscount, txtPayment, fLPTable, btn_Click);
         }
 
         private void btnDiscount_Click(object sender, EventArgs e)
         {
+
             try
             {
                 int discount = (int)nudDiscount.Value;
-                double totalPrice = double.Parse(txtTotalPrice.Text, NumberStyles.Currency, new CultureInfo("vi-VN"));
-                double payment = (totalPrice - (totalPrice / 100) * discount);
+                double? totalPrice = (double?)double.Parse(txtTotalPrice.Text, NumberStyles.Currency, new CultureInfo("vi-VN"));
+                double? payment = (totalPrice - (totalPrice / 100) * discount);
                 CultureInfo culture = new CultureInfo("vi-VN");
-                txtPayment.Text = payment.ToString("c", culture);
             }
-            catch (Exception)
+            catch (FormatException )
             {
 
-                throw;
+                MessageBox.Show("Mời chọn bàn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
+
         }
         private void btnTransfer_Click(object sender, EventArgs e)
         {
-            
+
             OrderBUS.Instance.TableTransfer(dgvOrder, cbbTransfer, nudDiscount, txtTotalPrice, fLPTable, btn_Click);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            
             OrderBUS.Instance.DeleteOrder(dgvOrder, txtTotalPrice, fLPTable, btn_Click);
         }
         #endregion

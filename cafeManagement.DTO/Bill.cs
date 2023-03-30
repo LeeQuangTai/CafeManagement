@@ -10,8 +10,8 @@ namespace cafeManagement.DTO
     public class Bill
     {
 
-        private int billID;
-        public int BillID
+        private int? billID;
+        public int? BillID
         {
             get { return billID; }
             set { billID = value; }

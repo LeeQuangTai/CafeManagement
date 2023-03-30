@@ -32,7 +32,7 @@ namespace cafeManagement.DAO
 
             return listBillInfo;
         }
-        public void InsertBillInfo(int billID, string drinkID, int quantity)
+        public void InsertBillInfo(int? billID, string drinkID, int quantity)
         {
 
             DataProvider.Instance.ExecuteQuery("EXEC sp_InsertBillInfo @BillID , @DrinkID , @Quantity ", new object[] { billID, drinkID, quantity });

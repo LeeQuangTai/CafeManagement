@@ -83,36 +83,44 @@ namespace cafeManagement.BUS
         }
         public void AddDrink(DataGridView dgv, ComboBox cbb, NumericUpDown nud, TextBox txb)
         {
-            Table table = dgv.Tag as Table;
-            int billID = BillDAO.Instance.GetBillIDuncheck(table.TableID);
-            string drinkID = (cbb.SelectedItem as Drink).DrinkID;
-            int quantity = (int)nud.Value;
-            if (billID == -1)
+            try
             {
-                if ((int)nud.Value == 0 || (int)nud.Value <= 0)
+                Table table = dgv.Tag as Table;
+                int? billID = BillDAO.Instance.GetBillIDuncheck(table.TableID);
+                string drinkID = (cbb.SelectedItem as Drink).DrinkID;
+                int quantity = (int)nud.Value;
+                if (billID == -1)
                 {
-                    MessageBox.Show("Mời chọn lại số lượng!", "Thông báo");
-                }
-                else
-                {
-                    BillDAO.Instance.InsertBill(table.TableID);
-                    BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), drinkID, quantity);
-                }
+                    if ((int)nud.Value == 0 || (int)nud.Value <= 0)
+                    {
+                        MessageBox.Show("Mời chọn lại số lượng!", "Thông báo");
+                    }
+                    else
+                    {
+                        BillDAO.Instance.InsertBill(table.TableID);
+                        BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), drinkID, quantity);
+                    }
 
-            }
-            else
-            {
-                if ((int)nud.Value == 0)
-                {
-                    MessageBox.Show("Mời chọn lại số lượng!", "Thông báo");
                 }
                 else
                 {
-                    BillInfoDAO.Instance.InsertBillInfo(billID, drinkID, quantity);
+                    if ((int)nud.Value == 0)
+                    {
+                        MessageBox.Show("Mời chọn lại số lượng!", "Thông báo");
+                    }
+                    else
+                    {
+                        BillInfoDAO.Instance.InsertBillInfo(billID, drinkID, quantity);
+                    }
                 }
+                OrderBUS.Instance.ShowBill(dgv, txb, table.TableID);
+                nud.Value = 0;
             }
-            OrderBUS.Instance.ShowBill(dgv, txb, table.TableID);
-            nud.Value = 0;
+            catch (NullReferenceException e)
+            {
+
+                MessageBox.Show("Mời chọn bàn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
         public void GetListDrink(ComboBox cbb, ComboBox cb)
@@ -127,74 +135,104 @@ namespace cafeManagement.BUS
         }
         public void Pay(DataGridView dgv, NumericUpDown nud, TextBox txb, FlowLayoutPanel fLPanelTable, EventHandler btn_Click)
         {
-            Table table = dgv.Tag as Table;
-            int billID = BillDAO.Instance.GetBillIDuncheck(table.TableID);
-            int discount = (int)nud.Value;
-            if (billID != -1)
+            try
             {
-                if (MessageBox.Show("Thanh toán hóa đơn " + table.TableName + "?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                Table table = dgv.Tag as Table;
+                int billID = BillDAO.Instance.GetBillIDuncheck(table.TableID);
+                int discount = (int)nud.Value;
+                if (billID != -1)
                 {
-                    BillDAO.Instance.CheckOut(billID, discount);
-                    OrderBUS.Instance.ShowBill(dgv, txb, table.TableID);
-                    OrderBUS.Instance.TableLoad(fLPanelTable, btn_Click);
-                    txb.Text = null;
-                }
-            }
-            else
-                MessageBox.Show("Bàn được chọn chưa có hóa đơn chưa thanh toán!", "Thông báo");
-            nud.Value = 0;
-        }
-        public void DeleteOrder(DataGridView dgv, TextBox txb, FlowLayoutPanel fLPanelTable, EventHandler btn_Click)
-        {
-            string tableID = (dgv.Tag as Table).TableID;
-            Table table = dgv.Tag as Table;
-            int billID = BillDAO.Instance.GetBillIDuncheck(table.TableID);
-            OrderDAO.Instance.DeleteOrder(tableID, billID);
-            OrderBUS.Instance.ShowBill(dgv, txb, tableID);
-            OrderBUS.Instance.TableLoad(fLPanelTable, btn_Click);
-        }
-        public void TableTransfer(DataGridView dgv, ComboBox cbb, NumericUpDown nud, TextBox txb, FlowLayoutPanel fLPanelTable, EventHandler btn_Click)
-        {
-            string tableID1 = (dgv.Tag as Table).TableID;
-            string tableID2 = (cbb.SelectedItem as Table).TableID;
-            if ((dgv.Tag as Table).Status == "Trống")
-            {
-                MessageBox.Show("Đây là bàn trống, bạn phải chọn bàn đã có người!", "Thông báo");
-                if (tableID1 == tableID2)
-                {
-                    MessageBox.Show("Mời chọn bàn chuyển khác bàn được chuyển!", "Thông báo");
-                }
-            }
-            else
-            {
-                if (tableID1 == tableID2)
-                {
-                    MessageBox.Show("Mời chọn bàn chuyển khác bàn được chuyển!", "Thông báo");
-                }
-                else
-                {
-                    if (MessageBox.Show(string.Format("Chuyển bàn {0} qua bàn {1}?", (dgv.Tag as Table).TableName, (cbb.SelectedItem as Table).TableName), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                    if (MessageBox.Show("Thanh toán hóa đơn " + table.TableName + "?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                     {
-                    TableDAO.Instance.TransferTable(tableID1, tableID2);
-                    Table table = dgv.Tag as Table;
-                    int billID = BillDAO.Instance.GetBillIDuncheck(table.TableID);
-                    int discount = (int)nud.Value;
-                    if (billID != -1)
-                    {
-
                         BillDAO.Instance.CheckOut(billID, discount);
                         OrderBUS.Instance.ShowBill(dgv, txb, table.TableID);
                         OrderBUS.Instance.TableLoad(fLPanelTable, btn_Click);
-
-                    }
-                    OrderBUS.Instance.TableLoad(fLPanelTable, btn_Click);
-
+                        txb.Text = null;
                     }
                 }
+                else
+                    MessageBox.Show("Bàn được chọn chưa có hóa đơn chưa thanh toán!", "Thông báo");
+                nud.Value = 0;
+            }
+            catch (NullReferenceException e)
+            {
 
-
+                MessageBox.Show("Mời chọn bàn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        public void DeleteOrder(DataGridView dgv, TextBox txb, FlowLayoutPanel fLPanelTable, EventHandler btn_Click)
+        {
+            try
+            {
+                string tableID = (dgv.Tag as Table).TableID;
+                Table table = dgv.Tag as Table;
+                int billID = BillDAO.Instance.GetBillIDuncheck(table.TableID);
+                OrderDAO.Instance.DeleteOrder(tableID, billID);
+                OrderBUS.Instance.ShowBill(dgv, txb, tableID);
+                OrderBUS.Instance.TableLoad(fLPanelTable, btn_Click);
+            }
+            catch (NullReferenceException e)
+            {
+
+                MessageBox.Show("Mời chọn bàn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void TableTransfer(DataGridView dgv, ComboBox cbb, NumericUpDown nud, TextBox txb, FlowLayoutPanel fLPanelTable, EventHandler btn_Click)
+        {
+            try
+            {
+                string tableID1 = (dgv.Tag as Table).TableID;
+                string tableID2 = (cbb.SelectedItem as Table).TableID;
+                if ((dgv.Tag as Table).Status == "Trống")
+                {
+                    MessageBox.Show("Đây là bàn trống, bạn phải chọn bàn đã có người!", "Thông báo");
+                    if (tableID1 == tableID2)
+                    {
+                        MessageBox.Show("Mời chọn bàn chuyển khác bàn được chuyển!", "Thông báo");
+                    }
+                }
+                else
+                {
+                    if (tableID1 == tableID2)
+                    {
+                        MessageBox.Show("Mời chọn bàn chuyển khác bàn được chuyển!", "Thông báo");
+                    }
+                    else
+                    {
+                        if (MessageBox.Show(string.Format("Chuyển bàn {0} qua bàn {1}?", (dgv.Tag as Table).TableName, (cbb.SelectedItem as Table).TableName), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                        {
+                            TableDAO.Instance.TransferTable(tableID1, tableID2);
+                            Table table = dgv.Tag as Table;
+                            int billID = BillDAO.Instance.GetBillIDuncheck(table.TableID);
+                            int discount = (int)nud.Value;
+                            if (billID != -1)
+                            {
+
+                                BillDAO.Instance.CheckOut(billID, discount);
+                                OrderBUS.Instance.ShowBill(dgv, txb, table.TableID);
+                                OrderBUS.Instance.TableLoad(fLPanelTable, btn_Click);
+
+                            }
+                            OrderBUS.Instance.TableLoad(fLPanelTable, btn_Click);
+
+                        }
+                    }
+                }
+            }
+
+
+
+            catch (NullReferenceException e)
+            {
+
+                MessageBox.Show("Mời chọn bàn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
     }
 
+    
 }
+
+
