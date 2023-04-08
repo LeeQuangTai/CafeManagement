@@ -120,44 +120,4 @@
   <data name="bunifuLabel1.BaseStylesheet" xml:space="preserve">
     <value>#bunifu-label { padding: 0px; font-family: 'Segoe UI Semibold'; font-size: 20pt; width: 100%; height: 100%; font-style: italic; font-weight: bold; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
   </data>
-  <data name="bunifuLabel2.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Segoe UI'; font-size: 9pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="txtSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAMMAAAAxCAYAAABnJR24AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACuSURBVHhe7dOxDUIxEAXB678qf7kMyqAAkKUNoAbPSC+5
-        +HaAH3vv11rrY3bjzv+Xwsw5wK3O/5eCGLibGCBigIgBIgaIGCBigIgBIgaIGCBigIgBIgaIGCBigIgB
-        IgaIGCBigIgBIgaIGCBigIgBIgaIGCBigIgBIgaIGCBigIgBIgaIGCBigIgBIgaIGCBigIgBIgaIGCBi
-        gIgB8hfD8zzvczC7cef/SwGYmfkCS/bWticE78AAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btDanhMuc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAJYAAAAxCAYAAAA4GFC0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVHhe7dIxAYNAAMDAt/LjYwH8m0AGAmgFMLVku+Gm
-        rBnHmuexzRte831qPAb4k7FIGIuEsUgYi4SxSBiLhLFIGIuEsUgYi4SxSBiLhLFIGIuEsUgYi4SxSBiL
-        hLFIGIuEsUgYi4SxSBiLhLFIGIuEsUgYi4SxSBiLhLFIGIuEsUgYi4SxSBiLhLFIGIuEsUgYi4SxSBiL
-        hLFIGIuEsUgYi8TY17yeAvxqX/P6ACNxv2RKfuCjAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btThemMH.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAJYAAAAxCAYAAAA4GFC0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVHhe7dIxAYNAAMDAt/LjYwH8m0AGAmgFMLVku+Gm
-        rBnHmuexzRte831qPAb4k7FIGIuEsUgYi4SxSBiLhLFIGIuEsUgYi4SxSBiLhLFIGIuEsUgYi4SxSBiL
-        hLFIGIuEsUgYi4SxSBiLhLFIGIuEsUgYi4SxSBiLhLFIGIuEsUgYi4SxSBiLhLFIGIuEsUgYi4SxSBiL
-        hLFIGIuEsUgYi8TY17yeAvxqX/P6ACNxv2RKfuCjAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btTimKiem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAHMAAAAxCAYAAADp05aBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACiSURBVHhe7dExEYQwAADBWEmZtwD+TSADATwCMJCbLba6
-        8sa55nX+5sPm3o/jM7AlM0PMDDEzxMwQM0PMDDEzxMwQM0PMDDEzxMwQM0PMDDEzxMwQM0PMDDEzxMwQ
-        M0PMDDEzxMwQM0PMDDEzxMwQM0PMDDEzxMwQM0PMDDEzxMwQM0PMDDEzxMwQM0PMDDEzxMwQM0PMDBnH
-        mvdXYC/HmvcfzLqKHLk1cHgAAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

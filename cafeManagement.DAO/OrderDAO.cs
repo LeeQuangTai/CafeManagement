@@ -44,8 +44,6 @@ namespace cafeManagement.DAO
                     string query = "sp_Delete " + tableID + " , " + billID;
                     SqlCommand command = new SqlCommand(query, connection);
                     command.ExecuteNonQuery();
-                    
-                
                 connection.Close();
             }
         }

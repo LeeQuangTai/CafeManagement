@@ -33,17 +33,19 @@ namespace cafeManagement.BUS
                 //btn.ImageAlign = ContentAlignment.MiddleCenter;
                 btn.Click += btn_Click;
                 btn.Tag = item;
-
+                btn.Font = new Font("Times New Roman", 11) ;
                 switch (item.Status)
                 {
                     case "Trống":
                         btn.BackColor = Color.FromArgb(60, 42, 33);
+                        btn.ForeColor = Color.FromArgb(255, 253, 195);
                         break;
                     case "Tr?ng":
                         btn.BackColor = Color.FromArgb(60, 42, 33);
+                        btn.ForeColor = Color.FromArgb(255, 253, 195);
                         break;
                     default:
-                        btn.BackColor = Color.Gray;
+                        btn.BackColor = Color.White;
                         break;
                 }
                 fLPanelTable.Controls.Add(btn);

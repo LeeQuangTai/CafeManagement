@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using cafeManagement.Resource.DAO;
+using cafeManagement.DAO;
 
 namespace cafeManagement
 {
@@ -23,7 +23,7 @@ namespace cafeManagement
         public void loadDM()
         {
             string query = "select * from dbo.DrinkCategory";
-            cbDanhMuc.DataSource = DrinkDAO.Instance.getData(query);
+            cbDanhMuc.DataSource = DAO.DrinkDAO.Instance.getData(query);
             cbDanhMuc.DisplayMember = "DrinkCategoryName";
             cbDanhMuc.ValueMember = "DrinkCategoryID";
         }
@@ -40,9 +40,12 @@ namespace cafeManagement
             }
             else
             {
-                DrinkDAO.Instance.addSP(bunifu_ID_Mon.Text, bunifu_Ten_Mon.Text, cbDanhMuc.ValueMember.ToString(), Convert.ToInt32(nmDonGia.Value));
+                
+                if (DrinkDAO.Instance.addSP(bunifu_ID_Mon.Text, bunifu_Ten_Mon.Text, cbDanhMuc.ValueMember.ToString(), Convert.ToInt32(nmDonGia.Value))>0)
+                {
+                    MessageBox.Show("Thêm thành công");
 
-                MessageBox.Show("Thêm thành công");
+                }
             }
         }
 

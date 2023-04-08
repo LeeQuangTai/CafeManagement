@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Forms;
-using cafeManagement.Resource.DAO;
-using cafeManagement.Resource.DTO;
+using cafeManagement.BUS;
+using cafeManagement.DAO;
 namespace cafeManagement
 {
     public partial class MenuForm : Form
