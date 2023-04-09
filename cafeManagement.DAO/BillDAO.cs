@@ -52,6 +52,18 @@ namespace cafeManagement.DAO
             string query = "UPDATE dbo.Bill SET BillStatus = 1, "  + "Discount = " + discount + ", DateCheckOut= getdate() WHERE BillID = " + billID;
             DataProvider.Instance.ExecuteNonQuery(query, new object[] { billID });
         }
+        public List<ViewBill> GetListViewBill()
+        {
+            List<ViewBill> bill = new List<ViewBill>();
+            string query = "sp_GetListBill";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                ViewBill viewbill = new ViewBill(item);
+                bill.Add(viewbill);
+            }
 
+            return bill;
+        }
     }
 }

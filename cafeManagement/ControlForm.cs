@@ -99,7 +99,10 @@ namespace cafeManagement
                 e.Cancel = true;
             }
         }
-                
 
+        private void hoaDonBtn_Click(object sender, EventArgs e)
+        {
+            displayForm = AddChildFormToPanel(new BillForm());
+        }
     }
 }   

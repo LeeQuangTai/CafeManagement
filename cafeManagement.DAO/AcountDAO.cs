@@ -37,7 +37,7 @@ namespace cafeManagement.DAO
         }
         public DataTable LoadAccountBySearch(string varQuery)
         {
-            string query = "Select * from dbo.Account where UserName like  '%" + varQuery + "%'";
+            string query = "Select * from dbo.Account where UserName like  '%" + varQuery + "%' or DisplayName like '%" + varQuery + "%'" ;
             return DataProvider.Instance.ExecuteQuery(query);
         }
             

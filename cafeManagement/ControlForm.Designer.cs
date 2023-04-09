@@ -464,6 +464,7 @@
             this.hoaDonBtn.TextMarginLeft = 0;
             this.hoaDonBtn.TextPadding = new System.Windows.Forms.Padding(0);
             this.hoaDonBtn.UseDefaultRadiusAndThickness = true;
+            this.hoaDonBtn.Click += new System.EventHandler(this.hoaDonBtn_Click);
             // 
             // orderBtn
             // 

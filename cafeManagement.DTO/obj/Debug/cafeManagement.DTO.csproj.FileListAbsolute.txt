@@ -10,3 +10,9 @@ C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.DTO\obj\Debug\cafe
 C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.csproj.CoreCompileInputs.cache
 C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.dll
 C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.pdb
+D:\Data\cafeManagement\cafeManagement.DTO\bin\Debug\cafeManagement.DTO.dll
+D:\Data\cafeManagement\cafeManagement.DTO\bin\Debug\cafeManagement.DTO.pdb
+D:\Data\cafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.csproj.AssemblyReference.cache
+D:\Data\cafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.csproj.CoreCompileInputs.cache
+D:\Data\cafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.dll
+D:\Data\cafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.pdb

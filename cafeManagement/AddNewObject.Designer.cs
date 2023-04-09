@@ -39,6 +39,10 @@ namespace cafeManagement
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
@@ -47,8 +51,7 @@ namespace cafeManagement
             this.cbDanhMuc = new System.Windows.Forms.ComboBox();
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifu_ID_Mon = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.nmDonGia = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.nmDonGia)).BeginInit();
+            this.DonGiaTxt = new Bunifu.UI.WinForms.BunifuTextBox();
             this.SuspendLayout();
             // 
             // bunifuLabel1
@@ -155,7 +158,7 @@ namespace cafeManagement
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifu_Ten_Mon.OnIdleState = stateProperties4;
-            this.bunifu_Ten_Mon.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bunifu_Ten_Mon.Padding = new System.Windows.Forms.Padding(3);
             this.bunifu_Ten_Mon.PasswordChar = '\0';
             this.bunifu_Ten_Mon.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.bunifu_Ten_Mon.PlaceholderText = "Nhập tên món";
@@ -175,6 +178,7 @@ namespace cafeManagement
             this.bunifu_Ten_Mon.TextPlaceholder = "Nhập tên món";
             this.bunifu_Ten_Mon.UseSystemPasswordChar = false;
             this.bunifu_Ten_Mon.WordWrap = true;
+            this.bunifu_Ten_Mon.TextChanged += new System.EventHandler(this.bunifu_Ten_Mon_TextChanged);
             // 
             // bunifuButton1
             // 
@@ -349,7 +353,7 @@ namespace cafeManagement
             stateProperties8.ForeColor = System.Drawing.Color.Empty;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifu_ID_Mon.OnIdleState = stateProperties8;
-            this.bunifu_ID_Mon.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bunifu_ID_Mon.Padding = new System.Windows.Forms.Padding(3);
             this.bunifu_ID_Mon.PasswordChar = '\0';
             this.bunifu_ID_Mon.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.bunifu_ID_Mon.PlaceholderText = "Nhập ID";
@@ -371,14 +375,79 @@ namespace cafeManagement
             this.bunifu_ID_Mon.WordWrap = true;
             this.bunifu_ID_Mon.TextChanged += new System.EventHandler(this.bunifu_ID_Mon_TextChanged);
             // 
-            // nmDonGia
+            // DonGiaTxt
             // 
-            this.nmDonGia.Location = new System.Drawing.Point(246, 170);
-            this.nmDonGia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.nmDonGia.Name = "nmDonGia";
-            this.nmDonGia.Size = new System.Drawing.Size(262, 20);
-            this.nmDonGia.TabIndex = 9;
-            this.nmDonGia.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.DonGiaTxt.AcceptsReturn = false;
+            this.DonGiaTxt.AcceptsTab = false;
+            this.DonGiaTxt.AnimationSpeed = 200;
+            this.DonGiaTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.DonGiaTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.DonGiaTxt.BackColor = System.Drawing.Color.Transparent;
+            this.DonGiaTxt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DonGiaTxt.BackgroundImage")));
+            this.DonGiaTxt.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.DonGiaTxt.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.DonGiaTxt.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.DonGiaTxt.BorderColorIdle = System.Drawing.Color.Silver;
+            this.DonGiaTxt.BorderRadius = 1;
+            this.DonGiaTxt.BorderThickness = 1;
+            this.DonGiaTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.DonGiaTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.DonGiaTxt.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.DonGiaTxt.DefaultText = "";
+            this.DonGiaTxt.FillColor = System.Drawing.Color.White;
+            this.DonGiaTxt.HideSelection = true;
+            this.DonGiaTxt.IconLeft = null;
+            this.DonGiaTxt.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.DonGiaTxt.IconPadding = 10;
+            this.DonGiaTxt.IconRight = null;
+            this.DonGiaTxt.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.DonGiaTxt.Lines = new string[0];
+            this.DonGiaTxt.Location = new System.Drawing.Point(248, 158);
+            this.DonGiaTxt.MaxLength = 32767;
+            this.DonGiaTxt.MinimumSize = new System.Drawing.Size(1, 1);
+            this.DonGiaTxt.Modified = false;
+            this.DonGiaTxt.Multiline = false;
+            this.DonGiaTxt.Name = "DonGiaTxt";
+            stateProperties9.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties9.FillColor = System.Drawing.Color.Empty;
+            stateProperties9.ForeColor = System.Drawing.Color.Empty;
+            stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.DonGiaTxt.OnActiveState = stateProperties9;
+            stateProperties10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties10.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.DonGiaTxt.OnDisabledState = stateProperties10;
+            stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties11.FillColor = System.Drawing.Color.Empty;
+            stateProperties11.ForeColor = System.Drawing.Color.Empty;
+            stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.DonGiaTxt.OnHoverState = stateProperties11;
+            stateProperties12.BorderColor = System.Drawing.Color.Silver;
+            stateProperties12.FillColor = System.Drawing.Color.White;
+            stateProperties12.ForeColor = System.Drawing.Color.Empty;
+            stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.DonGiaTxt.OnIdleState = stateProperties12;
+            this.DonGiaTxt.Padding = new System.Windows.Forms.Padding(3);
+            this.DonGiaTxt.PasswordChar = '\0';
+            this.DonGiaTxt.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.DonGiaTxt.PlaceholderText = "Nhập đơn giá";
+            this.DonGiaTxt.ReadOnly = false;
+            this.DonGiaTxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.DonGiaTxt.SelectedText = "";
+            this.DonGiaTxt.SelectionLength = 0;
+            this.DonGiaTxt.SelectionStart = 0;
+            this.DonGiaTxt.ShortcutsEnabled = true;
+            this.DonGiaTxt.Size = new System.Drawing.Size(260, 37);
+            this.DonGiaTxt.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            this.DonGiaTxt.TabIndex = 9;
+            this.DonGiaTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.DonGiaTxt.TextMarginBottom = 0;
+            this.DonGiaTxt.TextMarginLeft = 3;
+            this.DonGiaTxt.TextMarginTop = 0;
+            this.DonGiaTxt.TextPlaceholder = "Nhập đơn giá";
+            this.DonGiaTxt.UseSystemPasswordChar = false;
+            this.DonGiaTxt.WordWrap = true;
             // 
             // AddNewObject
             // 
@@ -386,7 +455,7 @@ namespace cafeManagement
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(195)))));
             this.ClientSize = new System.Drawing.Size(535, 303);
-            this.Controls.Add(this.nmDonGia);
+            this.Controls.Add(this.DonGiaTxt);
             this.Controls.Add(this.bunifu_ID_Mon);
             this.Controls.Add(this.bunifuLabel4);
             this.Controls.Add(this.cbDanhMuc);
@@ -400,7 +469,6 @@ namespace cafeManagement
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNewObject";
             this.Load += new System.EventHandler(this.AddNewObject_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.nmDonGia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,6 +484,6 @@ namespace cafeManagement
         private System.Windows.Forms.ComboBox cbDanhMuc;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel4;
         private Bunifu.UI.WinForms.BunifuTextBox bunifu_ID_Mon;
-        private System.Windows.Forms.NumericUpDown nmDonGia;
+        private Bunifu.UI.WinForms.BunifuTextBox DonGiaTxt;
     }
 }
