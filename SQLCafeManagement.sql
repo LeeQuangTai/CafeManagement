@@ -317,6 +317,9 @@ GO
 --------
 Delete dbo.BillInfo
 Delete dbo.Bill
+Select * from dbo.BillInfo
+Select * from dbo.Bill
+Select * from dbo.TableManagement
 --------Xóa hóa bàn order--------
 
 Create PROCEDURE sp_Delete @TableID nvarchar(50), @BillID int
@@ -500,6 +503,12 @@ BEGIN
 END
 GO
 ---------
-
+Create Procedure sp_GetDrinkCategoryID @DrinkName nvarchar(50)
+as 
+begin
+Select c.DrinkCategoryID From dbo.Drink d, dbo.DrinkCategory c 
+Where c.DrinkCategoryID = d.DrinkCategoryID and @DrinkName = d.DrinkName
+end
+Go
+exec sp_GetDrinkCategoryID N'Bạc xỉu'
 -------------------------------------------------TEST---------------------
-	

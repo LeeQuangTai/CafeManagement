@@ -67,11 +67,12 @@ namespace cafeManagement
             try
             {
                 int discount = (int)nudDiscount.Value;
-                double? totalPrice = (double?)double.Parse(txtTotalPrice.Text, NumberStyles.Currency, new CultureInfo("vi-VN"));
-                double? payment = (totalPrice - (totalPrice / 100) * discount);
+                double totalPrice = (double)double.Parse(txtTotalPrice.Text, NumberStyles.Currency, new CultureInfo("vi-VN"));
+                double payment = (totalPrice - (totalPrice / 100) * discount);
                 CultureInfo culture = new CultureInfo("vi-VN");
+                txtPayment.Text = payment.ToString("c", culture);
             }
-            catch (FormatException )
+            catch (FormatException)
             {
 
                 MessageBox.Show("Mời chọn bàn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -89,8 +90,15 @@ namespace cafeManagement
         {
             OrderBUS.Instance.DeleteOrder(dgvOrder, txtTotalPrice, fLPTable, btn_Click);
         }
+
         #endregion
 
-
+        private void dgvOrder_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //DataGridViewRow row = new DataGridViewRow();
+            //row = dgvOrder.Rows[e.RowIndex];
+            //cbbDrink.DisplayMember = Convert.ToString(row.Cells["DrinkName"].Value);
+            //nudQuantity.Value = int.Parse(Convert.ToString(row.Cells["Quantity"].Value));
+        }
     }
 }

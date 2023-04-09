@@ -49,7 +49,7 @@ namespace cafeManagement.DAO
         }
         public void CheckOut(int billID, int discount)
         {
-            string query = "UPDATE dbo.Bill SET BillStatus = 1, "  + "Discount = " + discount + " WHERE BillID = " + billID;
+            string query = "UPDATE dbo.Bill SET BillStatus = 1, "  + "Discount = " + discount + ", DateCheckOut= getdate() WHERE BillID = " + billID;
             DataProvider.Instance.ExecuteNonQuery(query, new object[] { billID });
         }
 
