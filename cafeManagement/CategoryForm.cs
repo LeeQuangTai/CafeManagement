@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using cafeManagement.Resource.DAO;
+using System.Text.RegularExpressions;
 
 namespace cafeManagement
 {
@@ -22,13 +23,13 @@ namespace cafeManagement
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            if (bunifuTextBox2.Text == "" || bunifuTextBox1.Text == "")
+            if (convertToUnSign3(IDtxt.Text) == "" || nameTxt.Text == "")
             {
                 MessageBox.Show("Vui lòng không để trống!");
             }
             else
             {
-                DrinkDAO.Instance.addM(bunifuTextBox2.Text, bunifuTextBox1.Text);
+                DrinkDAO.Instance.addM(convertToUnSign3(IDtxt.Text), nameTxt.Text);
                 Load_Category();
                 MessageBox.Show("Thêm thành công");
             }
@@ -55,6 +56,12 @@ namespace cafeManagement
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        public static string convertToUnSign3(string s)
+        {
+            Regex regex = new Regex("\\p{IsCombiningDiacriticalMarks}+");
+            string temp = s.Normalize(NormalizationForm.FormD);
+            return regex.Replace(temp, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
         }
     }
 }

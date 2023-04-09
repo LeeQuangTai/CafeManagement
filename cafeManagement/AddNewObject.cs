@@ -40,8 +40,8 @@ namespace cafeManagement
             }
             else
             {
-                
-                if (DrinkDAO.Instance.addSP(bunifu_ID_Mon.Text, bunifu_Ten_Mon.Text, cbDanhMuc.ValueMember.ToString(), Convert.ToInt32(nmDonGia.Value))>0)
+
+                if (DrinkDAO.Instance.addSP(bunifu_ID_Mon.Text, bunifu_Ten_Mon.Text, cbDanhMuc.Text, int.Parse(DonGiaTxt.Text)) > 0);
                 {
                     MessageBox.Show("Thêm thành công");
 
@@ -55,6 +55,11 @@ namespace cafeManagement
         }
 
         private void bunifu_ID_Mon_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifu_Ten_Mon_TextChanged(object sender, EventArgs e)
         {
 
         }

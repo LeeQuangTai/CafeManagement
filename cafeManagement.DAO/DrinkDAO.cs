@@ -8,6 +8,7 @@ using System.Data;
 using cafeManagement.DTO;
 using cafeManagement.DAO;
 using System.Windows.Forms;
+using System.Runtime.Remoting.Messaging;
 
 namespace cafeManagement.DAO
 {
@@ -96,16 +97,18 @@ namespace cafeManagement.DAO
             {
                 connection.Open();
 
-                string query = "INSERT INTO dbo.Drink (DrinkID, DrinkCategoryID, DrinkName, UnitPrice) VALUES (@DrinkID, @DrinkCategoryID, @DrinkName, @UnitPrice)";
+                string query = "declare @DrinkID nvarchar(50) , @DrinkCategoryID  nvarchar(50),@DrinkName nvarchar(50),@UnitPrice smallmoney INSERT INTO dbo.Drink (DrinkID, DrinkCategoryID, DrinkName, UnitPrice) VALUES (@DrinkID, @DrinkCategoryID, @DrinkName, @UnitPrice)";
 
                 string newQuery = "declare @DrinkID nvarchar(50) , @DrinkCategoryID  nvarchar(50),@DrinkName nvarchar(50),@UnitPrice smallmoney " +
-                    "set @DrinkID = '" + IDMon +"';set @DrinkCategoryID  = '"+ TenMon +"';set @DrinkName = '"+ TenDM +"';set @UnitPrice = "+ GiaBan +";" +
+                    "set @DrinkID = '" + IDMon +"';set @DrinkCategoryID  = '"+ getDrinkCategoryID(TenDM) + "';set @DrinkName = N'"+ TenMon + "';set @UnitPrice = "+ GiaBan +";" +
                     "INSERT INTO dbo.Drink (DrinkID, DrinkCategoryID, DrinkName, UnitPrice) " +
                     "VALUES (@DrinkID, @DrinkCategoryID, @DrinkName, @UnitPrice)";
+
+
                 SqlCommand command = new SqlCommand(newQuery, connection);
                 //command.Parameters.AddWithValue("@DrinkID", IDMon);
-                //command.Parameters.AddWithValue("@DrinkCategoryID", TenMon);
-                //command.Parameters.AddWithValue("@DrinkName", TenDM);
+                //command.Parameters.AddWithValue("@DrinkName", TenMon);
+                //command.Parameters.AddWithValue("@DrinkCategoryID", getDrinkCategoryID(TenDM));
                 //command.Parameters.AddWithValue("@UnitPrice", GiaBan);
                 try
                 {
@@ -113,7 +116,7 @@ namespace cafeManagement.DAO
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    MessageBox.Show("ADDsp error: " + e.Message);
                 }
                 finally
                 {
@@ -122,7 +125,26 @@ namespace cafeManagement.DAO
             }
             return rowsAffected;
         }
+        private string getDrinkCategoryID(string DrinkCategoryName)
+        {
+            string drinkCategoryID = null;
+            using (SqlConnection connection = new SqlConnection(DataProvider.Instance.ConnectionSTR))
+            {
+                connection.Open();
 
+                string query = "select DrinkCategoryID from DrinkCategory where DrinkCategoryName = N'" + DrinkCategoryName + "'";
+                SqlCommand command = new SqlCommand(query, connection);
+                try
+                {
+                    drinkCategoryID = (string)command.ExecuteScalar();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("getDrinkID eror: "+e.Message);
+                }
+            }
+            return drinkCategoryID;
+        }
     }
 
 

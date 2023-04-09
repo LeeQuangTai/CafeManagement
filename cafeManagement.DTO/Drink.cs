@@ -23,7 +23,7 @@ namespace cafeManagement.DTO
             this.DrinkCategoryID = row["drinkCategoryID"].ToString();
             this.DrinkName = row["drinkName"].ToString();
             this.UnitPrice = (float)Convert.ToDouble((row["unitPrice"].ToString()));
-            this.Status = Convert.ToInt32(row["status"]);
+            //this.Status = Convert.ToInt32(row["status"]);
         }
         private string drinkID;
         public string DrinkID

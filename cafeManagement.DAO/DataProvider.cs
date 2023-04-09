@@ -51,11 +51,8 @@ namespace cafeManagement.DAO
                         }
                     }
                 }
-
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
-
                 adapter.Fill(data);
-
                 connection.Close();
             }
 
