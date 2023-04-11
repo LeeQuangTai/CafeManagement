@@ -25,7 +25,7 @@ namespace cafeManagement
         private void bunifuButton3_Click(object sender, System.EventArgs e)
         {
             Form category = new CategoryForm();
-            category.Show();
+            category.Show();    
             //  var control = Application.OpenForms.Cast<ControlForm>().Last(); // using LINQ 
         }
 
@@ -42,7 +42,7 @@ namespace cafeManagement
 
         private void loadSearch(string varQuery)
         {
-            string query = "Select * from dbo.Drink where DrinkName like  '%" + varQuery + "%' or DrinkCategoryID like '%"+ varQuery + "%'";
+            string query = "Select * from dbo.Drink where DrinkName like  N'%" + varQuery + "%' or DrinkCategoryID like N'%"+ varQuery + "%'";
             try
             {
                 dtwMenu.DataSource = DataProvider.Instance.ExecuteQuery(query);

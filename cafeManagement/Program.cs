@@ -41,8 +41,19 @@ namespace cafeManagement
                 return;
             }
             currentForm.OnShow();
+
             callback?.Invoke();
         }
+
+        internal static void CleanForm(FormType control)
+        {
+            foreach (var item in FormFromType)
+            {
+                if (item.Key != control)
+                    item.Value.Close();
+            }
+        }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

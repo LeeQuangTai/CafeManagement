@@ -9,9 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using cafeManagement.Resource.DAO;
 using System.Text.RegularExpressions;
-
+using cafeManagement.DAO;
 namespace cafeManagement
 {
     public partial class CategoryForm : Form

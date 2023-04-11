@@ -213,6 +213,7 @@ namespace cafeManagement
             this.btDanhMuc.AllowAnimations = true;
             this.btDanhMuc.AllowMouseEffects = true;
             this.btDanhMuc.AllowToggling = false;
+            this.btDanhMuc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btDanhMuc.AnimationSpeed = 200;
             this.btDanhMuc.AutoGenerateColors = false;
             this.btDanhMuc.AutoRoundBorders = false;
@@ -304,6 +305,7 @@ namespace cafeManagement
             this.btThemMH.AllowAnimations = true;
             this.btThemMH.AllowMouseEffects = true;
             this.btThemMH.AllowToggling = false;
+            this.btThemMH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btThemMH.AnimationSpeed = 200;
             this.btThemMH.AutoGenerateColors = false;
             this.btThemMH.AutoRoundBorders = false;

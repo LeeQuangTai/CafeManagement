@@ -50,6 +50,7 @@
             // bunifuLabel1
             // 
             this.bunifuLabel1.AllowParentOverrides = false;
+            this.bunifuLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bunifuLabel1.AutoEllipsis = false;
             this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
@@ -70,6 +71,7 @@
             this.loginBtn.AllowAnimations = true;
             this.loginBtn.AllowMouseEffects = true;
             this.loginBtn.AllowToggling = false;
+            this.loginBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.loginBtn.AnimationSpeed = 200;
             this.loginBtn.AutoGenerateColors = false;
             this.loginBtn.AutoRoundBorders = false;
@@ -172,6 +174,7 @@
             // 
             this.passwordTxt.AcceptsReturn = false;
             this.passwordTxt.AcceptsTab = false;
+            this.passwordTxt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passwordTxt.AnimationSpeed = 200;
             this.passwordTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.passwordTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
@@ -221,7 +224,7 @@
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.passwordTxt.OnIdleState = stateProperties4;
-            this.passwordTxt.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.passwordTxt.Padding = new System.Windows.Forms.Padding(3);
             this.passwordTxt.PasswordChar = '●';
             this.passwordTxt.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.passwordTxt.PlaceholderText = "Password";
@@ -247,6 +250,7 @@
             // 
             this.userNameTxt.AcceptsReturn = false;
             this.userNameTxt.AcceptsTab = false;
+            this.userNameTxt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.userNameTxt.AnimationSpeed = 200;
             this.userNameTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.userNameTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
@@ -296,7 +300,7 @@
             stateProperties8.ForeColor = System.Drawing.Color.Empty;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.userNameTxt.OnIdleState = stateProperties8;
-            this.userNameTxt.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.userNameTxt.Padding = new System.Windows.Forms.Padding(3);
             this.userNameTxt.PasswordChar = '\0';
             this.userNameTxt.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.userNameTxt.PlaceholderText = "Account";
@@ -331,10 +335,10 @@
             this.Controls.Add(this.bunifuLabel1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoginForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fLogin_FormClosing);
+            this.Text = "Đăng nhập";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

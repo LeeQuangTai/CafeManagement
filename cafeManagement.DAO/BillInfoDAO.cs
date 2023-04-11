@@ -29,13 +29,12 @@ namespace cafeManagement.DAO
                 BillInfo info = new BillInfo(item);
                 listBillInfo.Add(info);
             }
-
             return listBillInfo;
         }
         public void InsertBillInfo(int? billID, string drinkID, int quantity)
         {
-
             DataProvider.Instance.ExecuteQuery("EXEC sp_InsertBillInfo @BillID , @DrinkID , @Quantity ", new object[] { billID, drinkID, quantity });
         }
+
     }
 }

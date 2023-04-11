@@ -3,9 +3,13 @@ using cafeManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace cafeManagement.DAO
@@ -49,7 +53,7 @@ namespace cafeManagement.DAO
         }
         public void CheckOut(int billID, int discount)
         {
-            string query = "UPDATE dbo.Bill SET BillStatus = 1, "  + "Discount = " + discount + ", DateCheckOut= getdate() WHERE BillID = " + billID;
+            string query = "UPDATE dbo.Bill SET BillStatus = 1, " + "Discount = " + discount + ", DateCheckOut= getdate() WHERE BillID = " + billID;
             DataProvider.Instance.ExecuteNonQuery(query, new object[] { billID });
         }
         public List<ViewBill> GetListViewBill()
@@ -62,8 +66,53 @@ namespace cafeManagement.DAO
                 ViewBill viewbill = new ViewBill(item);
                 bill.Add(viewbill);
             }
-
             return bill;
+        }
+        
+        public int GetCountProductBetweenDayAndDay(string first, string after)
+        {
+            string query = "select sum(Quantity) as [count] from BillInFo, bill where BillInfo.BillID = bill.BillID and DateCheckin >= '" + first + "'  and DateCheckin <= '" + after + "'";
+            try
+            {
+                return (int)DataProvider.Instance.ExecuteScalar(query);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        public int GetCountBillBetweenDayAndDay(string first, string after)
+        {
+            string query = "select count(BillID) as [count] from dbo.Bill where DateCheckin >= '" + first + "'  and DateCheckin <= '" + after + "'";
+            try
+            {
+                return (int)DataProvider.Instance.ExecuteScalar(query);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        public int GetTotalSaleBetweenDayAndDay(string first, string after)
+        {
+            string newQuery = "select Convert(int,sum(d.UnitPrice * bi.Quantity) - sum(convert(int,d.UnitPrice) * bi.Quantity * b.Discount/100)) AS [sum] " +
+                "              from BillInfo bi, bill b,drink d , TableManagement t " +
+                "              where bi.BillID = b.BillID and d.DrinkID = bi.DrinkID and t.TableID = b.TableID " +
+                "              and DateCheckin >= '" + first + "'  and DateCheckin <= '" + after + "'";
+            try
+            {
+                return (int)DataProvider.Instance.ExecuteScalar(newQuery);
+            }
+            catch (Exception) 
+            { 
+                return 0; 
+            }
+        }
+        public DataTable GetInfoBillStatistics(string first, string after)
+        {
+            string query = "select b.BillID,b.TableID, b.DateCheckIn, b.DateCheckOut ,sum(quantity) as TotalDrinks  ,b.Discount,sum(Quantity * convert(int,d.UnitPrice) - Quantity * convert(int,d.UnitPrice)*Discount / 100) as TotalSales from BillInfo bi ,Drink d, bill b where bi.DrinkID = d.DrinkID and bi.BillID = b.BillID " +
+                "and DateCheckin >= '" + first + "'  and DateCheckin <= '" + after + "' group by b.BillID, b.TableID, b.DateCheckIn, b.DateCheckOut, b.Discount";
+            return DataProvider.Instance.ExecuteQuery(query);
         }
     }
 }

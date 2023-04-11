@@ -116,7 +116,7 @@ namespace cafeManagement.DAO
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("ADDsp error: " + e.Message);
+                    MessageBox.Show("Sản phẩm này đã có sẵn! Vui lòng thêm sản phẩm khác!");
                 }
                 finally
                 {

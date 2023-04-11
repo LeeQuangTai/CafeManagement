@@ -58,6 +58,9 @@ namespace cafeManagement
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(195)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -79,7 +82,6 @@ namespace cafeManagement
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
             this.dataGridView1.Location = new System.Drawing.Point(0, 172);
@@ -304,6 +306,7 @@ namespace cafeManagement
             this.bunifuButton3.AllowAnimations = true;
             this.bunifuButton3.AllowMouseEffects = true;
             this.bunifuButton3.AllowToggling = false;
+            this.bunifuButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuButton3.AnimationSpeed = 200;
             this.bunifuButton3.AutoGenerateColors = false;
             this.bunifuButton3.AutoRoundBorders = false;
@@ -484,6 +487,7 @@ namespace cafeManagement
             this.bunifuButton4.AllowAnimations = true;
             this.bunifuButton4.AllowMouseEffects = true;
             this.bunifuButton4.AllowToggling = false;
+            this.bunifuButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuButton4.AnimationSpeed = 200;
             this.bunifuButton4.AutoGenerateColors = false;
             this.bunifuButton4.AutoRoundBorders = false;
@@ -574,6 +578,7 @@ namespace cafeManagement
             this.bunifuButton5.AllowAnimations = true;
             this.bunifuButton5.AllowMouseEffects = true;
             this.bunifuButton5.AllowToggling = false;
+            this.bunifuButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuButton5.AnimationSpeed = 200;
             this.bunifuButton5.AutoGenerateColors = false;
             this.bunifuButton5.AutoRoundBorders = false;
