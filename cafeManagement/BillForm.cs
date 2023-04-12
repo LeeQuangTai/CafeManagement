@@ -25,8 +25,14 @@ namespace cafeManagement
         {
 
             string dateCheckIn = dateXuatHoaDon.Value.ToString("MM/dd/yyyy");
-            int billID = Convert.ToInt32(cbMaHD.Text);
-            BillBUS.Instance.LoadListViewBill(txtTongTien, dgvHoaDon, billID, dateCheckIn);
+            if(cbMaHD.Text != "")
+            {
+                int billID = Convert.ToInt32(cbMaHD.Text);
+            
+                BillBUS.Instance.LoadListViewBill(txtTongTien, dgvHoaDon, billID, dateCheckIn);
+            }
+            else 
+                return;
         }
 
         private void dateXuatHoaDon_ValueChanged(object sender, EventArgs e)

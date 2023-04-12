@@ -1,4 +1,5 @@
-﻿using System;
+﻿using cafeManagement.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -30,6 +31,19 @@ namespace cafeManagement.DAO
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { userName, passWord });
 
             return result.Rows.Count > 0;
+        }
+        public List<Account> DisplayName(string userName)
+        {
+                string result = "";
+                string query = "EXEC sp_GetAccountByUserName @userName";
+                DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { userName });
+                List<Account> accounts = new List<Account>();
+                foreach (DataRow item in data.Rows)
+                {
+                    Account account = new Account(item);
+                    accounts.Add(account);
+                }
+                return accounts;
         }
         public DataTable LoadAllAccount()
         {

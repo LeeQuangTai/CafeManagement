@@ -57,6 +57,16 @@ namespace cafeManagement.BUS
         {
             return AccountDAO.Instance.DeleteAccount(a);
         }
+        public void DisplayName(Label lb, string userName)
+        {
+            List<Account> accounts = AccountDAO.Instance.DisplayName(userName);
+            foreach (Account account in accounts)
+            {
+
+                lb.Text ="(" + account.DisplayName + ")";
+            }
+            
+        }
     }
 
 }

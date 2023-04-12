@@ -50,11 +50,11 @@ namespace cafeManagement
             else
             {
 
-                if (DrinkDAO.Instance.addSP(bunifu_ID_Mon.Text, bunifu_Ten_Mon.Text, cbDanhMuc.Text, int.Parse(DonGiaTxt.Text)) > 0);
+                if (DrinkDAO.Instance.addSP(bunifu_ID_Mon.Text, bunifu_Ten_Mon.Text, cbDanhMuc.Text, int.Parse(DonGiaTxt.Text)) > 0)
                 {
                     MessageBox.Show("Thêm thành công");
-
                 }
+
             }
         }
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)

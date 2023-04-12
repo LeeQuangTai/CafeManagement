@@ -3,13 +3,15 @@ using cafeManagement.DTO;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace cafeManagement
 {
     public partial class LoginForm : ViewForm
     {
         public bool isAllowToAccess;
-        public static bool isAdministrator; 
+        public static bool isAdministrator;
+        public static string UsertName = "";
         public override FormType FormType => FormType.Login;
         public LoginForm()
         {
@@ -42,6 +44,9 @@ namespace cafeManagement
                 isAllowToAccess = true;
                 isAdministrator = AccountBUS.Instance.CheckAdministator(userName);
                 Program.SwitchFormType(FormType.Control);
+                ControlForm Child = new ControlForm();      //Tạo Form2
+                Child.Sender(userNameTxt.Text);    //Gọi delegate
+                Child.Show();
                 //this.Close();
                 this.userNameTxt.Clear();
                 this.passwordTxt.Clear();
