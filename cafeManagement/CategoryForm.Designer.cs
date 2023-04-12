@@ -139,7 +139,7 @@ namespace cafeManagement
             this.nameTxt.IconRight = null;
             this.nameTxt.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.nameTxt.Lines = new string[0];
-            this.nameTxt.Location = new System.Drawing.Point(116, 52);
+            this.nameTxt.Location = new System.Drawing.Point(149, 52);
             this.nameTxt.MaxLength = 32767;
             this.nameTxt.MinimumSize = new System.Drawing.Size(1, 1);
             this.nameTxt.Modified = false;
@@ -233,7 +233,7 @@ namespace cafeManagement
             this.bunifuButton1.IdleIconLeftImage = null;
             this.bunifuButton1.IdleIconRightImage = null;
             this.bunifuButton1.IndicateFocus = false;
-            this.bunifuButton1.Location = new System.Drawing.Point(382, 51);
+            this.bunifuButton1.Location = new System.Drawing.Point(415, 52);
             this.bunifuButton1.Name = "bunifuButton1";
             this.bunifuButton1.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton1.OnDisabledState.BorderRadius = 1;
@@ -303,7 +303,7 @@ namespace cafeManagement
             this.IDtxt.IconRight = null;
             this.IDtxt.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.IDtxt.Lines = new string[0];
-            this.IDtxt.Location = new System.Drawing.Point(12, 51);
+            this.IDtxt.Location = new System.Drawing.Point(12, 52);
             this.IDtxt.MaxLength = 32767;
             this.IDtxt.MinimumSize = new System.Drawing.Size(1, 1);
             this.IDtxt.Modified = false;
@@ -339,7 +339,7 @@ namespace cafeManagement
             this.IDtxt.SelectionLength = 0;
             this.IDtxt.SelectionStart = 0;
             this.IDtxt.ShortcutsEnabled = true;
-            this.IDtxt.Size = new System.Drawing.Size(98, 37);
+            this.IDtxt.Size = new System.Drawing.Size(131, 37);
             this.IDtxt.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.IDtxt.TabIndex = 7;
             this.IDtxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -364,7 +364,8 @@ namespace cafeManagement
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "CategoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CategoryForm";
+            this.Text = "Quản lí danh mục";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormClosingEvent);
             this.Load += new System.EventHandler(this.CategoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

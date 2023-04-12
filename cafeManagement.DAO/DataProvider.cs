@@ -25,8 +25,7 @@ namespace cafeManagement.DAO
             private set { DataProvider.instance = value; }
         }
         private DataProvider() { }
-        private string connectionSTR = "Data Source = . ;Initial Catalog=CafeManagement;Integrated Security=True";
-        public string ConnectionSTR => connectionSTR;
+        private string connectionSTR = "Data Source = . ;Initial Catalog=CafeManagement;Integrated Security=True";        public string ConnectionSTR => connectionSTR;
         public string Connnection() { return connectionSTR; }
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
@@ -58,7 +57,6 @@ namespace cafeManagement.DAO
 
             return data;
         }
-
         public int ExecuteNonQuery(string query, object[] parameter = null)
         {
             int data = 0;

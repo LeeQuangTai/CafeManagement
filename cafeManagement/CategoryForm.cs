@@ -9,13 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using cafeManagement.Resource.DAO;
 using System.Text.RegularExpressions;
-
+using cafeManagement.DAO;
 namespace cafeManagement
 {
     public partial class CategoryForm : Form
     {
+        static bool isOpened = false;
         public CategoryForm()
         {
             InitializeComponent();
@@ -36,6 +36,13 @@ namespace cafeManagement
         }
         private void Load_Category()
         {
+
+            if (!isOpened)
+
+                isOpened = true;
+
+            else
+                this.Dispose();
             dataGridView1.DataSource = DrinkCategoryDAO.Instance.GetDrinkCategories();
             for (int i = 0; i < dataGridView1.Columns.Count; i++)
             {
@@ -50,6 +57,13 @@ namespace cafeManagement
 
         private void CategoryForm_Load(object sender, EventArgs e)
         {
+            if (!LoginForm.isAdministrator)
+            {
+                bunifuButton1.Enabled = false;
+            }
+            else
+                bunifuButton1.Enabled = true;
+
             Load_Category();
         }
 
@@ -62,6 +76,13 @@ namespace cafeManagement
             Regex regex = new Regex("\\p{IsCombiningDiacriticalMarks}+");
             string temp = s.Normalize(NormalizationForm.FormD);
             return regex.Replace(temp, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
+        }
+        private void FormClosingEvent(object sender, FormClosingEventArgs e)
+        {
+            if (isOpened)
+            {
+                isOpened = false;
+            }
         }
     }
 }

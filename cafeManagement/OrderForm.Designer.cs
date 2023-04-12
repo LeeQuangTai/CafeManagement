@@ -91,8 +91,7 @@ namespace cafeManagement
             this.dgvOrder.EnableHeadersVisualStyles = false;
             this.dgvOrder.GridColor = System.Drawing.Color.White;
             this.dgvOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dgvOrder.Location = new System.Drawing.Point(332, 283);
-            this.dgvOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvOrder.Location = new System.Drawing.Point(249, 230);
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -108,7 +107,7 @@ namespace cafeManagement
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvOrder.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvOrder.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrder.Size = new System.Drawing.Size(812, 416);
+            this.dgvOrder.Size = new System.Drawing.Size(609, 338);
             this.dgvOrder.TabIndex = 2;
             this.dgvOrder.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellClick);
             // 
@@ -122,10 +121,9 @@ namespace cafeManagement
             this.cbbCategory.Items.AddRange(new object[] {
             "Đồ uống",
             "Thức ăn"});
-            this.cbbCategory.Location = new System.Drawing.Point(341, 132);
-            this.cbbCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.cbbCategory.Location = new System.Drawing.Point(256, 107);
             this.cbbCategory.Name = "cbbCategory";
-            this.cbbCategory.Size = new System.Drawing.Size(281, 40);
+            this.cbbCategory.Size = new System.Drawing.Size(212, 33);
             this.cbbCategory.TabIndex = 4;
             this.cbbCategory.UseWaitCursor = true;
             this.cbbCategory.SelectedIndexChanged += new System.EventHandler(this.cbbCategory_SelectedIndexChanged);
@@ -137,29 +135,28 @@ namespace cafeManagement
             this.cbbDrink.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbbDrink.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbDrink.FormattingEnabled = true;
-            this.cbbDrink.Location = new System.Drawing.Point(341, 186);
-            this.cbbDrink.Margin = new System.Windows.Forms.Padding(4);
+            this.cbbDrink.Location = new System.Drawing.Point(256, 151);
             this.cbbDrink.Name = "cbbDrink";
-            this.cbbDrink.Size = new System.Drawing.Size(281, 40);
+            this.cbbDrink.Size = new System.Drawing.Size(212, 33);
             this.cbbDrink.TabIndex = 4;
             this.cbbDrink.UseWaitCursor = true;
             // 
             // nudQuantity
             // 
             this.nudQuantity.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudQuantity.Location = new System.Drawing.Point(665, 132);
-            this.nudQuantity.Margin = new System.Windows.Forms.Padding(4);
+            this.nudQuantity.Location = new System.Drawing.Point(499, 107);
             this.nudQuantity.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nudQuantity.Name = "nudQuantity";
-            this.nudQuantity.Size = new System.Drawing.Size(135, 35);
+            this.nudQuantity.Size = new System.Drawing.Size(101, 30);
             this.nudQuantity.TabIndex = 5;
             // 
             // cbbTransfer
             // 
+            this.cbbTransfer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbTransfer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(225)))));
             this.cbbTransfer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTransfer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -177,10 +174,9 @@ namespace cafeManagement
             "Bàn 9",
             "Bàn 10",
             ""});
-            this.cbbTransfer.Location = new System.Drawing.Point(822, 133);
-            this.cbbTransfer.Margin = new System.Windows.Forms.Padding(4);
+            this.cbbTransfer.Location = new System.Drawing.Point(616, 108);
             this.cbbTransfer.Name = "cbbTransfer";
-            this.cbbTransfer.Size = new System.Drawing.Size(151, 33);
+            this.cbbTransfer.Size = new System.Drawing.Size(114, 29);
             this.cbbTransfer.TabIndex = 4;
             this.cbbTransfer.UseWaitCursor = true;
             // 
@@ -194,11 +190,10 @@ namespace cafeManagement
             this.lbTable.CursorType = System.Windows.Forms.Cursors.Default;
             this.lbTable.Font = new System.Drawing.Font("Showcard Gothic", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.lbTable.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbTable.Location = new System.Drawing.Point(527, 32);
-            this.lbTable.Margin = new System.Windows.Forms.Padding(4);
+            this.lbTable.Location = new System.Drawing.Point(395, 26);
             this.lbTable.Name = "lbTable";
             this.lbTable.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbTable.Size = new System.Drawing.Size(325, 84);
+            this.lbTable.Size = new System.Drawing.Size(244, 68);
             this.lbTable.TabIndex = 6;
             this.lbTable.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbTable.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
@@ -207,15 +202,14 @@ namespace cafeManagement
             // 
             this.nudDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.nudDiscount.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudDiscount.Location = new System.Drawing.Point(332, 772);
-            this.nudDiscount.Margin = new System.Windows.Forms.Padding(4);
+            this.nudDiscount.Location = new System.Drawing.Point(249, 627);
             this.nudDiscount.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nudDiscount.Name = "nudDiscount";
-            this.nudDiscount.Size = new System.Drawing.Size(135, 35);
+            this.nudDiscount.Size = new System.Drawing.Size(101, 30);
             this.nudDiscount.TabIndex = 5;
             // 
             // btnPay
@@ -266,8 +260,7 @@ namespace cafeManagement
             this.btnPay.IdleIconLeftImage = null;
             this.btnPay.IdleIconRightImage = null;
             this.btnPay.IndicateFocus = false;
-            this.btnPay.Location = new System.Drawing.Point(973, 766);
-            this.btnPay.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPay.Location = new System.Drawing.Point(730, 622);
             this.btnPay.Name = "btnPay";
             this.btnPay.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnPay.OnDisabledState.BorderRadius = 1;
@@ -301,7 +294,7 @@ namespace cafeManagement
             this.btnPay.OnPressedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(195)))));
             this.btnPay.OnPressedState.IconLeftImage = null;
             this.btnPay.OnPressedState.IconRightImage = null;
-            this.btnPay.Size = new System.Drawing.Size(135, 39);
+            this.btnPay.Size = new System.Drawing.Size(101, 32);
             this.btnPay.TabIndex = 3;
             this.btnPay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnPay.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -315,6 +308,7 @@ namespace cafeManagement
             this.btnTransfer.AllowAnimations = true;
             this.btnTransfer.AllowMouseEffects = true;
             this.btnTransfer.AllowToggling = false;
+            this.btnTransfer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTransfer.AnimationSpeed = 200;
             this.btnTransfer.AutoGenerateColors = false;
             this.btnTransfer.AutoRoundBorders = false;
@@ -357,8 +351,7 @@ namespace cafeManagement
             this.btnTransfer.IdleIconLeftImage = null;
             this.btnTransfer.IdleIconRightImage = null;
             this.btnTransfer.IndicateFocus = false;
-            this.btnTransfer.Location = new System.Drawing.Point(998, 133);
-            this.btnTransfer.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTransfer.Location = new System.Drawing.Point(748, 108);
             this.btnTransfer.Name = "btnTransfer";
             this.btnTransfer.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnTransfer.OnDisabledState.BorderRadius = 1;
@@ -392,7 +385,7 @@ namespace cafeManagement
             this.btnTransfer.OnPressedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(195)))));
             this.btnTransfer.OnPressedState.IconLeftImage = null;
             this.btnTransfer.OnPressedState.IconRightImage = null;
-            this.btnTransfer.Size = new System.Drawing.Size(135, 39);
+            this.btnTransfer.Size = new System.Drawing.Size(101, 32);
             this.btnTransfer.TabIndex = 3;
             this.btnTransfer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnTransfer.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -448,8 +441,7 @@ namespace cafeManagement
             this.btnAddDrink.IdleIconLeftImage = null;
             this.btnAddDrink.IdleIconRightImage = null;
             this.btnAddDrink.IndicateFocus = false;
-            this.btnAddDrink.Location = new System.Drawing.Point(665, 187);
-            this.btnAddDrink.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddDrink.Location = new System.Drawing.Point(499, 152);
             this.btnAddDrink.Name = "btnAddDrink";
             this.btnAddDrink.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnAddDrink.OnDisabledState.BorderRadius = 1;
@@ -483,7 +475,7 @@ namespace cafeManagement
             this.btnAddDrink.OnPressedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(195)))));
             this.btnAddDrink.OnPressedState.IconLeftImage = null;
             this.btnAddDrink.OnPressedState.IconRightImage = null;
-            this.btnAddDrink.Size = new System.Drawing.Size(135, 39);
+            this.btnAddDrink.Size = new System.Drawing.Size(101, 32);
             this.btnAddDrink.TabIndex = 3;
             this.btnAddDrink.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAddDrink.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -494,63 +486,76 @@ namespace cafeManagement
             // 
             // fLPTable
             // 
+            this.fLPTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.fLPTable.AutoScroll = true;
-            this.fLPTable.Location = new System.Drawing.Point(12, 132);
+            this.fLPTable.Location = new System.Drawing.Point(9, 107);
+            this.fLPTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.fLPTable.Name = "fLPTable";
-            this.fLPTable.Size = new System.Drawing.Size(317, 567);
+            this.fLPTable.Size = new System.Drawing.Size(238, 461);
             this.fLPTable.TabIndex = 8;
             // 
             // txtPayment
             // 
+            this.txtPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtPayment.BackColor = System.Drawing.SystemColors.Menu;
             this.txtPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPayment.HideSelection = false;
-            this.txtPayment.Location = new System.Drawing.Point(748, 771);
+            this.txtPayment.Location = new System.Drawing.Point(561, 626);
+            this.txtPayment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPayment.Name = "txtPayment";
-            this.txtPayment.Size = new System.Drawing.Size(200, 36);
+            this.txtPayment.Size = new System.Drawing.Size(151, 30);
             this.txtPayment.TabIndex = 9;
             this.txtPayment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtTotalPrice
             // 
+            this.txtTotalPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTotalPrice.BackColor = System.Drawing.SystemColors.Menu;
             this.txtTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalPrice.HideSelection = false;
-            this.txtTotalPrice.Location = new System.Drawing.Point(515, 772);
+            this.txtTotalPrice.Location = new System.Drawing.Point(386, 627);
+            this.txtTotalPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTotalPrice.Name = "txtTotalPrice";
-            this.txtTotalPrice.Size = new System.Drawing.Size(200, 36);
+            this.txtTotalPrice.Size = new System.Drawing.Size(151, 30);
             this.txtTotalPrice.TabIndex = 9;
             this.txtTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(528, 736);
+            this.label2.Location = new System.Drawing.Point(396, 598);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 33);
+            this.label2.Size = new System.Drawing.Size(77, 27);
             this.label2.TabIndex = 10;
             this.label2.Text = "Tổng tiền";
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(755, 735);
+            this.label3.Location = new System.Drawing.Point(566, 597);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 33);
+            this.label3.Size = new System.Drawing.Size(88, 27);
             this.label3.TabIndex = 10;
             this.label3.Text = "Thành tiền";
             // 
             // btnDiscount
             // 
+            this.btnDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDiscount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(42)))), ((int)(((byte)(33)))));
             this.btnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDiscount.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F);
             this.btnDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(195)))));
-            this.btnDiscount.Location = new System.Drawing.Point(332, 727);
+            this.btnDiscount.Location = new System.Drawing.Point(249, 591);
+            this.btnDiscount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDiscount.Name = "btnDiscount";
-            this.btnDiscount.Size = new System.Drawing.Size(135, 41);
+            this.btnDiscount.Size = new System.Drawing.Size(101, 33);
             this.btnDiscount.TabIndex = 11;
             this.btnDiscount.Text = "Giảm giá";
             this.btnDiscount.UseVisualStyleBackColor = false;
@@ -561,6 +566,7 @@ namespace cafeManagement
             this.btnDelete.AllowAnimations = true;
             this.btnDelete.AllowMouseEffects = true;
             this.btnDelete.AllowToggling = false;
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.AnimationSpeed = 200;
             this.btnDelete.AutoGenerateColors = false;
             this.btnDelete.AutoRoundBorders = false;
@@ -603,8 +609,7 @@ namespace cafeManagement
             this.btnDelete.IdleIconLeftImage = null;
             this.btnDelete.IdleIconRightImage = null;
             this.btnDelete.IndicateFocus = false;
-            this.btnDelete.Location = new System.Drawing.Point(822, 187);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Location = new System.Drawing.Point(616, 152);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnDelete.OnDisabledState.BorderRadius = 1;
@@ -638,7 +643,7 @@ namespace cafeManagement
             this.btnDelete.OnPressedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(195)))));
             this.btnDelete.OnPressedState.IconLeftImage = null;
             this.btnDelete.OnPressedState.IconRightImage = null;
-            this.btnDelete.Size = new System.Drawing.Size(135, 39);
+            this.btnDelete.Size = new System.Drawing.Size(101, 32);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnDelete.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -649,10 +654,10 @@ namespace cafeManagement
             // 
             // OrderForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(195)))));
-            this.ClientSize = new System.Drawing.Size(1157, 866);
+            this.ClientSize = new System.Drawing.Size(868, 704);
             this.Controls.Add(this.btnDiscount);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -671,7 +676,6 @@ namespace cafeManagement
             this.Controls.Add(this.btnTransfer);
             this.Controls.Add(this.btnAddDrink);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OrderForm";
             this.Load += new System.EventHandler(this.OrderForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();

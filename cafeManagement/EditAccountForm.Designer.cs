@@ -507,6 +507,7 @@
             this.Name = "EditAccountForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditAccountForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditAccountForm_FormClosing);
             this.Load += new System.EventHandler(this.onLoad);
             this.ResumeLayout(false);
             this.PerformLayout();

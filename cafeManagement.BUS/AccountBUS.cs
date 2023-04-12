@@ -40,7 +40,10 @@ namespace cafeManagement.BUS
         {
             return AccountDAO.Instance.Login(userName, passWord);
         }
-
+        public bool CheckAdministator(string userName)
+        {
+            return AccountDAO.Instance.CheckAdministator(userName);
+        }
         public int EditAccount(string userName, string newUserName, string displayname, string password, int type)
         {
             return AccountDAO.Instance.EditAccount(userName, newUserName, displayname, password, type);
