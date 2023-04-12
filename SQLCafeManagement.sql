@@ -24,11 +24,12 @@ CREATE TABLE Drink
 	DrinkCategoryID NVARCHAR(50) NOT NULL,
 	DrinkName NVARCHAR(50) NOT NULL,
 	UnitPrice SMALLMONEY DEFAULT 0,
-	Status BIT DEFAULT 1,
 	FOREIGN KEY (DrinkCategoryID) REFERENCES dbo.DrinkCategory(DrinkCategoryID),
 )
 GO
 ---------------------------------------
+alter table Drink
+drop column status
 
 CREATE TABLE TableManagement
 (
@@ -315,11 +316,7 @@ WHERE BillID = @BillID AND DrinkID = @DrinkID
 end
 GO 
 --------
-Delete dbo.BillInfo
-Delete dbo.Bill
-Select * from dbo.BillInfo
-Select * from dbo.Bill
-Select * from dbo.TableManagement
+
 --------Xóa hóa bàn order--------
 
 Create PROCEDURE sp_Delete @TableID nvarchar(50), @BillID int
@@ -331,7 +328,38 @@ BEGIN
 		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE @TableID = TableID
 END
 GO
-
+------- Lấy danh sách hóa đơn
+Create procedure sp_GetListViewBill @BillID int, @DateCheckIn Date
+as
+begin
+		select DrinkName, UnitPrice, Quantity, (UnitPrice*Quantity) as TotalPrice, DateCheckIn, TableID, Discount
+		from dbo.Bill b, dbo.BillInfo bi, dbo.Drink d
+		where b.BillID = @BillID and @DateCheckIn = DateCheckIn and
+			b.BillID = bi.BillID and bi.DrinkID = d.DrinkID
+end
+Go
+-----Lấy mã hóa đơn theo ngày
+Create procedure sp_GetListBillID @DateCheckIn Date
+as
+begin
+	select * 
+	from dbo.Bill 
+	where @DateCheckIn = DateCheckIn
+end
+go
+exec sp_GetListBillID '4/10/2023'
+----------
+CREATE procedure sp_GetTotalMoney @BillID int
+as
+begin
+	select SUM(UnitPrice * Quantity - UnitPrice * Quantity * (Discount * 1.0 / 100)) as TotalMoney
+	from dbo.BillInfo bi, dbo.Drink d, dbo.Bill b
+	where bi.BillID = @BillID and
+			b.BillID = bi.BillID and
+			bi.DrinkID = d.DrinkID
+end
+go
+exec sp_GetTotalMoney 4
 ----------------------Xử lý chuyển Bàn--------------------
 -----------------------Store Procedure ---------
 CREATE PROCEDURE sp_Transfer @TableID1 nvarchar(50), @TableID2 nvarchar (50)
@@ -481,7 +509,7 @@ BEGIN
 END
 GO
 ------------
-alter TRIGGER UTG_UpdateBill
+Create TRIGGER UTG_UpdateBill
 ON dbo.Bill FOR UPDATE
 AS
 BEGIN
@@ -503,12 +531,4 @@ BEGIN
 END
 GO
 ---------
-Create Procedure sp_GetDrinkCategoryID @DrinkName nvarchar(50)
-as 
-begin
-Select c.DrinkCategoryID From dbo.Drink d, dbo.DrinkCategory c 
-Where c.DrinkCategoryID = d.DrinkCategoryID and @DrinkName = d.DrinkName
-end
-Go
-exec sp_GetDrinkCategoryID N'Bạc xỉu'
 -------------------------------------------------TEST---------------------

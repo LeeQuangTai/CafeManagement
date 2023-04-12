@@ -50,6 +50,11 @@ namespace cafeManagement.Resource.DAO
             string query = "UPDATE dbo.Bill SET BillStatus = 1, "  + "Discount = " + discount + " WHERE BillID = " + billID;
             DataProvider.Instance.ExecuteNonQuery(query, new object[] { billID });
         }
-
+        public void GetBillIDByDate (DateTime? dateCheckIn)
+        {
+            string query = "sp_GetBillIDByDate @DateCheckIn ";
+            DataProvider.Instance.ExecuteQuery(query, new object[] { dateCheckIn });
+        }
+        
     }
 }

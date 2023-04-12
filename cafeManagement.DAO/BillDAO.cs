@@ -52,18 +52,36 @@ namespace cafeManagement.DAO
             string query = "UPDATE dbo.Bill SET BillStatus = 1, "  + "Discount = " + discount + ", DateCheckOut= getdate() WHERE BillID = " + billID;
             DataProvider.Instance.ExecuteNonQuery(query, new object[] { billID });
         }
-        public List<ViewBill> GetListViewBill()
+        public List<ViewBill> GetListViewBill(int billID, string dateCheckIn)
         {
-            List<ViewBill> bill = new List<ViewBill>();
-            string query = "sp_GetListBill";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            List<ViewBill> bills = new List<ViewBill>();
+            string query = "exec sp_GetListViewBill @BillID , @DateCheckIn ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { billID, dateCheckIn });
             foreach (DataRow item in data.Rows)
             {
-                ViewBill viewbill = new ViewBill(item);
-                bill.Add(viewbill);
+                ViewBill bill = new ViewBill(item);
+                bills.Add(bill);
             }
-
-            return bill;
+            return bills;
+        }
+        public List<Bill> GetListBill(string dateXuatHoaDon)
+        {
+            List<Bill> bills = new List<Bill>();
+            string query = "exec sp_GetListBillID @DateCheckIn ";
+            Console.WriteLine(query);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { dateXuatHoaDon });
+            foreach (DataRow item in data.Rows)
+            {
+                Bill bill = new Bill(item);
+                bills.Add(bill);
+            }
+            return bills;
+        }
+        public decimal GetTotalMoney(int billID)
+        {
+            string query = "exec sp_GetTotalMoney @BillID ";
+            decimal total = (decimal)DataProvider.Instance.ExecuteScalar(query, new object[] { billID });
+            return total;
         }
     }
 }

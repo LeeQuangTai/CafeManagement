@@ -9,9 +9,8 @@ namespace cafeManagement.DTO
 {
     public class ViewBill
     {
-        public ViewBill(int billID, int billInfoID, string drinkName, float unitPrice, int quantity, string tableID, DateTime? dateCheckin, float totalPrice = 0)
+        public ViewBill(int billInfoID, string drinkName, float unitPrice, int quantity, string tableID, DateTime? dateCheckin, float totalPrice = 0, int discount = 0)
         {
-            this.BillID = billID;
             this.DrinkName = drinkName;
             this.UnitPrice = unitPrice;
             this.Quantity = quantity;
@@ -21,20 +20,15 @@ namespace cafeManagement.DTO
         }
         public ViewBill(DataRow row)
         {
-            this.BillID = (int)row["billID"];
             this.DrinkName = row["drinkName"].ToString();
             this.UnitPrice = (float)Convert.ToDouble((row["unitPrice"].ToString()));
             this.Quantity = (int)row["quantity"];
             this.TotalPrice = (float)Convert.ToDouble((row["totalPrice"].ToString()));
             this.DateCheckin = (DateTime?)row["dateCheckin"];
             this.TableID = row["tableID"].ToString();
+            this.Discount = (int)row["discount"];
         }
-        private int billID;
-        public int BillID
-        {
-            get { return billID; }
-            set { billID = value; }
-        }
+
         private string drinkName;
         public string DrinkName
         {
@@ -70,6 +64,13 @@ namespace cafeManagement.DTO
         {
             get { return tableID; }
             set { tableID = value; }
+        }
+
+        private int discount;
+        public int Discount
+        {
+            get { return discount; }
+            set { discount = value; }
         }
 
     }

@@ -10,17 +10,17 @@ namespace cafeManagement.DTO
     public class Bill
     {
 
-        private int? billID;
-        public int? BillID
+        private int billID;
+        public int BillID
         {
             get { return billID; }
             set { billID = value; }
         }
-        private DateTime? dateCheckin;
-        public DateTime? DateCheckin
+        private DateTime? dateCheckIn;
+        public DateTime? DateCheckIn
         {
-            get { return dateCheckin; }
-            set { dateCheckin = value; }
+            get { return dateCheckIn; }
+            set { dateCheckIn = value; }
         }
         private DateTime? dateCheckout;
         public DateTime? DateCheckout
@@ -46,11 +46,11 @@ namespace cafeManagement.DTO
             get { return discount; }
             set { discount = value; }
         }
-        public Bill(int billID, DateTime? dateCheckin, DateTime? dateCheckout, string tableID, int billStatus, int discount = 0)
+        public Bill(int billID, DateTime? dateCheckIn, DateTime? dateCheckout, string tableID, int billStatus, int discount = 0)
         {
             this.BillID = billID;
-            this.DateCheckin = dateCheckin;
-            this.DateCheckin = dateCheckin;
+            this.DateCheckIn = dateCheckIn;
+            this.DateCheckout = dateCheckout;
             this.TableID = tableID;
             this.BillStatus = billStatus;
             this.Discount = discount;
@@ -58,7 +58,7 @@ namespace cafeManagement.DTO
         public Bill(DataRow row)
         {
             this.BillID = (int)row["billID"];
-            this.DateCheckin = (DateTime?)row["dateCheckin"];
+            this.DateCheckIn = (DateTime?)row["dateCheckIn"];
             var dateCheckoutTemp = row["dateCheckout"];
             if (dateCheckoutTemp.ToString() != "")
                 this.DateCheckout = (DateTime?)dateCheckoutTemp;

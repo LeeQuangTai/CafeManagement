@@ -15,7 +15,6 @@ namespace cafeManagement.DTO
             this.DrinkCategoryID = drinkCategoryID;
             this.DrinkName = drinkName;
             this.UnitPrice = unitPrice;
-            this.Status = status;
         }
         public Drink(DataRow row)
         {
@@ -23,7 +22,6 @@ namespace cafeManagement.DTO
             this.DrinkCategoryID = row["drinkCategoryID"].ToString();
             this.DrinkName = row["drinkName"].ToString();
             this.UnitPrice = (float)Convert.ToDouble((row["unitPrice"].ToString()));
-            //this.Status = Convert.ToInt32(row["status"]);
         }
         private string drinkID;
         public string DrinkID
@@ -48,12 +46,6 @@ namespace cafeManagement.DTO
         {
             get { return unitPrice; }
             set { unitPrice = value; }
-        }
-        private int status;
-        public int Status
-        {
-            get { return status; }
-            set { status = value; }
         }
 
     }

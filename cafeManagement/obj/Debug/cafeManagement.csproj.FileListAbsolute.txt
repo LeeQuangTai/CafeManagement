@@ -124,3 +124,4 @@ D:\Data\cafeManagement\cafeManagement\bin\Debug\cafeManagement.BUS.pdb
 D:\Data\cafeManagement\cafeManagement\bin\Debug\cafeManagement.DAO.pdb
 D:\Data\cafeManagement\cafeManagement\bin\Debug\cafeManagement.DTO.pdb
 D:\Data\cafeManagement\cafeManagement\obj\Debug\cafeManagement.BillForm.resources
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement\obj\Debug\cafeManagement.BillForm.resources
