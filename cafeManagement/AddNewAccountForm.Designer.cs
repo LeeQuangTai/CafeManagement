@@ -459,7 +459,7 @@ namespace cafeManagement
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(195)))));
-            this.ClientSize = new System.Drawing.Size(553, 357);
+            this.ClientSize = new System.Drawing.Size(553, 352);
             this.Controls.Add(this.typeCbbx);
             this.Controls.Add(this.bunifuButton1);
             this.Controls.Add(this.displayNameTxt);
@@ -471,7 +471,8 @@ namespace cafeManagement
             this.Controls.Add(this.bunifuLabel3);
             this.Name = "AddNewAccountForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddNewAccountForm";
+            this.Text = "Tạo tài khoản mới ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddNewAccountForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

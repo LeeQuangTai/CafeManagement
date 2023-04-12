@@ -15,11 +15,22 @@ namespace cafeManagement
 {
     public partial class DeleteAccountForm : Form
     {
+        static bool isOpened = false;
         public DeleteAccountForm()
         {
             InitializeComponent();
+            OnLoad();
         }
+        void OnLoad()
+        {
+            if (!isOpened)
 
+                isOpened = true;
+
+            else
+
+                this.Dispose();
+        }
         private void DeleteForm_Load(object sender, EventArgs e)
         {
             var data = DataProvider.Instance.ExecuteQuery("select userName from dbo.account");
@@ -39,6 +50,14 @@ namespace cafeManagement
             }
             else
                 MessageBox.Show("Xoá tài khoản không thành công");
+        }
+
+        private void DeleteAccountForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isOpened)
+            {
+                isOpened = false;
+            }
         }
     }
 }

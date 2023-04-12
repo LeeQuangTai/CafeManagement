@@ -14,11 +14,24 @@ namespace cafeManagement
 {
     public partial class AddNewAccountForm : Form
     {
+        private bool isOpened = false;
+
         public AddNewAccountForm()
         {
             InitializeComponent();
         }
+        void onLoad()
+        {
+            if (!isOpened)
 
+                isOpened = true;
+
+            else
+            {
+                isOpened = false;
+                this.Dispose();
+            }
+        }
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
             if (userNametxt.Text == ""|| passTxt.Text == "" ||displayNameTxt.Text == ""||typeCbbx.Text=="")
@@ -30,7 +43,17 @@ namespace cafeManagement
                 MessageBox.Show("Tạo tài khoản thành công!");
 
             }
-        } 
+        }
+
+        private void AddNewAccountForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+       
+            if (isOpened)
+            {
+                isOpened = false;
+            }
+            
+        }
     }
 }
 

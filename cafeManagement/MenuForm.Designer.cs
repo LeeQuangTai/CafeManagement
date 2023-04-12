@@ -512,9 +512,9 @@ namespace cafeManagement
 
         private System.Windows.Forms.DataGridView dtwMenu;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btTimKiem;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btThemMH;
+        public Bunifu.UI.WinForms.BunifuButton.BunifuButton btThemMH;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel2;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btDanhMuc;
+        public Bunifu.UI.WinForms.BunifuButton.BunifuButton btDanhMuc;
         private Bunifu.UI.WinForms.BunifuTextBox txtSearch;
     }
 }

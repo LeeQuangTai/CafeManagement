@@ -15,9 +15,12 @@ namespace cafeManagement
 {
     public partial class AddNewObject : Form
     {
+        static bool isOpened = false; 
         public AddNewObject()
         {
             InitializeComponent();
+            loadDM();
+
         }
 
         public void loadDM()
@@ -29,8 +32,14 @@ namespace cafeManagement
         }
         private void AddNewObject_Load(object sender, EventArgs e)
         {
+            if (!isOpened)
 
-            loadDM();
+                isOpened = true;
+
+            else
+            {
+                this.Dispose();
+            }
         }
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
@@ -62,5 +71,15 @@ namespace cafeManagement
         {
 
         }
+
+        private void FormClosingEvent(object sender, FormClosingEventArgs e)
+        {
+            if (isOpened)
+            {
+                isOpened = false;
+            }
+        }
+
+       
     }
 }

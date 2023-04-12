@@ -15,6 +15,8 @@ namespace cafeManagement
 {
     public partial class EditAccountForm : Form
     {
+        private bool isOpened = false;
+
         public EditAccountForm()
         {
             InitializeComponent();
@@ -41,6 +43,13 @@ namespace cafeManagement
 
         private void onLoad(object sender, EventArgs e)
         {
+            if (!isOpened)
+
+                isOpened = true;
+
+            else
+
+                this.Dispose();
             var data = DataProvider.Instance.ExecuteQuery("select userName from dbo.account");
             foreach (DataRow item in data.Rows)
             {
@@ -52,6 +61,14 @@ namespace cafeManagement
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void EditAccountForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isOpened)
+            {
+                isOpened = false;
+            }
         }
     }
 }

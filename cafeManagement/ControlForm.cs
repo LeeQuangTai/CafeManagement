@@ -20,19 +20,25 @@ namespace cafeManagement
         private Form childFormCheck = null;
         public bool isSignOut = true ;
         private Form displayForm = new Form();
-        public override FormType FormType => FormType.Control; 
+        public override FormType FormType => FormType.Control;
+        bool isAdministator;
         public ControlForm()
         {
             InitializeComponent();
             
         }
-
+        List<Bunifu.UI.WinForms.BunifuButton.BunifuButton> administratorButtons = new List<Bunifu.UI.WinForms.BunifuButton.BunifuButton>();
         private void ControlForm_Load(object sender, EventArgs e)
         {
             displayForm = new OverviewForm();
             displayForm.TopLevel = false;
             displayForm.Parent = displayFormPanel;
             displayForm.Show();
+
+
+            administratorButtons.Add(statisticButton);
+            administratorButtons.Add(accountButton);
+            
         }
         private void bunifuButton7_Click(object sender, EventArgs e)
         {
@@ -96,9 +102,29 @@ namespace cafeManagement
         }
         public override void OnShow()
         {
-
             base.OnShow();
+            this.isAdministator = LoginForm.isAdministrator;
+            if (!isAdministator)
+            {
+                foreach (var button in administratorButtons)
+                {
+                    button.Enabled = false;
+                }
+            }
+            else
+            foreach (var button in administratorButtons)
+            {
+                    button.Enabled = true ;
+            }
+
+
+            userAuthorization();
             AddChildFormToPanel(null);
+        }
+
+        private void userAuthorization()
+        {
+            
         }
 
         private void ControlForm_FormClosing(object sender, FormClosingEventArgs e)

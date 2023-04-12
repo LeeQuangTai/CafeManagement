@@ -17,10 +17,10 @@ namespace cafeManagement
     public partial class AccountMangementForm : Form
     {
         List<string> stringStorage = new List<string>();
-
         public AccountMangementForm()
         {
             InitializeComponent();
+            
             onLoad();
 
         }
@@ -35,9 +35,8 @@ namespace cafeManagement
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            //Console.WriteLine(dataGridView1.SelectedCells[0].Value.ToString());
-            (new EditAccountForm()).Show();
-
+            Form editAccountForm = new EditAccountForm(); 
+            editAccountForm.Show();
         }
 
         private void createNewAccount_Click(object sender, EventArgs e)
@@ -48,7 +47,8 @@ namespace cafeManagement
 
         private void deleteAccount_click(object s, EventArgs e)
         {
-            (new DeleteAccountForm()).Show();
+            Form deleteAccount = new DeleteAccountForm();
+            deleteAccount.Show();
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

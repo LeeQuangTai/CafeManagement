@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
@@ -126,5 +127,14 @@ namespace cafeManagement.DAO
             }
         }
 
+        public bool CheckAdministator(string userName)
+        {
+            string query = "declare @username nvarchar(50) set @username = '"+userName+"' SELECT type FROM Account where Account.UserName = @userName ";
+            if((int)DataProvider.Instance.ExecuteScalar(query) == 1)
+            {
+                return true; 
+            }
+            return false;
+        }
     }
 }

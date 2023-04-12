@@ -156,7 +156,7 @@
             this.bunifuButton1.UseDefaultRadiusAndThickness = true;
             this.bunifuButton1.Click += new System.EventHandler(this.bunifuButton1_Click);
             // 
-            // DeleteForm
+            // DeleteAccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,9 +166,10 @@
             this.Controls.Add(this.bunifuButton1);
             this.Controls.Add(this.bunifuLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "DeleteForm";
+            this.Name = "DeleteAccountForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DeleteForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DeleteAccountForm_FormClosing);
             this.Load += new System.EventHandler(this.DeleteForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Forms;
@@ -8,13 +9,27 @@ namespace cafeManagement
 {
     public partial class MenuForm : Form
     {
+        private List<Bunifu.UI.WinForms.BunifuButton.BunifuButton> administratorButtons = new List<Bunifu.UI.WinForms.BunifuButton.BunifuButton>();
         public MenuForm()
         {
             InitializeComponent();
+            administratorButtons.Add(btThemMH);
         }
 
         private void MenuForm_Load(object sender, System.EventArgs e)
         {
+            if (!LoginForm.isAdministrator)
+            {
+                foreach (var button in administratorButtons)
+                {
+                    button.Enabled = false;
+                }
+            }
+            else
+                foreach (var button in administratorButtons)
+                {
+                    button.Enabled = true;
+                }
             dtwMenu.DataSource = DrinkDAO.Instance.GetListDrink();
             for (int i = 0; i < dtwMenu.ColumnCount; i++)
             {

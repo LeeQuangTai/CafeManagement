@@ -1,6 +1,7 @@
 ﻿using cafeManagement.BUS;
 using cafeManagement.DTO;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace cafeManagement
@@ -8,6 +9,7 @@ namespace cafeManagement
     public partial class LoginForm : ViewForm
     {
         public bool isAllowToAccess;
+        public static bool isAdministrator; 
         public override FormType FormType => FormType.Login;
         public LoginForm()
         {
@@ -38,6 +40,7 @@ namespace cafeManagement
             if (AccountBUS.Instance.Login(userName, passWord))
             {
                 isAllowToAccess = true;
+                isAdministrator = AccountBUS.Instance.CheckAdministator(userName);
                 Program.SwitchFormType(FormType.Control);
                 //this.Close();
                 this.userNameTxt.Clear();

@@ -454,7 +454,7 @@ namespace cafeManagement
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(195)))));
-            this.ClientSize = new System.Drawing.Size(535, 303);
+            this.ClientSize = new System.Drawing.Size(535, 284);
             this.Controls.Add(this.DonGiaTxt);
             this.Controls.Add(this.bunifu_ID_Mon);
             this.Controls.Add(this.bunifuLabel4);
@@ -467,7 +467,8 @@ namespace cafeManagement
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddNewObject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddNewObject";
+            this.Text = "Thêm đồ uống mới";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormClosingEvent);
             this.Load += new System.EventHandler(this.AddNewObject_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
