@@ -73,6 +73,9 @@ namespace cafeManagement
             // dtwMenu
             // 
             this.dtwMenu.AllowUserToAddRows = false;
+            this.dtwMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtwMenu.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(195)))));
             this.dtwMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtwMenu.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -94,10 +97,9 @@ namespace cafeManagement
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtwMenu.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtwMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dtwMenu.EnableHeadersVisualStyles = false;
             this.dtwMenu.GridColor = System.Drawing.Color.White;
-            this.dtwMenu.Location = new System.Drawing.Point(0, 194);
+            this.dtwMenu.Location = new System.Drawing.Point(9, 196);
             this.dtwMenu.Margin = new System.Windows.Forms.Padding(2);
             this.dtwMenu.Name = "dtwMenu";
             this.dtwMenu.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -115,6 +117,7 @@ namespace cafeManagement
             this.dtwMenu.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtwMenu.Size = new System.Drawing.Size(868, 510);
             this.dtwMenu.TabIndex = 3;
+            this.dtwMenu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtwMenu_CellContentClick);
             // 
             // bunifuLabel2
             // 

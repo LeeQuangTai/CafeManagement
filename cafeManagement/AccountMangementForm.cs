@@ -22,7 +22,6 @@ namespace cafeManagement
             InitializeComponent();
             
             onLoad();
-
         }
         void onLoad()
         {
@@ -36,19 +35,19 @@ namespace cafeManagement
         private void EditButton_Click(object sender, EventArgs e)
         {
             Form editAccountForm = new EditAccountForm(); 
-            editAccountForm.Show();
+            editAccountForm.ShowDialog();
         }
 
         private void createNewAccount_Click(object sender, EventArgs e)
         {
             Form addNewAccount = new AddNewAccountForm();
-            addNewAccount.Show();
+            addNewAccount.ShowDialog();
         }
 
         private void deleteAccount_click(object s, EventArgs e)
         {
             Form deleteAccount = new DeleteAccountForm();
-            deleteAccount.Show();
+            deleteAccount.ShowDialog();
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

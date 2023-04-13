@@ -64,13 +64,14 @@ namespace cafeManagement
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            FormFromType = new Dictionary<FormType, ViewForm>
-            {
-                {FormType.Login, new LoginForm() },
-                {FormType.Control, new ControlForm() },
-            };
+            //FormFromType = new Dictionary<FormType, ViewForm>
+            //{
+            //    {FormType.Login, new LoginForm() },
+            //    {FormType.Control, new ControlForm() },
+            //};
 
-            SwitchFormType(FormType.Login,true);
+            //SwitchFormType(FormType.Login,true);
+            Application.Run(new LoginForm());
         }
     }
 }

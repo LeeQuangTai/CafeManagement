@@ -11,14 +11,14 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing && (components != null))
+        //    {
+        //        components.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
         #region Windows Form Designer generated code
 
@@ -37,6 +37,7 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.accountLabel = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuSeparator2 = new Bunifu.UI.WinForms.BunifuSeparator();
             this.bunifuSeparator1 = new Bunifu.UI.WinForms.BunifuSeparator();
             this.bunifuButton3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -55,6 +56,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(42)))), ((int)(((byte)(33)))));
+            this.panel1.Controls.Add(this.accountLabel);
             this.panel1.Controls.Add(this.bunifuSeparator2);
             this.panel1.Controls.Add(this.bunifuSeparator1);
             this.panel1.Controls.Add(this.bunifuButton3);
@@ -71,6 +73,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(255, 704);
             this.panel1.TabIndex = 0;
+            // 
+            // accountLabel
+            // 
+            this.accountLabel.AllowParentOverrides = false;
+            this.accountLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.accountLabel.AutoEllipsis = false;
+            this.accountLabel.AutoSize = false;
+            this.accountLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.accountLabel.CursorType = System.Windows.Forms.Cursors.Default;
+            this.accountLabel.Enabled = false;
+            this.accountLabel.Font = new System.Drawing.Font("Candara Light", 20.75F);
+            this.accountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(203)))));
+            this.accountLabel.Location = new System.Drawing.Point(2, 394);
+            this.accountLabel.Name = "accountLabel";
+            this.accountLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.accountLabel.Size = new System.Drawing.Size(253, 35);
+            this.accountLabel.TabIndex = 11;
+            this.accountLabel.Text = "account";
+            this.accountLabel.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.accountLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuSeparator2
             // 
@@ -770,6 +792,7 @@
             this.Name = "ControlForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lí phần mềm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ControlForm_FormClosed);
             this.Load += new System.EventHandler(this.ControlForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -791,6 +814,6 @@
         private Bunifu.UI.WinForms.BunifuSeparator bunifuSeparator2;
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton statisticButton;
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton accountButton;
-
+        private Bunifu.UI.WinForms.BunifuLabel accountLabel;
     }
 }

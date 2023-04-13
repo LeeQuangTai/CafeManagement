@@ -153,4 +153,7 @@
         TAkyJciUIFOCTAkyJciUIFOCxr7m9RX4x77m9QBz9jx4MzScTQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="bunifuLabel1.BaseStylesheet" xml:space="preserve">
+    <value>#bunifu-label { padding: 0px; font-family: 'Segoe UI Semibold'; font-size: 20pt; width: 100%; height: 100%; font-style: italic; font-weight: bold; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
+  </data>
 </root>

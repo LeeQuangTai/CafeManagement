@@ -136,5 +136,11 @@ namespace cafeManagement.DAO
             }
             return false;
         }
+
+        public string GetUserDisplayName(string userName)
+        {
+            string query = "declare @username nvarchar(50) set @username = '" + userName + "' SELECT DisplayName FROM Account where Account.UserName = @userName ";
+            return (string)DataProvider.Instance.ExecuteScalar(query);
+        }
     }
 }

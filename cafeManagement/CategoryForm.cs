@@ -19,6 +19,21 @@ namespace cafeManagement
         public CategoryForm()
         {
             InitializeComponent();
+           // this.MouseClick += mouse_click;
+        }
+
+        private void mouse_click(object sender, MouseEventArgs e)
+        {
+            
+                if (!this.ClientRectangle.Contains(e.Location))
+                {
+                    // Click occurred outside of the form's client area, ignore it
+                    return;
+                }
+
+                // Handle the click event within the form's client area
+                // ...
+            
         }
 
         private void bunifuButton1_Click(object sender, EventArgs e)

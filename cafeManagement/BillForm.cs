@@ -18,20 +18,24 @@ namespace cafeManagement
         public BillForm()
         {
             InitializeComponent();
-            BillBUS.Instance.LoadListBIllID(cbMaHD, dateXuatHoaDon.Value.ToString("MM/dd/yyyy"));
+            BillBUS.Instance.LoadListBIllID(cbMaHD, DatePicker.Value.ToString("MM/dd/yyyy"));
         }
 
         private void btnXem_Click(object sender, EventArgs e)
         {
 
-            string dateCheckIn = dateXuatHoaDon.Value.ToString("MM/dd/yyyy");
-            int billID = Convert.ToInt32(cbMaHD.Text);
-            BillBUS.Instance.LoadListViewBill(txtTongTien, dgvHoaDon, billID, dateCheckIn);
+            string dateCheckIn = DatePicker.Value.ToString("MM/dd/yyyy");
+            if (cbMaHD.Text != "")
+            {
+                int billID = Convert.ToInt32(cbMaHD.Text);
+                BillBUS.Instance.LoadListViewBill(txtTongTien, dgvHoaDon, billID, dateCheckIn);
+            }
+            else return;
         }
 
         private void dateXuatHoaDon_ValueChanged(object sender, EventArgs e)
         {
-            BillBUS.Instance.LoadListBIllID(cbMaHD, dateXuatHoaDon.Value.ToString("MM/dd/yyyy"));
+            BillBUS.Instance.LoadListBIllID(cbMaHD, DatePicker.Value.ToString("MM/dd/yyyy"));
         }
     }
 }

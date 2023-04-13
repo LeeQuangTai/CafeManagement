@@ -40,14 +40,14 @@ namespace cafeManagement
         private void bunifuButton3_Click(object sender, System.EventArgs e)
         {
             Form category = new CategoryForm();
-            category.Show();    
+            category.ShowDialog();    
             //  var control = Application.OpenForms.Cast<ControlForm>().Last(); // using LINQ 
         }
 
         private void bunifuButton2_Click(object sender, System.EventArgs e)
         {
             Form addNew = new AddNewObject();
-            addNew.Show();
+            addNew.ShowDialog();
         }
 
         private void btTimKiem_Click(object sender, System.EventArgs e)
@@ -74,6 +74,11 @@ namespace cafeManagement
             {
                 loadSearch(txtSearch.Text);
             }
+        }
+
+        private void dtwMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

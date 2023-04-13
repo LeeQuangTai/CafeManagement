@@ -44,6 +44,11 @@ namespace cafeManagement.BUS
         {
             return AccountDAO.Instance.CheckAdministator(userName);
         }
+        public string GetUserDisplayName(string userName)
+        {
+            return AccountDAO.Instance.GetUserDisplayName(userName);
+
+        }
         public int EditAccount(string userName, string newUserName, string displayname, string password, int type)
         {
             return AccountDAO.Instance.EditAccount(userName, newUserName, displayname, password, type);
