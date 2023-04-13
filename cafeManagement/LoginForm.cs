@@ -3,7 +3,6 @@ using cafeManagement.DTO;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace cafeManagement
 {
@@ -12,12 +11,10 @@ namespace cafeManagement
         public bool isAllowToAccess;
         public static bool isAdministrator;
         public static string user;
-        public static Form loginForm;
         public override FormType FormType => FormType.Login;
         public LoginForm()
         {
             InitializeComponent();
-            loginForm = this;
         }
       
         private void LoginForm_Load(object sender, EventArgs e)
@@ -32,7 +29,11 @@ namespace cafeManagement
                 e.Cancel = true;
         }
 
-      
+        //bool Login(string userName, string passWord)
+        //{
+        //    return AccountDAO.Instance.Login(userName, passWord);
+        //}
+
         private void loginBtn_Click(object sender, EventArgs e)
         {
             string userName = userNameTxt.Text;
@@ -42,30 +43,16 @@ namespace cafeManagement
             {
                 isAllowToAccess = true;
                 isAdministrator = AccountBUS.Instance.CheckAdministator(userName);
-               // Program.SwitchFormType(FormType.Control);
+                Program.SwitchFormType(FormType.Control);
                 //this.Close();
                 this.userNameTxt.Clear();
                 this.passwordTxt.Clear();
                 this.userNameTxt.Focus();
-
-                ControlForm control = new ControlForm();
-                control.Show();
-                this.Hide();
-                //control.SignOut += ThisSignOut;
-                
-                
             }
             else
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu sai!");
             }
-        }
-
-        private void ThisSignOut(object sender,  EventArgs e)
-        {
-            (sender as ControlForm).isSignOut = false;
-            (sender as ControlForm).Close();
-            this.Show(); 
         }
 
         private void userNameTxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -83,21 +70,16 @@ namespace cafeManagement
                 loginBtn.PerformClick();
             }
         }
-
-        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        protected override void OnShown(EventArgs e)
         {
-            Environment.Exit(1);
+            base.OnShown(e);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fLogin_FormClosing);
         }
-        //protected override void OnShown(EventArgs e)
-        //{
-        //    base.OnShown(e);
-        //    this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fLogin_FormClosing);
-        //}
-        //public override void OnHide()
-        //{
-        //    base.OnHide();
-        //    this.FormClosing -= new System.Windows.Forms.FormClosingEventHandler(this.fLogin_FormClosing);
-        //}
+        public override void OnHide()
+        {
+            base.OnHide();
+            this.FormClosing -= new System.Windows.Forms.FormClosingEventHandler(this.fLogin_FormClosing);
+        }
 
     }
 }

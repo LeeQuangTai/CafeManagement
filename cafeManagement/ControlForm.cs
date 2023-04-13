@@ -17,7 +17,7 @@ namespace cafeManagement
 
     public partial class ControlForm : ViewForm
     {
-        public static Form controlForm;
+    
         private Form childFormCheck = null;
         public bool isSignOut = true ;
         private Form displayForm = new Form();
@@ -26,7 +26,7 @@ namespace cafeManagement
         public ControlForm()
         {
             InitializeComponent();
-            controlForm = this;            
+            
         }
         List<Bunifu.UI.WinForms.BunifuButton.BunifuButton> administratorButtons = new List<Bunifu.UI.WinForms.BunifuButton.BunifuButton>();
         private void ControlForm_Load(object sender, EventArgs e)
@@ -85,16 +85,11 @@ namespace cafeManagement
         {
             if (MessageBox.Show("Bạn có thật sự muốn đăng xuất?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
-                isSignOut = false;
-                this.Hide();
-                //Program.SwitchFormType(FormType.Login);
-                //this.Close();
-                (new LoginForm()).Show(); 
-                //SignOut(this, new EventArgs());
-                
+                isSignOut = true;
+                Program.SwitchFormType(FormType.Login);
             }
         }
-        public event EventHandler SignOut;
+
         private void AccountButton_Click(object sender, EventArgs e)
         {
             displayForm.Close();
@@ -123,19 +118,27 @@ namespace cafeManagement
             }
 
             accountLabel.Text = AccountBUS.Instance.GetUserDisplayName(LoginForm.user.ToString());
+            userAuthorization();
             AddChildFormToPanel(null);
         }
 
-        
+        private void userAuthorization()
+        {
+            
+        }
 
         private void ControlForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
             {
+                //if (displayForm != null)
+                //{
+                //    //displayForm.Close();
+                //}
                 e.Cancel = true;
+                return;
             }
-
-            //Program.CleanForm(FormType.Control);
+            Program.CleanForm(FormType.Control);
 
         }
 
@@ -160,15 +163,6 @@ namespace cafeManagement
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void ControlForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //if (isSignOut)
-            //{
-            //    Application.Exit();
-            //}
-            Environment.Exit(1);
         }
     }
 }   

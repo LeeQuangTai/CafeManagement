@@ -23,11 +23,11 @@ namespace cafeManagement
     {
         static Dictionary<FormType, ViewForm> FormFromType;
         static ViewForm currentForm;
-        public static void SwitchFormType(FormType formType, bool isFirstTime= false, Action callback = null)
+        public static void SwitchFormType(FormType formType, bool isFirstTime = false, Action callback = null)
         {
             if (!isFirstTime)
             {
-                if(currentForm.FormType == formType)
+                if (currentForm.FormType == formType)
                 {
                     callback?.Invoke();
                     return;
@@ -60,18 +60,18 @@ namespace cafeManagement
         [STAThread]
         static void Main()
         {
-            
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //FormFromType = new Dictionary<FormType, ViewForm>
-            //{
-            //    {FormType.Login, new LoginForm() },
-            //    {FormType.Control, new ControlForm() },
-            //};
+            FormFromType = new Dictionary<FormType, ViewForm>
+            {
+                {FormType.Login, new LoginForm() },
+                {FormType.Control, new ControlForm() },
+            };
 
-            //SwitchFormType(FormType.Login,true);
-            Application.Run(new LoginForm());
+            SwitchFormType(FormType.Login, true);
+
         }
     }
 }
