@@ -31,8 +31,17 @@ namespace cafeManagement.BUS
             for (int i = 0; i < dgvHoaDon.ColumnCount; i++)
             {
                 dgvHoaDon.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        }
-            loadTongTien(cbb, billID);
+            }
+
+            try
+            {
+                loadTongTien(cbb, billID);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Hóa đơn trống!");
+            }
         }
 
         //public List<Order> GetListBillID(DateTime? dateCheckIn)

@@ -11,7 +11,7 @@ namespace cafeManagement
     {
         public bool isAllowToAccess;
         public static bool isAdministrator;
-        public static string UsertName = "";
+        public static string UserName = "" ;
         public override FormType FormType => FormType.Login;
         public LoginForm()
         {
@@ -41,12 +41,14 @@ namespace cafeManagement
             string passWord = passwordTxt.Text;
             if (AccountBUS.Instance.Login(userName, passWord))
             {
+                
                 isAllowToAccess = true;
                 isAdministrator = AccountBUS.Instance.CheckAdministator(userName);
                 Program.SwitchFormType(FormType.Control);
-                ControlForm Child = new ControlForm();      //Tạo Form2
-                Child.Sender(userNameTxt.Text);    //Gọi delegate
-                Child.Show();
+                //ControlForm Child = new ControlForm();      
+                // Child.Sender(userNameTxt.Text);    //Gọi delegate
+                //Child.Show();
+                UserName = userName;
                 //this.Close();
                 this.userNameTxt.Clear();
                 this.passwordTxt.Clear();

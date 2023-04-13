@@ -179,7 +179,10 @@ namespace cafeManagement.BUS
                 MessageBox.Show("Mời chọn bàn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void TableTransfer(DataGridView dgv, ComboBox cbb, NumericUpDown nud, TextBox txb, FlowLayoutPanel fLPanelTable, EventHandler btn_Click)
+        //public void DatTrangThaiBan()
+        //{
+        //}
+        public void TableTransfer(DataGridView dgv, ComboBox cbb, NumericUpDown nud, TextBox txb, FlowLayoutPanel fLPanelTable, EventHandler btn_Click, String lb)
         {
             try
             {

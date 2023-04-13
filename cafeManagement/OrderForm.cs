@@ -82,7 +82,7 @@ namespace cafeManagement
         private void btnTransfer_Click(object sender, EventArgs e)
         {
 
-            OrderBUS.Instance.TableTransfer(dgvOrder, cbbTransfer, nudDiscount, txtTotalPrice, fLPTable, btn_Click);
+            OrderBUS.Instance.TableTransfer(dgvOrder, cbbTransfer, nudDiscount, txtTotalPrice, fLPTable, btn_Click, lbTable.Text);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

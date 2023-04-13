@@ -83,9 +83,11 @@ namespace cafeManagement.DAO
         }
         public decimal GetTotalMoney(int billID)
         {
+            
             string query = "exec sp_GetTotalMoney @BillID ";
             decimal total = (decimal)DataProvider.Instance.ExecuteScalar(query, new object[] { billID });
             return total;
+            
         }
         
         public int GetCountProductBetweenDayAndDay(string first, string after)

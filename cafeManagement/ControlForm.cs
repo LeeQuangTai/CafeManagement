@@ -23,17 +23,18 @@ namespace cafeManagement
         private Form displayForm = new Form();
         public override FormType FormType => FormType.Control;
         bool isAdministator;
-        public delegate void SendMessage(string Message);
-        public SendMessage Sender;
+        //public delegate void SendMessage(string Message);
+       //public SendMessage Sender;
         public ControlForm()
         {
             InitializeComponent();
-            Sender = new SendMessage(GetMessage);
+            //Sender = new SendMessage(GetMessage);
+            lbUserName.Text = AccountBUS.Instance.DisplayName( LoginForm.UserName);
         }
-        private void GetMessage(string Message)
-        {
-            AccountBUS.Instance.DisplayName(lbUserName, Message);
-        }
+        //private void GetMessage(string Message)
+        //{
+        //    AccountBUS.Instance.DisplayName(lbUserName, Message);
+        //}
         List<Bunifu.UI.WinForms.BunifuButton.BunifuButton> administratorButtons = new List<Bunifu.UI.WinForms.BunifuButton.BunifuButton>();
         private void ControlForm_Load(object sender, EventArgs e)
         {
@@ -45,7 +46,6 @@ namespace cafeManagement
             administratorButtons.Add(statisticButton);
             administratorButtons.Add(accountButton);
 
-            //Hiện tên đăng nhập
         }
         private void bunifuButton7_Click(object sender, EventArgs e)
         {

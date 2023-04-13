@@ -362,7 +362,7 @@ go
 exec sp_GetTotalMoney 4
 ----------------------Xử lý chuyển Bàn--------------------
 -----------------------Store Procedure ---------
-CREATE PROCEDURE sp_Transfer @TableID1 nvarchar(50), @TableID2 nvarchar (50)
+Create PROCEDURE sp_Transfer @TableID1 nvarchar(50), @TableID2 nvarchar (50)
 AS
 BEGIN
 	DECLARE @BillID1 int
@@ -467,11 +467,9 @@ BEGIN
 	UPDATE dbo.BillInfo SET BillID = @BillID2 WHERE BillID = @BillID1
 	UPDATE dbo.BillInfo SET BillID = @BillID1 WHERE BillID IN (SELECT * FROM dbo.IdBillInfoTable)	
 	DROP TABLE dbo.IdBillInfoTable
-
 	IF (@isTableEmpty1 = 0)
 		Begin
 		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE TableID = @TableID2
-		
 		end
 		
 	IF (@isTableEmpty2= 0)
@@ -479,6 +477,7 @@ BEGIN
 		UPDATE dbo.TableManagement SET Status = N'Trống' WHERE TableID = @TableID1
 		
 		end
+
 END
 GO
 ---------------------Create Trigger-----------------------
@@ -530,5 +529,9 @@ BEGIN
 		
 END
 GO
+------
 ---------
 -------------------------------------------------TEST---------------------
+select * from bill
+select * from BillInfo
+select * from TableManagement
