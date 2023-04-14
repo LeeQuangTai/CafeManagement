@@ -20,7 +20,6 @@ namespace cafeManagement
         public AccountMangementForm()
         {
             InitializeComponent();
-            
             onLoad();
         }
         void onLoad()

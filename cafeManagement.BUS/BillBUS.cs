@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,8 +32,16 @@ namespace cafeManagement.BUS
             for (int i = 0; i < dgvHoaDon.ColumnCount; i++)
             {
                 dgvHoaDon.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        }
-            loadTongTien(cbb, billID);
+            }
+            try
+            {
+
+                loadTongTien(cbb, billID);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hóa đơn trống!");
+            }
         }
 
         //public List<Order> GetListBillID(DateTime? dateCheckIn)
@@ -45,12 +54,12 @@ namespace cafeManagement.BUS
 
             List<Bill> bills = BillDAO.Instance.GetListBill(dateXuatHoaDon);
             if (bills.Count > 0)
-        {
+            {
                 cbb.DataSource = bills;
                 cbb.DisplayMember = "BillID";
-        }
+            }
             else
-        {
+            {
                 cbb.DataSource = null;
             }
         }

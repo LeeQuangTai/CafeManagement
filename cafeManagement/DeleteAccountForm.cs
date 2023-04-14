@@ -44,12 +44,15 @@ namespace cafeManagement
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            if (AccountBUS.Instance.DeleteAccount(comboBox2.Text) > 0)
+            if (MessageBox.Show("Bạn đã chắc chắn?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
-                MessageBox.Show("Xoá tài khoản thành công");
+                if (AccountBUS.Instance.DeleteAccount(comboBox2.Text) > 0) 
+                {
+                    MessageBox.Show("Xoá tài khoản thành công");
+                }
+                else
+                    MessageBox.Show("Xoá tài khoản không thành công");
             }
-            else
-                MessageBox.Show("Xoá tài khoản không thành công");
         }
 
         private void DeleteAccountForm_FormClosing(object sender, FormClosingEventArgs e)
