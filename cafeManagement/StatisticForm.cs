@@ -23,16 +23,6 @@ namespace cafeManagement
 
         }
 
-        private void bunifuShapes2_ShapeChanged(object sender, Bunifu.UI.WinForms.BunifuShapes.ShapeChangedEventArgs e)
-        {
-
-        }
-
-        private void totalProduct_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void afterDate_ValueChanged(object sender, EventArgs e)
         {
             LoadStatistics();
@@ -51,9 +41,7 @@ namespace cafeManagement
             {
                 Swap<string>( ref firstDateStr,ref afterDateStr);
             }
-            Debug.WriteLine(" First: " + firstDateStr);
-            Debug.WriteLine(" After: " + afterDateStr);
-            Debug.WriteLine(firstDate.Value < afterDate.Value);
+
             totalDrinksOrder.Text = BillBUS.Instance.GetCountProductBetweenDayAndDay(firstDateStr,afterDateStr).ToString();
             totalBill.Text = BillBUS.Instance.GetCountBillBetweenDayAndDay(firstDateStr, afterDateStr).ToString();
             totalSales.Text = BillBUS.Instance.GetTotalSaleBetweenDayAndDay(firstDateStr,afterDateStr).ToString();  
@@ -64,10 +52,6 @@ namespace cafeManagement
             }
         }
         
-        private void totalDrinksOrder_Click(object sender, EventArgs e)
-        {
-
-        }
         void Swap<T>(ref T a, ref T b)
         {
             T temp = a;

@@ -185,7 +185,6 @@
             this.bunifuShapes2.Size = new System.Drawing.Size(151, 151);
             this.bunifuShapes2.TabIndex = 16;
             this.bunifuShapes2.Text = "bunifuShapes1";
-            this.bunifuShapes2.ShapeChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuShapes.ShapeChangedEventArgs>(this.bunifuShapes2_ShapeChanged);
             // 
             // totalBill
             // 
@@ -205,7 +204,6 @@
             this.totalBill.Text = "0";
             this.totalBill.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.totalBill.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.totalBill.Click += new System.EventHandler(this.totalProduct_Click);
             // 
             // bunifuLabel5
             // 
@@ -306,7 +304,6 @@
             this.totalDrinksOrder.Text = "0";
             this.totalDrinksOrder.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.totalDrinksOrder.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.totalDrinksOrder.Click += new System.EventHandler(this.totalDrinksOrder_Click);
             // 
             // bunifuLabel7
             // 

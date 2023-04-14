@@ -22,7 +22,8 @@ namespace cafeManagement
         public bool isSignOut = true ;
         private Form displayForm = new Form();
         public override FormType FormType => FormType.Control;
-        bool isAdministator;
+        
+        
         public ControlForm()
         {
             InitializeComponent();
@@ -103,8 +104,7 @@ namespace cafeManagement
         public override void OnShow()
         {
             base.OnShow();
-            this.isAdministator = LoginForm.isAdministrator;
-            if (!isAdministator)
+            if (!LoginForm.isAdministrator)
             {
                 foreach (var button in administratorButtons)
                 {
