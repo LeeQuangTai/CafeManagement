@@ -42,13 +42,14 @@ namespace cafeManagement.DAO
             return DataProvider.Instance.ExecuteQuery(query);
         }
             
-        public int EditAccount(string userName, string newUserName, string displayname, string password, int type)
+        public int Edit_Account(string userName, string newUserName, string displayname, string password, int type)
         {
             int rowsAffected = 0;
             using (SqlConnection connection = new SqlConnection(DataProvider.Instance.ConnectionSTR))
             {
                 connection.Open();
-                string queryy = "update account set UserName = '" + newUserName + "',PassWord = '" + password + "',DisplayName = '" + displayname + "' , type = " + type + " where UserName = '" + userName + "'";
+                string queryy = "update account set UserName = '" + newUserName + "',PassWord = '" 
+                    + password + "',DisplayName = '" + displayname + "' , type = " + type + " where UserName = '" + userName + "'";
                 SqlCommand command = new SqlCommand(queryy, connection);
 
                 try
@@ -68,6 +69,19 @@ namespace cafeManagement.DAO
             }
         }
 
+        public int EditAccount(string userName, string newUserName, string displayname, string password, int type)
+        {
+            string query = "update account set UserName =  @newUserName ,PassWord =  @password ,DisplayName = @displayname , type =  @type where UserName =  @userName ";
+            try
+            {
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { newUserName , password,displayname, type, userName });
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Sửa tài khoản không thành công");
+                return 0; 
+            }
+        }
         public int addAccount(string userAccount, string displayName, string password, string accountType)
         {
             int rowsAffected = 0;
@@ -98,7 +112,21 @@ namespace cafeManagement.DAO
 
             return rowsAffected;
         }
-        public int DeleteAccount(string a)
+
+        public int AddAccount(string userAccount, string displayName, string password, string accountType)
+        {
+            string query = "INSERT INTO dbo.Account (UserName, DisplayName, Password, Type) VALUES ( @UserName , @DisplayName , @Password , @Type )";
+            try
+            {
+                return DataProvider.Instance.ExecuteNonQuery(query, new string [] { userAccount, displayName, password, accountType });
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Tài khoản đã có sẵn, vui lòng nhập lại tài khoản khác!");
+                return 0;
+            }
+        }
+        public int Delete_Account(string a)
         {
             int rowsAffected = 0;
             using (SqlConnection connection = new SqlConnection(DataProvider.Instance.ConnectionSTR))
@@ -126,15 +154,25 @@ namespace cafeManagement.DAO
                 return rowsAffected;
             }
         }
+        public int DeleteAccount(string a)
+        {
+            string query = "DELETE FROM account WHERE account.UserName = @a ;";
+            try
+            {
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] {a});
+            }
+            catch (Exception)
+            { 
+                MessageBox.Show("Xoá không thành công!");
+                return 0; 
+            }
+        }
 
         public bool CheckAdministator(string userName)
         {
-            string query = "declare @username nvarchar(50) set @username = '"+ userName +"' SELECT type FROM Account where Account.UserName = @userName ";
-            if((int)DataProvider.Instance.ExecuteScalar(query) == 1)
-            {
-                return true; 
-            }
-            return false;
+            string query = "declare @username nvarchar(50) set @username = '"+ userName 
+                +"' SELECT type FROM Account where Account.UserName = @userName ";
+            return (int)DataProvider.Instance.ExecuteScalar(query) == 1;
         }
 
         public string GetUserDisplayName(string userName)

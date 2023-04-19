@@ -52,7 +52,6 @@ namespace cafeManagement
             {
                 isOpened = false;
             }
-            
         }
     }
 }

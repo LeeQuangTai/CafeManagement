@@ -51,16 +51,16 @@ namespace cafeManagement.BUS
         }
         public int EditAccount(string userName, string newUserName, string displayname, string password, int type)
         {
-            return AccountDAO.Instance.EditAccount(userName, newUserName, displayname, password, type);
+            return AccountDAO.Instance.Edit_Account(userName, newUserName, displayname, password, type);
         }
 
         public int AddAccount(string userAccount, string displayName, string password, string accountType)
         {
-            return AccountDAO.Instance.addAccount(userAccount, displayName, password, accountType);
+            return AccountDAO.Instance.AddAccount(userAccount, displayName, password, accountType);
         }
         public int DeleteAccount(string a)
         {
-            return AccountDAO.Instance.DeleteAccount(a);
+            return AccountDAO.Instance.Delete_Account(a);
         }
     }
 

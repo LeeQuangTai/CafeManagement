@@ -9,8 +9,10 @@ namespace cafeManagement
     public partial class LoginForm : ViewForm
     {
         public bool isAllowToAccess;
+
         public static bool isAdministrator;
         public static string user;
+
         public override FormType FormType => FormType.Login;
         public LoginForm()
         {

@@ -15,7 +15,6 @@ namespace cafeManagement
 {
     public partial class DeleteAccountForm : Form
     {
-        static bool isOpened = false;
         public DeleteAccountForm()
         {
             InitializeComponent();
@@ -23,13 +22,7 @@ namespace cafeManagement
         }
         void OnLoad()
         {
-            if (!isOpened)
-
-                isOpened = true;
-
-            else
-
-                this.Dispose();
+   
         }
         private void DeleteForm_Load(object sender, EventArgs e)
         {
@@ -57,10 +50,7 @@ namespace cafeManagement
 
         private void DeleteAccountForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (isOpened)
-            {
-                isOpened = false;
-            }
+          
         }
     }
 }
