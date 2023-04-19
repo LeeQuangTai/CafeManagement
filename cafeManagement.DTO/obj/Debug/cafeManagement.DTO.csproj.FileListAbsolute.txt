@@ -16,3 +16,9 @@ D:\Data\cafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.csproj.As
 D:\Data\cafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.csproj.CoreCompileInputs.cache
 D:\Data\cafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.dll
 D:\Data\cafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.pdb
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.DTO\bin\Debug\cafeManagement.DTO.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.DTO\bin\Debug\cafeManagement.DTO.pdb
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.csproj.AssemblyReference.cache
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.DTO\obj\Debug\cafeManagement.DTO.pdb

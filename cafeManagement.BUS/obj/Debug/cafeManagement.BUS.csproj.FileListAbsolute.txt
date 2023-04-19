@@ -58,3 +58,18 @@ C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-ba
 C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.csproj.CopyComplete
 C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.dll
 C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.pdb
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\bin\Debug\cafeManagement.BUS.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\bin\Debug\cafeManagement.BUS.pdb
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\bin\Debug\cafeManagement.DAO.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\bin\Debug\cafeManagement.DTO.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\bin\Debug\cafeManagement.DAO.pdb
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\bin\Debug\cafeManagement.DTO.pdb
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.csproj.AssemblyReference.cache
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\Interop.EnvDTE.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\Interop.VSLangProj.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\Interop.VSLangProj2.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.csproj.ResolveComReference.cache
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.csproj.CopyComplete
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement.BUS\obj\Debug\cafeManagement.BUS.pdb

@@ -156,3 +156,33 @@ C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-ba
 C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement\obj\Debug\cafeManagement.csproj.CopyComplete
 C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement\obj\Debug\cafeManagement.exe
 C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement\obj\Debug\cafeManagement.pdb
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.exe.config
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.exe
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.pdb
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.BUS.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.DAO.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.DTO.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.BUS.pdb
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.DAO.pdb
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\bin\Debug\cafeManagement.DTO.pdb
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.csproj.AssemblyReference.cache
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.AccountMangementForm.resources
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.AddNewAccountForm.resources
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.AddNewObject.resources
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.BillForm.resources
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.CategoryForm.resources
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.DeleteAccountForm.resources
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.EditAccountForm.resources
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.MenuForm.resources
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.OrderForm.resources
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.ControlForm.resources
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.LoginForm.resources
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.OverviewForm.resources
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.Properties.Resources.resources
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.StatisticForm.resources
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.csproj.GenerateResource.cache
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.exe.licenses
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.csproj.CopyComplete
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.exe
+C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\CafeManagement\cafeManagement\obj\Debug\cafeManagement.pdb
