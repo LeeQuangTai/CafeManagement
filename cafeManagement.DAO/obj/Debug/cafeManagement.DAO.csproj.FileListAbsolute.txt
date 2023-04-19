@@ -1,0 +1,36 @@
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DAO.dll
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DAO.pdb
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DTO.dll
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DTO.pdb
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.AssemblyReference.cache
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.CoreCompileInputs.cache
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.CopyComplete
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.dll
+C:\Users\ACER\OneDrive\Máy tính\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.pdb
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DAO.dll
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DAO.pdb
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DTO.dll
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DTO.pdb
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.AssemblyReference.cache
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.CoreCompileInputs.cache
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.CopyComplete
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.dll
+C:\Users\admin\Documents\GitHub\CafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.pdb
+D:\Data\cafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DAO.dll
+D:\Data\cafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DAO.pdb
+D:\Data\cafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DTO.dll
+D:\Data\cafeManagement\cafeManagement.DAO\bin\Debug\cafeManagement.DTO.pdb
+D:\Data\cafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.AssemblyReference.cache
+D:\Data\cafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.CoreCompileInputs.cache
+D:\Data\cafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.CopyComplete
+D:\Data\cafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.dll
+D:\Data\cafeManagement\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.pdb
+C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement.DAO\bin\Debug\cafeManagement.DAO.dll
+C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement.DAO\bin\Debug\cafeManagement.DAO.pdb
+C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement.DAO\bin\Debug\cafeManagement.DTO.dll
+C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement.DAO\bin\Debug\cafeManagement.DTO.pdb
+C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.AssemblyReference.cache
+C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.CoreCompileInputs.cache
+C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.csproj.CopyComplete
+C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.dll
+C:\Users\ACER\OneDrive\Documents\Học tập\HK2-Năm 3\LTCSDL\CafeManagement-backUp\cafeManagement.DAO\obj\Debug\cafeManagement.DAO.pdb
